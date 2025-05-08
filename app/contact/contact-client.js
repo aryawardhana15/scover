@@ -4,6 +4,10 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import L from 'leaflet';
+import { Playfair_Display, Lora } from 'next/font/google';
+
+const playfair = Playfair_Display({ subsets: ['latin'], display: 'swap' });
+const lora = Lora({ subsets: ['latin'], display: 'swap' });
 
 // Impor Leaflet secara dinamis untuk menghindari masalah SSR
 const MapWithNoSSR = dynamic(() => import('./map'), {
