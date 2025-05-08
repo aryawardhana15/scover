@@ -15,7 +15,13 @@ const MapWithNoSSR = dynamic(() => import('./map'), {
   ),
 });
 
-export default function ContactClient() {
+const ContactClient = dynamic(() => import('./contact-client'), { ssr: false });
+
+export default function Contact() {
+  return <ContactClient />;
+}
+
+export function ContactClientComponent() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
