@@ -3,7 +3,11 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
+import { Playfair_Display, Lora } from 'next/font/google';
 import L from 'leaflet';
+
+const playfair = Playfair_Display({ subsets: ['latin'], display: 'swap' });
+const lora = Lora({ subsets: ['latin'], display: 'swap' });
 
 // Impor Leaflet secara dinamis untuk menghindari masalah SSR
 const MapWithNoSSR = dynamic(() => import('./map'), {
@@ -168,7 +172,16 @@ export function ContactClientComponent() {
                 Temukan Kami
               </h3>
               <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(74,44,42,0.15)] border border-[#D4A017]/20">
-                {isClient && <MapWithNoSSR />}
+                <iframe
+                  src="https://www.google.com/maps?q=Jl.+Veteran+No.+123,+Surabaya&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full"
+                ></iframe>
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/20 to-transparent pointer-events-none"></div>
               </div>
             </div>
