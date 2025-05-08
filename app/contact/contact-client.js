@@ -1,31 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
-import { Playfair_Display, Lora } from 'next/font/google';
-import L from 'leaflet';
 
-const playfair = Playfair_Display({ subsets: ['latin'], display: 'swap' });
-const lora = Lora({ subsets: ['latin'], display: 'swap' });
-
-// Impor Leaflet secara dinamis untuk menghindari masalah SSR
-const MapWithNoSSR = dynamic(() => import('./map'), {
-  ssr: false,
-  loading: () => (
-    <div className="h-full w-full bg-[#1C2526] flex items-center justify-center">
-      <div className="text-[#F4E1B9]">Loading map...</div>
-    </div>
-  ),
-});
-
-const ContactClient = dynamic(() => import('./contact-client'), { ssr: false });
-
-export default function Contact() {
-  return <ContactClient />;
-}
-
-export function ContactClientComponent() {
+export default function ContactClient() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -34,25 +12,6 @@ export function ContactClientComponent() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
-  const [isClient, setIsClient] = useState(false);
-
-  // Pastikan kode hanya berjalan di sisi klien
-  useEffect(() => {
-    setIsClient(true);
-    
-    // Fix Leaflet marker icon issue
-    delete L.Icon.Default.prototype._getIconUrl;
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-      iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
-      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-    });
-
-    // Hanya jalankan di client
-    if (typeof window !== 'undefined') {
-      // ...gunakan isMobile jika memang perlu
-    }
-  }, []);
 
   const handleSubmit = async e => {
     e.preventDefault();
