@@ -42,7 +42,10 @@ export default function ContactClient() {
       shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
     });
 
-    const isMobile = window.innerWidth < 768;
+    // Hanya jalankan di client
+    if (typeof window !== 'undefined') {
+      // ...gunakan isMobile jika memang perlu
+    }
   }, []);
 
   const handleSubmit = async e => {
