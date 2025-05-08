@@ -6,14 +6,16 @@ import 'leaflet/dist/leaflet.css';
 
 const MapComponent = () => {
   const [Map, setMap] = useState(null);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    setIsMounted(true);
     import('react-leaflet').then(({ MapContainer, TileLayer, Marker, Popup }) => {
       setMap({ MapContainer, TileLayer, Marker, Popup });
     });
   }, []);
 
-  if (!Map) {
+  if (!isMounted || !Map) {
     return (
       <div className="h-full w-full bg-[#1C2526] flex items-center justify-center">
         <div className="text-[#F4E1B9]">Loading map...</div>
@@ -29,6 +31,7 @@ const MapComponent = () => {
       zoom={13}
       style={{ height: '100%', width: '100%' }}
       className="z-10"
+      scrollWheelZoom={false}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

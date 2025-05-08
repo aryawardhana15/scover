@@ -7,6 +7,13 @@ const nextConfig = {
     };
     return config;
   },
+  images: {
+    domains: ['cdnjs.cloudflare.com'],
+    unoptimized: true,
+  },
+  experimental: {
+    appDir: true,
+  },
 };
 
 export default nextConfig;
