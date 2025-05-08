@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div className="relative overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-[#DF6E21] to-[#BF7519] overflow-hidden">
+      <section className="relative h-screen flex items-center justify-center bg-gradient-to-br from-[#DF6E21] to-[#e4b124] overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/batik-pattern-light.png')] bg-repeat bg-[length:300px] animate-pattern-scroll"></div>
