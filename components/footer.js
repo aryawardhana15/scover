@@ -26,10 +26,10 @@ export default function Footer() {
           {/* Logo and description */}
           <div>
             <div className="flex items-center mb-6">
-              <div className="relative w-12 h-12 mr-4">
-                <div className="absolute inset-0 bg-[#D4A017] rounded-full opacity-30"></div>
+              <div className="relative w-13 h-13 mr-2">
+                <div className="absolute inset-0 rounded-full opacity-30"></div>
                 <Image 
-                  src="/images/javanese-icon.png"
+                  src="/images/logo2.png"
                   alt="Duta Budaya Jawa Timur"
                   width={48}
                   height={48}
