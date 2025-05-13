@@ -120,7 +120,7 @@ export default function Home() {
                     </span>
                   </button>
                 </Link>
-                <Link href="/programs">
+                <Link href="/gallery">
                   <button className="relative bg-transparent border-2 border-[#D4A017] text-[#D4A017] px-8 py-3 rounded-full font-bold text-lg hover:bg-[#D4A017]/10 transition-all duration-300 group overflow-hidden">
                     <span className="relative z-10 flex items-center gap-2">
                       <span>Program Kami</span>

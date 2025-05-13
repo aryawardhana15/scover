@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function AboutClient() {
   const [activeTab, setActiveTab] = useState('tema');
@@ -144,14 +145,33 @@ export default function AboutClient() {
               ? 'Daftarkan diri Anda untuk menjadi bagian dari program Narapati & Kencana dan wujudkan kontribusi nyata bagi pelestarian budaya Jawa Timur.'
               : 'Temukan lebih dalam tentang filosofi dan makna di balik program Duta Budaya Jawa Timur.'}
           </p>
-          <button
-            className="relative bg-[#F28C38] text-[#1C2526] px-12 py-4 rounded-full font-lora font-semibold text-lg transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
-          >
-            <span className="relative z-10">
-              {activeTab === 'tema' ? 'Daftar Sekarang' : 'Kontak Kami'}
-            </span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-          </button>
+          {activeTab === 'tema' ? (
+            <Link 
+              href="https://linktr.ee/DutaBudayaJawaTimur2025" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block"
+            >
+              <button
+                className="relative bg-[#F28C38] text-[#1C2526] px-12 py-4 rounded-full font-lora font-semibold text-lg transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
+              >
+                <span className="relative z-10">Daftar Sekarang</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </button>
+            </Link>
+          ) : (
+            <Link 
+              href="/contact" 
+              className="inline-block"
+            >
+              <button
+                className="relative bg-[#F28C38] text-[#1C2526] px-12 py-4 rounded-full font-lora font-semibold text-lg transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
+              >
+                <span className="relative z-10">Kontak Kami</span>
+                <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+              </button>
+            </Link>
+          )}
         </div>
       </div>
 
