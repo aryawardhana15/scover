@@ -1,1 +1,269 @@
-'use client';import Image from 'next/image';import { useEffect, useState } from 'react';export default function Timeline() {  const [activeTab, setActiveTab] = useState('pendaftaran');  const [scrolled, setScrolled] = useState(false);  useEffect(() => {    const handleScroll = () => setScrolled(window.scrollY > 50);    window.addEventListener('scroll', handleScroll);    return () => window.removeEventListener('scroll', handleScroll);  }, []);  const registrationEvents = [    { date: '1 Juni 2025', title: 'Pendaftaran Dibuka', desc: 'Pendaftaran resmi untuk Duta Budaya Jawa Timur 2025 dimulai.' },    { date: '30 Juni 2025', title: 'Pendaftaran Ditutup', desc: 'Batas akhir pendaftaran peserta.' },    { date: '15 Juli 2025', title: 'Seleksi Awal', desc: 'Tahap seleksi awal untuk menentukan kandidat terbaik.' },    { date: '1 Agustus 2025', title: 'Pengumuman Finalis', desc: 'Pengumuman finalis yang lolos ke tahap akhir.' },    { date: '15 Agustus 2025', title: 'Grand Final', desc: 'Acara puncak pemilihan Duta Budaya Jawa Timur 2025.' },  ];  const activityEvents = [    {      year: 2024,      title: 'Festival Budaya Jawa Timur',      description: 'Pertunjukan seni dan budaya terbesar di Jawa Timur, menampilkan berbagai kesenian tradisional dan kontemporer.',      image: '/images/timeline-1.jpg',      date: '15-20 Maret 2024',    },    {      year: 2024,      title: 'Workshop Batik Tulis',      description: 'Pelatihan teknik membatik tradisional dengan para maestro batik Jawa Timur.',      image: '/images/timeline-2.jpg',      date: '5-7 April 2024',    },    {      year: 2024,      title: 'Pertunjukan Wayang Kulit',      description: 'Pertunjukan wayang kulit dengan dalang muda berbakat dari Jawa Timur.',      image: '/images/timeline-3.jpg',      date: '20 April 2024',    },    {      year: 2024,      title: 'Pameran Seni Rupa',      description: "Pameran karya seni rupa kontemporer dengan tema 'Warisan Budaya'.",      image: '/images/timeline-4.jpg',      date: '1-15 Mei 2024',    },  ];  return (    <div className="relative min-h-screen bg-gradient-to-b from-[#1C2526] to-[#4A2C2A]/10">      {/* Decorative background */}      <div className="absolute inset-0 overflow-hidden opacity-15 pointer-events-none">        <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/batik-pattern.png')] bg-repeat bg-[length:200px] animate-pattern-scroll md:bg-[length:300px]"></div>      </div>      {/* Floating decorative elements */}      <div className="animate-float-slow absolute top-1/3 left-4 w-16 h-16 opacity-20 md:w-24 md:h-24 md:left-10">        <Image src="/images/javanese-ornament-1.png" alt="" width={96} height={96} />      </div>      <div className="animate-float-fast absolute bottom-1/4 right-4 w-20 h-20 opacity-20 md:w-32 md:h-32 md:right-16">        <Image src="/images/javanese-ornament-2.png" alt="" width={128} height={128} />      </div>      {/* Hero Section */}      <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">        <Image          src="/images/timeline-hero.jpg"          alt="Timeline"          fill          className="object-cover transform hover:scale-105 transition-transform duration-700"          priority        />        <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/70 to-[#1C2526]/20 flex items-end justify-center pb-8 md:pb-16">          <div className={`transition-all duration-1000 ${scrolled ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>            <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-[#F4E1B9] text-center drop-shadow-[0_2px_10px_rgba(212,160,23,0.5)] animate-fade-in">              Timeline Kegiatan            </h1>            <p className="text-lg md:text-xl text-[#F4E1B9]/90 font-lora text-center mt-4 max-w-xl mx-auto px-4">              Jejak perjalanan kami dalam melestarikan budaya Jawa Timur            </p>          </div>        </div>      </div>      {/* Tab Navigation */}      <div className="flex justify-center mt-6 sticky top-0 z-10 bg-[#1C2526]/95 backdrop-blur-sm py-3 md:py-4 shadow-[0_4px_20px_rgba(74,44,42,0.2)]">        <div className="inline-flex flex-col sm:flex-row rounded-full bg-[#1C2526] shadow-lg p-1 border border-[#D4A017]/20 space-y-2 sm:space-y-0 sm:space-x-2">          <button            onClick={() => setActiveTab('pendaftaran')}            className={`px-6 py-2 rounded-full transition-all duration-300 font-lora text-base md:text-lg ${              activeTab === 'pendaftaran'                ? 'bg-[#D4A017] text-[#1C2526]'                : 'text-[#F4E1B9] hover:bg-[#4A2C2A]/50'            }`}          >            Timeline Pendaftaran          </button>          <button            onClick={() => setActiveTab('kegiatan')}            className={`px-6 py-2 rounded-full transition-all duration-300 font-lora text-base md:text-lg ${              activeTab === 'kegiatan'                ? 'bg-[#D4A017] text-[#1C2526]'                : 'text-[#F4E1B9] hover:bg-[#4A2C2A]/50'            }`}          >            Timeline Kegiatan          </button>        </div>      </div>      {/* Content Section */}      <div className="max-w-7xl mx-auto px-4 py-12 md:py-20">        {activeTab === 'pendaftaran' && (          <div className={`transition-all duration-500 ${scrolled ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>            <div className="relative max-w-3xl mx-auto">              {/* Timeline line */}              <div className="absolute left-6 md:left-8 h-full w-1 bg-[#D4A017]/30 hidden md:block"></div>              {/* Events */}              <div className="space-y-8 md:pl-16">                {registrationEvents.map((event, index) => (                  <div key={index} className="relative group animate-fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>                    {/* Timeline dot */}                    <div className="absolute -left-10 md:-left-11 top-1/2 transform -translate-y-1/2 w-6 h-6 rounded-full bg-[#F28C38] border-4 border-[#F4E1B9] shadow-[0_0_10px_rgba(212,160,23,0.7)]"></div>                    {/* Event card */}                    <div className="bg-[#F4E1B9] p-6 rounded-xl shadow-[0_4px_20px_rgba(74,44,42,0.15)] group-hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] group-hover:-translate-y-2 transition-all duration-500 border-l-4 border-[#D4A017]">                      <div className="flex flex-col md:flex-row items-start">                        <div className="w-full md:w-40 flex-shrink-0 font-playfair font-semibold text-[#4A2C2A] md:text-right md:pr-6 mb-4 md:mb-0">                          {event.date}                        </div>                        <div>                          <h3 className="text-xl md:text-2xl font-playfair font-semibold text-[#6B2D2F] mb-2">                            {event.title}                          </h3>                          <p className="font-lora text-[#1C2526] leading-relaxed text-sm md:text-base">                            {event.desc}                          </p>                        </div>                      </div>                    </div>                  </div>                ))}              </div>            </div>          </div>        )}        {activeTab === 'kegiatan' && (          <div className={`transition-all duration-500 ${scrolled ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>            <div className="relative">              {/* Timeline line */}              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#D4A017]/30 hidden md:block"></div>              {/* Events */}              <div className="space-y-16 md:space-y-24">                {activityEvents.map((event, index) => (                  <div                    key={index}                    className={`relative flex flex-col md:flex-row ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'} animate-fade-in-up`}                    style={{ animationDelay: `${index * 150}ms` }}                  >                    {/* Timeline dot */}                    <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-[#F28C38] border-4 border-[#F4E1B9] shadow-[0_0_10px_rgba(212,160,23,0.7)] hidden md:block"></div>                    {/* Year marker */}                    {index === 0 || activityEvents[index - 1].year !== event.year ? (                      <div className="absolute left-1/2 transform -translate-x-1/2 -top-10 bg-[#D4A017] text-[#1C2526] px-4 md:px-6 py-2 rounded-full font-playfair font-bold text-base md:text-lg shadow-[0_4px_10px_rgba(74,44,42,0.2)] hidden md:block">                        {event.year}                      </div>                    ) : null}                    {/* Event card */}                    <div                      className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-4 md:pr-16' : 'md:pl-4 md:pl-16'} group`}                    >                      <div className="bg-[#F4E1B9] rounded-xl shadow-[0_8px_30px_rgba(74,44,42,0.15)] group-hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] group-hover:-translate-y-2 transition-all duration-500 overflow-hidden border border-[#D4A017]/20">                        <div className="relative h-40 md:h-48 w-full">                          <Image                            src={event.image}                            alt={event.title}                            fill                            className="object-cover transform group-hover:scale-110 transition-transform duration-500"                          />                          <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/40 to-transparent"></div>                        </div>                        <div className="p-4 md:p-6">                          <div className="text-[#F28C38] font-medium mb-2 font-lora text-sm md:text-base">                            {event.year} | {event.date}                          </div>                          <h3 className="text-xl md:text-2xl font-playfair font-semibold text-[#6B2D2F] mb-3">                            {event.title}                          </h3>                          <p className="font-lora text-[#1C2526] leading-relaxed text-sm md:text-base">                            {event.description}                          </p>                        </div>                      </div>                    </div>                  </div>                ))}              </div>            </div>          </div>        )}        {/* CTA Section */}        <div className={`mt-16 md:mt-24 text-center transition-all duration-700 delay-300 ${scrolled ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#D4A017] mb-6">            Bergabunglah Bersama Kami          </h2>          <p className="text-lg md:text-xl text-[#F4E1B9] mb-8 md:mb-10 font-lora max-w-3xl mx-auto leading-relaxed px-4">            Jadilah bagian dari perjalanan kami dalam melestarikan dan mengembangkan budaya Jawa Timur yang kaya dan anggun.          </p>          <div className="flex flex-col sm:flex-row justify-center gap-4 px-4">            <button className="relative bg-[#F28C38] text-[#1C2526] px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg font-lora hover:bg-[#D4A017] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden">              <span className="relative z-10">Daftar Sekarang</span>              <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>            </button>            <button className="bg-transparent text-[#F4E1B9] px-8 md:px-10 py-3 md:py-4 rounded-full font-semibold text-base md:text-lg font-lora border-2 border-[#D4A017] hover:bg-[#D4A017]/20 hover:text-[#F4E1B9] transition-all duration-300 shadow-md">              Lihat Kegiatan Lainnya            </button>          </div>        </div>      </div>      {/* Global styles for animations */}      <style jsx global>{`        @keyframes fadeIn {          from { opacity: 0; }          to { opacity: 1; }        }        @keyframes fadeInUp {          from { opacity: 0; transform: translateY(20px); }          to { opacity: 1; transform: translateY(0); }        }        @keyframes floatSlow {          0%, 100% { transform: translateY(0); }          50% { transform: translateY(15px); }        }        @keyframes floatFast {          0%, 100% { transform: translateY(0); }          50% { transform: translateY(-20px); }        }        @keyframes patternScroll {          0% { background-position: 0 0; }          100% { background-position: 200px 200px; }        }        .animate-fade-in {          animation: fadeIn 1s ease-out forwards;        }        .animate-fade-in-up {          animation: fadeInUp 0.8s ease-out forwards;        }        .animate-float-slow {          animation: floatSlow 8s ease-in-out infinite;        }        .animate-float-fast {          animation: floatFast 10s ease-in-out infinite 2s;        }        .animate-pattern-scroll {          animation: patternScroll 60s linear infinite;        }        @media (max-width: 767px) {          .group:hover {            transform: none !important;          }        }      `}</style>    </div>  );}
+'use client';
+
+import Image from 'next/image';
+
+const events = [
+  {
+    year: 2025,
+    title: 'Pendaftaran Online',
+    description: 'Pendaftaran peserta Duta Budaya Jawa Timur melalui platform online resmi. Peserta diharuskan mengisi formulir dan mengunggah dokumen pendukung.',
+    image: '/images/registration-1.jpg',
+    date: '1-15 Januari 2025',
+  },
+  {
+    year: 2025,
+    title: 'Seleksi Wawancara',
+    description: 'Tahap seleksi wawancara untuk menilai pengetahuan budaya, kepribadian, dan komitmen peserta terhadap pelestarian budaya Jawa Timur.',
+    image: '/images/registration-2.jpg',
+    date: '20-25 Januari 2025',
+  },
+  {
+    year: 2025,
+    title: 'Pelatihan Budaya',
+    description: 'Pelatihan intensif tentang budaya Jawa Timur, termasuk seni tari, batik, dan etika keraton, untuk mempersiapkan finalis.',
+    image: '/images/registration-3.jpg',
+    date: '1-10 Februari 2025',
+  },
+  {
+    year: 2025,
+    title: 'Grand Final',
+    description: 'Acara puncak pemilihan Duta Budaya Jawa Timur dengan penampilan budaya dan pengumuman pemenang Narapati & Kencana.',
+    image: '/images/registration-4.jpg',
+    date: '15 Februari 2025',
+  },
+];
+
+export default function TimelineClient() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-[#1C2526] to-[#4A2C2A]/20 relative overflow-hidden">
+      {/* Pola latar dekoratif */}
+      <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/batik-pattern.png')] bg-repeat bg-[length:200px] sm:bg-[length:300px] animate-pattern-scroll"></div>
+      </div>
+
+      {/* Ornamen mengambang dengan efek glow */}
+      <div className="absolute top-10 left-4 sm:left-10 w-20 h-20 sm:w-28 sm:h-28 opacity-30 animate-float-glow animate-fade">
+        <Image src="/images/javanese-ornament-1.png" alt="" width={112} height={112} className="animate-glow" />
+      </div>
+      <div className="absolute bottom-10 right-4 sm:bottom-40 sm:right-16 w-24 h-24 sm:w-36 sm:h-36 opacity-30 animate-float-glow-delayed animate-fade delay-200">
+        <Image src="/images/javanese-ornament-2.png" alt="" width={144} height={144} className="animate-glow" />
+      </div>
+
+      {/* Bagian Hero */}
+      <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden animate-container">
+        <Image
+          src="/images/timeline-hero.jpg"
+          alt="Timeline Pendaftaran"
+          fill
+          className="object-cover transform hover:scale-105 transition-transform duration-700"
+          priority
+        />
+        <div className="absolute inset-0 bg-[#1C2526]/60 flex items-center justify-center animate-fade-slide">
+          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-playfair font-extrabold text-[#D4A017] text-center animate-glow-text px-4">
+            Timeline Pendaftaran
+          </h1>
+        </div>
+      </div>
+
+      {/* Bagian Timeline */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-24 relative animate-container delay-200">
+        {/* Garis Timeline (hanya di desktop) */}
+        <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#D4A017]/30 animate-scale-x"></div>
+
+        {/* Event */}
+        <div className="space-y-12 sm:space-y-20">
+          {events.map((event, index) => (
+            <div
+              key={index}
+              className={`relative flex flex-col lg:flex-row lg:items-center ${
+                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
+              } animate-fade-slide delay-${index * 200 + 400}`}
+            >
+              {/* Titik Timeline (hanya di desktop) */}
+              <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-[#D4A017] border-4 border-[#F4E1B9] animate-glow"></div>
+
+              {/* Konten Event */}
+              <div className="w-full lg:w-1/2 lg:pr-10 lg:pl-10">
+                <div className="bg-[#F4E1B9] rounded-2xl p-6 sm:p-8 shadow-2xl border border-[#D4A017]/20 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] transition-all duration-500">
+                  <div className="relative h-48 sm:h-56 mb-6 rounded-xl overflow-hidden animate-image">
+                    <Image
+                      src={event.image}
+                      alt={event.title}
+                      fill
+                      className="object-cover transform hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/40 to-transparent"></div>
+                  </div>
+                  <div className="text-[#D4A017] font-lora font-medium mb-3 animate-fade text-sm sm:text-base">
+                    {event.date}
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-playfair font-semibold text-[#4A2C2A] mb-3 animate-fade delay-100">
+                    {event.title}
+                  </h3>
+                  <p className="text-[#1C2526] font-lora text-base sm:text-lg leading-relaxed animate-fade delay-200">
+                    {event.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bagian CTA */}
+        <div className="mt-12 sm:mt-24 text-center animate-fade-slide delay-800">
+          <h2 className="text-3xl sm:text-4xl font-playfair font-extrabold text-[#D4A017] mb-6 animate-glow-text">
+            Daftar Sekarang!
+          </h2>
+          <p className="text-base sm:text-xl font-lora text-[#F4E1B9] max-w-3xl mx-auto mb-8 sm:mb-10 animate-fade delay-200">
+            Ambil kesempatan menjadi Duta Budaya Jawa Timur dan wujudkan kontribusi nyata untuk pelestarian warisan budaya kita.
+          </p>
+          <button className="relative bg-[#F28C38] text-[#1C2526] px-8 sm:px-10 py-3 sm:py-4 rounded-full font-lora font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden animate-fade delay-400">
+            <span className="relative z-10">Daftar Sekarang</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+          </button>
+        </div>
+      </div>
+
+      {/* Global styles */}
+      <style jsx global>{`
+        /* Keyframe animasi */
+        @keyframes patternScroll {
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 200px 200px;
+          }
+        }
+        @keyframes glow {
+          0%, 100% {
+            filter: drop-shadow(0 0 5px rgba(212, 160, 23, 0.3));
+          }
+          50% {
+            filter: drop-shadow(0 0 15px rgba(212, 160, 23, 0.7));
+          }
+        }
+        @keyframes glowText {
+          0%, 100% {
+            text-shadow: 0 0 10px rgba(212, 160, 23, 0.5);
+          }
+          50% {
+            text-shadow: 0 0 20px rgba(212, 160, 23, 0.8);
+          }
+        }
+        @keyframes fadeSlide {
+          0% {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes scaleX {
+          0% {
+            transform: scaleX(0);
+          }
+          100% {
+            transform: scaleX(1);
+          }
+        }
+        @keyframes imageReveal {
+          0% {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          100% {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        @keyframes floatGlow {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+        @keyframes fade {
+          0% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        /* Kelas animasi */
+        .animate-pattern-scroll {
+          animation: patternScroll 60s linear infinite;
+        }
+        .animate-glow {
+          animation: glow 6s ease-in-out infinite;
+        }
+        .animate-glow-text {
+          animation: glowText 4s ease-in-out infinite;
+        }
+        .animate-float-glow {
+          animation: floatGlow 8s ease-in-out infinite, glow 6s ease-in-out infinite;
+        }
+        .animate-float-glow-delayed {
+          animation: floatGlow 8s ease-in-out infinite 2s, glow 6s ease-in-out infinite 2s;
+        }
+        .animate-container {
+          animation: fadeSlide 1.2s cubic-bezier(0.33, 1, 0.68, 1) both;
+        }
+        .animate-fade-slide {
+          animation: fadeSlide 0.8s cubic-bezier(0.33, 1, 0.68, 1) both;
+        }
+        .animate-image {
+          animation: imageReveal 1s cubic-bezier(0.33, 1, 0.68, 1) both;
+        }
+        .animate-scale-x {
+          animation: scaleX 1s ease-out both;
+        }
+        .animate-fade {
+          animation: fade 0.8s ease-out both;
+        }
+
+        /* Kelas delay */
+        .delay-100 {
+          animation-delay: 0.1s;
+        }
+        .delay-200 {
+          animation-delay: 0.2s;
+        }
+        .delay-400 {
+          animation-delay: 0.4s;
+        }
+        .delay-600 {
+          animation-delay: 0.6s;
+        }
+        .delay-800 {
+          animation-delay: 0.8s;
+        }
+
+        /* Tipografi */
+        .font-playfair {
+          font-family: 'Playfair Display', serif;
+        }
+        .font-lora {
+          font-family: 'Lora', serif;
+        }
+
+        /* Responsif */
+        @media (max-width: 640px) {
+          .w-1/2 {
+            width: 100%;
+          }
+          .lg\\:pr-10, .lg\\:pl-10 {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}
