@@ -52,7 +52,7 @@ export default function AboutClient() {
                   : 'text-[#F4E1B9] hover:bg-[#4A2C2A]/50'
               }`}
             >
-              Visi
+              Filosofi
             </button>
             <button
               onClick={() => setActiveTab('misi')}
@@ -62,7 +62,7 @@ export default function AboutClient() {
                   : 'text-[#F4E1B9] hover:bg-[#4A2C2A]/50'
               }`}
             >
-              Misi
+              Makna
             </button>
             <button
               onClick={() => setActiveTab('sejarah')}
@@ -72,7 +72,7 @@ export default function AboutClient() {
                   : 'text-[#F4E1B9] hover:bg-[#4A2C2A]/50'
               }`}
             >
-              Sejarah
+              Program
             </button>
           </div>
         </div>
@@ -86,15 +86,27 @@ export default function AboutClient() {
             }`}
           >
             <Image
-              src="/images/javanese-culture.jpg"
-              alt="Budaya Jawa Timur"
+              src={
+                activeTab === 'sejarah' 
+                  ? "/images/duta-budaya.jpg" 
+                  : "/images/javanese-culture.jpg"
+              }
+              alt={
+                activeTab === 'sejarah' 
+                  ? "Duta Budaya Jawa Timur" 
+                  : "Budaya Jawa Timur"
+              }
               fill
               className="object-cover transform hover:scale-105 transition-transform duration-500"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/50 to-transparent"></div>
             <div className="absolute bottom-6 left-6 text-[#F4E1B9]">
-              <p className="font-lora italic text-xl">"Melestarikan Keindahan Budaya Jawa Timur"</p>
+              <p className="font-lora italic text-xl">
+                {activeTab === 'sejarah' 
+                  ? '"Menjadi Wajah Budaya Jawa Timur yang Berwibawa"' 
+                  : '"Melestarikan Keindahan Budaya Jawa Timur"'}
+              </p>
             </div>
           </div>
 
@@ -107,11 +119,16 @@ export default function AboutClient() {
                 }`}
               >
                 <h2 className="text-4xl font-playfair font-semibold mb-6 text-[#4A2C2A] flex items-center">
-                  <span className="mr-3">🌄</span> Visi Kami
+                  <span className="mr-3">👑</span> Narapati
                 </h2>
-                <p className="text-lg font-lora leading-relaxed text-[#1C2526]">
-                  Menjadi pelopor dalam pelestarian dan promosi budaya Jawa Timur yang kaya dan beragam, dengan sentuhan keanggunan dan inovasi yang membawa warisan budaya ke era modern tanpa kehilangan esensinya.
-                </p>
+                <div className="text-lg font-lora leading-relaxed text-[#1C2526] space-y-4">
+                  <p>
+                    <strong>Narapati</strong> berasal dari bahasa Sanskerta, gabungan <em>nara</em> (manusia) dan <em>pati</em> (pemimpin), yang berarti "penguasa manusia" atau "raja."
+                  </p>
+                  <p>
+                    Dalam sejarah Jawa Timur, istilah ini digunakan untuk menyebut raja yang memimpin dengan kewibawaan, kebijaksanaan, dan perlindungan. Figur Narapati juga muncul dalam serat, babad, hingga wayang sebagai simbol pemimpin yang menjaga harmoni alam dan masyarakat.
+                  </p>
+                </div>
               </div>
             )}
 
@@ -122,22 +139,16 @@ export default function AboutClient() {
                 }`}
               >
                 <h2 className="text-4xl font-playfair font-semibold mb-6 text-[#4A2C2A] flex items-center">
-                  <span className="mr-3">🎯</span> Misi Kami
+                  <span className="mr-3">🌟</span> Kencana
                 </h2>
-                <ul className="space-y-4 text-lg font-lora text-[#1C2526]">
-                  <li className="flex items-start">
-                    <span className="bg-[#F28C38]/20 text-[#4A2C2A] rounded-full p-2 mr-3">1</span>
-                    Meningkatkan kesadaran masyarakat terhadap kekayaan budaya Jawa Timur melalui program edukasi dan publikasi.
-                  </li>
-                  <li className="flex items-start">
-                    <span className="bg-[#F28C38]/20 text-[#4A2C2A] rounded-full p-2 mr-3">2</span>
-                    Mendukung generasi muda dalam mengenal, mencintai, dan melestarikan tradisi melalui kegiatan kreatif.
-                  </li>
-                  <li className="flex items-start">
-                    <span className="bg-[#F28C38]/20 text-[#4A2C2A] rounded-full p-2 mr-3">3</span>
-                    Mengadakan kegiatan budaya yang inovatif, inklusif, dan relevan dengan perkembangan zaman.
-                  </li>
-                </ul>
+                <div className="text-lg font-lora leading-relaxed text-[#1C2526] space-y-4">
+                  <p>
+                    <strong>Kencono</strong> dalam bahasa Jawa berarti "emas," melambangkan keagungan, kemuliaan, dan kejayaan.
+                  </p>
+                  <p>
+                    Dalam budaya kerajaan Jawa Timur, emas menjadi simbol kekuasaan ilahi—terwujud dalam singgasana, keris, hingga pakaian kebesaran raja. Warna kencono juga merepresentasikan status sosial tinggi dan perlindungan spiritual dari kekuatan kosmik.
+                  </p>
+                </div>
               </div>
             )}
 
@@ -148,11 +159,26 @@ export default function AboutClient() {
                 }`}
               >
                 <h2 className="text-4xl font-playfair font-semibold mb-6 text-[#4A2C2A] flex items-center">
-                  <span className="mr-3">📜</span> Sejarah Kami
+                  <span className="mr-3">🌐</span> Duta Budaya Jawa Timur
                 </h2>
-                <p className="text-lg font-lora leading-relaxed text-[#1C2526]">
-                  Berdiri sejak 2010, kami memulai perjalanan dengan sekelompok pecinta budaya Jawa Timur yang peduli terhadap pelestarian warisan leluhur. Dari acara kecil di komunitas lokal, kini kami telah berkembang menjadi organisasi budaya dengan jaringan nasional, menginspirasi ribuan individu untuk turut melestarikan budaya.
-                </p>
+                <div className="text-lg font-lora leading-relaxed text-[#1C2526] space-y-4">
+                  <p>
+                    Sebagai brand dari ajang pemilihan <em>Duta Budaya Jawa Timur</em>, <strong>Narapati & Kencana</strong> membawa filosofi mendalam:
+                  </p>
+                  <ul className="space-y-3 pl-5">
+                    <li className="flex items-start">
+                      <span className="text-[#D4A017] mr-2">✨</span>
+                      <span><em>Narapati</em> melambangkan kepemimpinan dan kebijaksanaan budaya</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-[#D4A017] mr-2">✨</span>
+                      <span><em>Kencana</em> mewakili kejayaan dan keagungan warisan Jawa Timur</span>
+                    </li>
+                  </ul>
+                  <p>
+                    Konsep ini mirip dengan duta wisata, namun memiliki fokus kuat pada pelestarian budaya. Gelar <strong>Narapati & Kencana</strong> akan disematkan kepada finalis dan pemenang, yang menjadi wajah representatif budaya Jawa Timur di tingkat lokal, nasional, maupun internasional.
+                  </p>
+                </div>
               </div>
             )}
           </div>
@@ -165,15 +191,19 @@ export default function AboutClient() {
           }`}
         >
           <h2 className="text-4xl font-playfair font-bold mb-6 text-[#D4A017]">
-            Bergabunglah dengan Kami
+            {activeTab === 'sejarah' ? 'Jadilah Duta Budaya Jawa Timur' : 'Pelajari Lebih Lanjut'}
           </h2>
           <p className="text-xl font-lora text-[#F4E1B9] max-w-3xl mx-auto mb-12">
-            Jadilah bagian dari perjalanan kami untuk melestarikan dan mempromosikan budaya Jawa Timur dengan cara yang elegan dan inovatif.
+            {activeTab === 'sejarah' 
+              ? 'Daftarkan diri Anda untuk menjadi bagian dari program Narapati & Kencana dan wujudkan kontribusi nyata bagi pelestarian budaya Jawa Timur.' 
+              : 'Temukan lebih dalam tentang filosofi dan makna di balik program Duta Budaya Jawa Timur.'}
           </p>
           <button
             className="relative bg-[#F28C38] text-[#1C2526] px-10 py-4 rounded-full font-semibold text-lg hover:bg-[#D4A017] transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
           >
-            <span className="relative z-10">Pelajari Cara Bergabung</span>
+            <span className="relative z-10">
+              {activeTab === 'sejarah' ? 'Daftar Sekarang' : 'Kontak Kami'}
+            </span>
             <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </button>
         </div>
