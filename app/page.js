@@ -155,7 +155,7 @@ export default function Home() {
             {[
               {
                 title: "Syarat & Ketentuan",
-                description: "Persyaratan lengkap untuk mengikuti seleksi Duta Budaya Jawa Timur Narapati & Kencana.",
+                description: "Persyaratan lengkap untuk mengikuti seleksi Duta Budaya Jawa Timur Narapati & Kencana yang dilaksanakan di Surabaya.",
                 icon: "📜",
                 color: "from-[#800020] to-[#5A0015]"
               },

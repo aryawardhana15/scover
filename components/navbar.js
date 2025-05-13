@@ -20,7 +20,7 @@ export default function Navbar() {
     { name: 'Tentang', path: '/about' },
     { name: 'Timeline', path: '/timeline' },
     { name: 'Galeri', path: '/gallery' },
-    { name: 'Kontak', path: '/contact' }
+    { name: 'Sponsorship dan Kontak', path: '/contact' }
   ];
 
   return (

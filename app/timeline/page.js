@@ -24,7 +24,7 @@ const events = [
   },
     {
     year: 2025,
-    title: 'Pra karantina',
+    title: 'Pra karantina online',
     description: 'Pemeriksaan kelengkapan dan keabsahan dokumen peserta yang telah mendaftar secara online.',
     date: '24-25 Juli 2025',
     icon: '📑',

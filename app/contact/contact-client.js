@@ -116,14 +116,14 @@ export default function ContactClient() {
                   {
                     icon: '📧',
                     title: 'Email',
-                    content: 'info@dutabudayajatim.id',
-                    link: 'mailto:info@dutabudayajatim.id',
+                    content: 'dutabudayajawatimur@gmail.com',
+                    link: 'mailto:dutabudayajawatimur@gmail.com',
                   },
                   {
                     icon: '📱',
                     title: 'Telepon',
-                    content: '+62 812 3456 7890',
-                    link: 'tel:+6281234567890',
+                    content: '+62 857 0882 9751 (Mbak Najua)',
+                    link: 'tel:+6285708829751',
                   },
                   {
                     icon: '📍',
@@ -302,7 +302,7 @@ export default function ContactClient() {
                     'Kesempatan product placement',
                     'Konten eksklusif di media sosial',
                     'Tiket VIP untuk acara final',
-                    'Kesempatan menjadi juri tamu'
+                    'Kesempatan menjadi tamu undangan'
                   ].map((benefit, index) => (
                     <li key={index} className="flex items-start bg-[#F4E1B9]/90 p-3 rounded-lg">
                       <span className="text-[#D4A017] mr-2">✓</span>
@@ -323,90 +323,107 @@ export default function ContactClient() {
                   Isi formulir berikut ini dan tim kami akan menghubungi Anda untuk membahas peluang kerjasama sponsorship.
                 </p>
 
-                <form
-                  action="https://formspree.io/f/mjkwpbdg"
-                  method="POST"
-                  className="space-y-6"
-                >
-                  <input type="hidden" name="form_type" value="sponsorship" />
-                  
-                  <div>
-                    <label htmlFor="company" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-                      Nama Perusahaan/Organisasi
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      required
-                      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-                      placeholder="Nama perusahaan/organisasi Anda"
-                    />
-                  </div>
+  <form
+  onSubmit={(e) => e.preventDefault()} // Mencegah pengiriman default
+  className="space-y-6"
+>
+  <input type="hidden" name="form_type" value="sponsorship" />
 
-                  <div>
-                    <label htmlFor="contact_person" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-                      Nama Kontak
-                    </label>
-                    <input
-                      type="text"
-                      id="contact_person"
-                      name="contact_person"
-                      required
-                      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-                      placeholder="Nama lengkap Anda"
-                    />
-                  </div>
+  <div>
+    <label htmlFor="company" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+      Nama Perusahaan/Organisasi
+    </label>
+    <input
+      type="text"
+      id="company"
+      name="company"
+      required
+      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+      placeholder="Nama perusahaan/organisasi Anda"
+    />
+  </div>
 
-                  <div>
-                    <label htmlFor="sponsor_email" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="sponsor_email"
-                      name="email"
-                      required
-                      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-                      placeholder="Alamat email Anda"
-                    />
-                  </div>
+  <div>
+    <label htmlFor="contact_person" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+      Nama Kontak
+    </label>
+    <input
+      type="text"
+      id="contact_person"
+      name="contact_person"
+      required
+      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+      placeholder="Nama lengkap Anda"
+    />
+  </div>
 
-                  <div>
-                    <label htmlFor="phone" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-                      Nomor Telepon/WhatsApp
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      required
-                      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-                      placeholder="Nomor telepon Anda"
-                    />
-                  </div>
+  <div>
+    <label htmlFor="sponsor_email" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+      Email
+    </label>
+    <input
+      type="email"
+      id="sponsor_email"
+      name="email"
+      required
+      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+      placeholder="Alamat email Anda"
+    />
+  </div>
 
-                  <div>
-                    <label htmlFor="sponsor_message" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-                      Pesan Tambahan
-                    </label>
-                    <textarea
-                      id="sponsor_message"
-                      name="message"
-                      rows={3}
-                      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-                      placeholder="Tulis pesan tambahan Anda..."
-                    ></textarea>
-                  </div>
+  <div>
+    <label htmlFor="phone" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+      Nomor Telepon/WhatsApp
+    </label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      required
+      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+      placeholder="Nomor telepon Anda (contoh: +6281234567890)"
+    />
+  </div>
 
-                  <button
-                    type="submit"
-                    className="w-full relative py-3 px-6 rounded-lg font-lora font-semibold text-base md:text-lg transition-all duration-300 shadow-lg bg-[#F28C38] text-[#1C2526] hover:bg-[#D4A017] hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
-                  >
-                    <span className="relative z-10">Kirim Permohonan Sponsorship</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                  </button>
-                </form>
+  <div>
+    <label htmlFor="sponsor_message" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+      Pesan Tambahan
+    </label>
+    <textarea
+      id="sponsor_message"
+      name="message"
+      rows={3}
+      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+      placeholder="Tulis pesan tambahan Anda..."
+    ></textarea>
+  </div>
+
+  <button
+    type="submit"
+    className="w-full relative py-3 px-6 rounded-lg font-lora font-semibold text-base md:text-lg transition-all duration-300 shadow-lg bg-[#F28C38] text-[#1C2526] hover:bg-[#D4A017] hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
+    onClick={(e) => {
+      e.preventDefault();
+      const company = document.getElementById('company').value;
+      const contactPerson = document.getElementById('contact_person').value;
+      const email = document.getElementById('sponsor_email').value;
+      const phone = document.getElementById('phone').value;
+      const message = document.getElementById('sponsor_message').value;
+
+      // Format pesan WhatsApp yang lebih rapi
+      const whatsappMessage = `📩 *Permohonan Sponsorship Duta Budaya Jawa Timur* 📩%0A%0A------------------------%0A*Nama Perusahaan/Organisasi:* ${company}%0A*Nama Kontak:* ${contactPerson}%0A*Email:* ${email}%0A*Nomor Telepon/WhatsApp:* ${phone}%0A*Pesan Tambahan:* ${message || 'Tidak ada pesan tambahan'}%0A------------------------%0A%0A📌 Terima kasih atas minat Anda!`;
+      
+      // Nomor WhatsApp tujuan (Mas Azharlal)
+      const whatsappNumber = '+6281252492802';
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+      // Buka WhatsApp di tab/window baru
+      window.open(whatsappUrl, '_blank');
+    }}
+  >
+    <span className="relative z-10">Kirim Permohonan Sponsorship</span>
+    <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+  </button>
+</form>
               </div>
             </div>
           </div>

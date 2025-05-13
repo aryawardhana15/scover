@@ -4,58 +4,48 @@ import Image from 'next/image';
 import { useState } from 'react';
 
 export default function AboutClient() {
-  const [activeTab, setActiveTab] = useState('visi');
+  const [activeTab, setActiveTab] = useState('tema');
 
   // Content data for tabs
   const tabContent = {
-    visi: {
-      title: 'Narapati',
-      icon: '👑',
-      content: (
-        <>
-          <p>
-            <strong>Narapati</strong> berasal dari bahasa Sanskerta, gabungan <em>nara</em> (manusia) dan <em>pati</em> (pemimpin), yang berarti "penguasa manusia" atau "raja."
-          </p>
-          <p>
-            Dalam sejarah Jawa Timur, istilah ini digunakan untuk menyebut raja yang memimpin dengan kewibawaan, kebijaksanaan, dan perlindungan. Figur Narapati juga muncul dalam serat, babad, hingga wayang sebagai simbol pemimpin yang menjaga harmoni alam dan masyarakat.
-          </p>
-        </>
-      ),
-    },
-    misi: {
-      title: 'Kencana',
-      icon: '🌟',
-      content: (
-        <>
-          <p>
-            <strong>Kencono</strong> dalam bahasa Jawa berarti "emas," melambangkan keagungan, kemuliaan, dan kejayaan.
-          </p>
-          <p>
-            Dalam budaya kerajaan Jawa Timur, emas menjadi simbol kekuasaan ilahi—terwujud dalam singgasana, keris, hingga pakaian kebesaran raja. Warna kencono juga merepresentasikan status sosial tinggi dan perlindungan spiritual dari kekuatan kosmik.
-          </p>
-        </>
-      ),
-    },
-    sejarah: {
-      title: 'Duta Budaya Jawa Timur',
+    tema: {
+      title: 'Tema Pemilihan',
       icon: '🌐',
       content: (
         <>
           <p>
-            Sebagai brand dari ajang pemilihan <em>Duta Budaya Jawa Timur</em>, <strong>Narapati & Kencana</strong> membawa filosofi mendalam:
+            Tema acara pemilihan <strong>Duta Budaya Jawa Timur 2025</strong> adalah <em>Caraka Darma Abipraya Baswara</em>, yang mencerminkan semangat kepemimpinan dan kejayaan budaya Jawa Timur. Ajang ini diselenggarakan oleh yayasan resmi dengan brand <strong>Narapati & Kencana</strong>, mirip duta wisata, namun berfokus pada pelestarian budaya.
           </p>
-          <ul className="space-y-3 pl-5">
-            <li className="flex items-start">
-              <span className="text-[#D4A017] mr-2">✨</span>
-              <span><em>Narapati</em> melambangkan kepemimpinan dan kebijaksanaan budaya</span>
-            </li>
-            <li className="flex items-start">
-              <span className="text-[#D4A017] mr-2">✨</span>
-              <span><em>Kencana</em> mewakili kejayaan dan keagungan warisan Jawa Timur</span>
-            </li>
-          </ul>
+        </>
+      ),
+    },
+    makna: {
+      title: 'Makna',
+      icon: '✨',
+      content: (
+        <>
           <p>
-            Konsep ini mirip dengan duta wisata, namun memiliki fokus kuat pada pelestarian budaya. Gelar <strong>Narapati & Kencana</strong> akan disematkan kepada finalis dan pemenang, yang menjadi wajah representatif budaya Jawa Timur di tingkat lokal, nasional, maupun internasional.
+            <strong>Narapati</strong> berasal dari Sanskerta (<em>nara</em> = manusia, <em>pati</em> = pemimpin), berarti "raja" atau "penguasa manusia" dalam sejarah Jawa Timur, melambangkan kewibawaan dan kebijaksanaan.
+          </p>
+          <p>
+            <strong>Kencana</strong> berarti "emas" dalam bahasa Jawa, simbol keagungan dan kehormatan, sering dikaitkan dengan kekuasaan ilahi raja melalui singgasana, keris, dan pakaian kebesaran.
+          </p>
+        </>
+      ),
+    },
+    filosofi: {
+      title: 'Filosofi',
+      icon: '👑',
+      content: (
+        <>
+          <p>
+            <strong>Narapati</strong> mencerminkan kepemimpinan bijaksana dalam budaya Jawa Timur, seperti raja Majapahit atau Singasari, yang menggabungkan wibawa, kebijaksanaan, dan perlindungan spiritual, termasuk harmoni kosmik dalam mandala politik.
+          </p>
+          <p>
+            <strong>Kencana</strong> melambangkan kejayaan spiritual, terkait dewa-dewa Hindu-Buddha (seperti Wisnu) dan adaptasi kebangsawanan Islam, seperti mahkota Sunan Surakarta, menunjukkan status tinggi dan perlindungan kosmik.
+          </p>
+          <p>
+            Bersama, <strong>Narapati & Kencana</strong> menjadi wajah budaya Jawa Timur, diemban oleh finalis/pemenang untuk mewakili warisan lokal hingga internasional.
           </p>
         </>
       ),
@@ -89,7 +79,7 @@ export default function AboutClient() {
         {/* Tab navigation */}
         <div className="flex justify-center mb-12 animate-fade-slide delay-200">
           <div className="inline-flex rounded-full bg-[#1C2526] shadow-2xl p-1 border border-[#D4A017]/30">
-            {['visi', 'misi', 'sejarah'].map((tab) => (
+            {['tema', 'makna', 'filosofi'].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
@@ -99,7 +89,7 @@ export default function AboutClient() {
                     : 'text-[#F4E1B9] hover:bg-[#4A2C2A]/70'
                 }`}
               >
-                {tab === 'visi' ? 'Filosofi' : tab === 'misi' ? 'Makna' : 'Program'}
+                {tab === 'tema' ? 'Tema Pemilihan' : tab === 'makna' ? 'Makna' : 'Filosofi'}
               </button>
             ))}
           </div>
@@ -110,8 +100,8 @@ export default function AboutClient() {
           {/* Image section */}
           <div className="relative h-96 rounded-2xl overflow-hidden shadow-2xl animate-image">
             <Image
-              src={activeTab === 'sejarah' ? '/images/duta-budaya.jpg' : '/images/javanese-culture.jpg'}
-              alt={activeTab === 'sejarah' ? 'Duta Budaya Jawa Timur' : 'Budaya Jawa Timur'}
+              src={activeTab === 'tema' ? '/images/malampuncak.png' : '/images/yayantasya.png'}
+              alt={activeTab === 'tema' ? 'Duta Budaya Jawa Timur' : 'Budaya Jawa Timur'}
               fill
               className="object-cover transform hover:scale-105 transition-transform duration-700"
               priority
@@ -119,7 +109,7 @@ export default function AboutClient() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/60 to-transparent"></div>
             <div className="absolute bottom-6 left-6 text-[#F4E1B9] animate-fade-slide delay-600">
               <p className="font-lora italic text-xl">
-                {activeTab === 'sejarah'
+                {activeTab === 'tema'
                   ? '"Menjadi Wajah Budaya Jawa Timur yang Berwibawa"'
                   : '"Melestarikan Keindahan Budaya Jawa Timur"'}
               </p>
@@ -147,10 +137,10 @@ export default function AboutClient() {
         {/* Call to Action */}
         <div className="mt-24 text-center animate-fade-slide delay-800">
           <h2 className="text-4xl font-playfair font-extrabold mb-6 text-[#D4A017] animate-glow-text">
-            {activeTab === 'sejarah' ? 'Jadilah Duta Budaya Jawa Timur' : 'Pelajari Lebih Lanjut'}
+            {activeTab === 'tema' ? 'Jadilah Duta Budaya Jawa Timur' : 'Pelajari Lebih Lanjut'}
           </h2>
           <p className="text-xl font-lora text-[#F4E1B9] max-w-3xl mx-auto mb-12 animate-fade">
-            {activeTab === 'sejarah'
+            {activeTab === 'tema'
               ? 'Daftarkan diri Anda untuk menjadi bagian dari program Narapati & Kencana dan wujudkan kontribusi nyata bagi pelestarian budaya Jawa Timur.'
               : 'Temukan lebih dalam tentang filosofi dan makna di balik program Duta Budaya Jawa Timur.'}
           </p>
@@ -158,7 +148,7 @@ export default function AboutClient() {
             className="relative bg-[#F28C38] text-[#1C2526] px-12 py-4 rounded-full font-lora font-semibold text-lg transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
           >
             <span className="relative z-10">
-              {activeTab === 'sejarah' ? 'Daftar Sekarang' : 'Kontak Kami'}
+              {activeTab === 'tema' ? 'Daftar Sekarang' : 'Kontak Kami'}
             </span>
             <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
           </button>
