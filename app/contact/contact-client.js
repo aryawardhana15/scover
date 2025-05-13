@@ -44,10 +44,10 @@ export default function ContactClient() {
 
       {/* Floating decorative elements */}
       <div className="animate-float-slow absolute top-1/4 left-4 w-16 h-16 opacity-20 md:w-24 md:h-24 md:left-10">
-        <Image src="/images/javanese-ornament-1.png" alt="" width={96} height={96} />
+        <Image src="/images/ornament2.png" alt="" width={96} height={96} />
       </div>
       <div className="animate-float-fast absolute bottom-1/4 right-4 w-20 h-20 opacity-20 md:w-32 md:h-32 md:right-16">
-        <Image src="/images/javanese-ornament-2.png" alt="" width={128} height={128} />
+        <Image src="/images/ornament3.png" alt="" width={128} height={128} />
       </div>
 
       {/* Hero Section */}
@@ -97,12 +97,13 @@ export default function ContactClient() {
                   content: '+62 812 3456 7890',
                   link: 'tel:+6281234567890',
                 },
-                {
-                  icon: '📍',
-                  title: 'Alamat',
-                  content: 'Jl. Veteran No. 123, Surabaya, Jawa Timur',
-                  link: 'https://maps.google.com?q=Jl.+Veteran+No.+123,+Surabaya',
-                },
+              {
+                icon: '📍',
+                title: 'Alamat',
+                content: 'Jawa Timur, Indonesia',
+                link: 'https://www.google.com/maps/place/Jawa+Timur,+Indonesia',
+              },
+
               ].map((item, index) => (
                 <a
                   key={index}
@@ -132,7 +133,7 @@ export default function ContactClient() {
               </h3>
               <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(74,44,42,0.15)] border border-[#D4A017]/20">
                 <iframe
-                  src="https://www.google.com/maps?q=Jl.+Veteran+No.+123,+Surabaya&output=embed"
+                   src="https://www.google.com/maps?q=Jawa+Timur,+Indonesia&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -148,99 +149,78 @@ export default function ContactClient() {
 
           {/* Contact Form */}
           <div className="animate-fade-in-right">
-            <form onSubmit={handleSubmit} className="bg-[#F4E1B9] rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(74,44,42,0.15)] border border-[#D4A017]/20">
-              <div className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-                    Nama Lengkap
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-                    placeholder="Masukkan nama lengkap Anda"
-                  />
-                </div>
+           <form
+  action="https://formspree.io/f/mjkwpbdg"
+  method="POST"
+  className="bg-[#F4E1B9] rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(74,44,42,0.15)] border border-[#D4A017]/20"
+>
+  <div className="space-y-6">
+    <div>
+      <label htmlFor="name" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+        Nama Lengkap
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+        placeholder="Masukkan nama lengkap Anda"
+      />
+    </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-                    placeholder="Masukkan alamat email Anda"
-                  />
-                </div>
+    <div>
+      <label htmlFor="email" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+        Email
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+        placeholder="Masukkan alamat email Anda"
+      />
+    </div>
 
-                <div>
-                  <label htmlFor="subject" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-                    Subjek
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-                    placeholder="Masukkan subjek pesan"
-                  />
-                </div>
+    <div>
+      <label htmlFor="subject" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+        Subjek
+      </label>
+      <input
+        type="text"
+        id="subject"
+        name="subject"
+        required
+        className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+        placeholder="Masukkan subjek pesan"
+      />
+    </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-                    Pesan
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={4}
-                    className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-                    placeholder="Tulis pesan Anda di sini..."
-                  />
-                </div>
+    <div>
+      <label htmlFor="message" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+        Pesan
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        required
+        rows={4}
+        className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+        placeholder="Tulis pesan Anda di sini..."
+      />
+    </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className={`w-full relative py-3 px-6 rounded-lg font-lora font-semibold text-base md:text-lg transition-all duration-300 shadow-lg ${
-                    isSubmitting
-                      ? 'bg-[#4A2C2A]/50 text-[#F4E1B9]/50 cursor-not-allowed'
-                      : 'bg-[#F28C38] text-[#1C2526] hover:bg-[#D4A017] hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group'
-                  } overflow-hidden`}
-                >
-                  <span className="relative z-10">
-                    {isSubmitting ? 'Mengirim...' : 'Kirim Pesan'}
-                  </span>
-                  {!isSubmitting && (
-                    <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                  )}
-                </button>
+    <button
+      type="submit"
+      className="w-full relative py-3 px-6 rounded-lg font-lora font-semibold text-base md:text-lg transition-all duration-300 shadow-lg bg-[#F28C38] text-[#1C2526] hover:bg-[#D4A017] hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
+    >
+      <span className="relative z-10">Kirim Pesan</span>
+      <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+    </button>
+  </div>
+</form>
 
-                {submitStatus === 'success' && (
-                  <div className="text-[#F28C38] text-center font-lora text-sm md:text-base animate-fade-in bg-[#D4A017]/10 p-3 rounded-lg flex items-center justify-center gap-2">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Pesan berhasil terkirim! Kami akan segera menghubungi Anda.
-                  </div>
-                )}
-              </div>
-            </form>
           </div>
         </div>
       </div>
