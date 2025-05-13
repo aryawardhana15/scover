@@ -7,11 +7,10 @@ export default function Footer() {
   const [hoveredIcon, setHoveredIcon] = useState(null);
 
   const socialIcons = [
-    { icon: IconBrandInstagram, name: 'Instagram', url: '#' },
-    { icon: IconBrandFacebook, name: 'Facebook', url: '#' },
-    { icon: IconBrandTwitter, name: 'Twitter', url: '#' },
-    { icon: IconBrandTiktok, name: 'TikTok', url: '#' },
-    { icon: IconBrandYoutube, name: 'YouTube', url: '#' }
+    { icon: IconBrandInstagram, name: 'Instagram', url: 'https://www.instagram.com/dutabudayajawatimur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
+    { icon: IconBrandTiktok, name: 'TikTok', url: 'https://www.tiktok.com/@dutabudayajawatim?_t=ZS-8wJiGFR1ViR&_r=1' },
+    { icon: IconBrandYoutube, name: 'YouTube', url: 'https://www.youtube.com/@dutabudayajawatimur70' }
+   
   ];
 
   return (
