@@ -54,23 +54,24 @@ export default function TimelineClient() {
 
       {/* Golden ornaments */}
       <div className="absolute top-8 left-4 w-12 h-12 opacity-50 animate-float-glow">
-        <div className="bg-[url('/images/javanese-ornament-1.png')] bg-cover w-full h-full animate-glow-rotate"></div>
-      </div>
-      <div className="absolute top-16 right-4 w-14 h-14 opacity-50 animate-float-glow delay-200">
-        <div className="bg-[url('/images/javanese-ornament-2.png')] bg-cover w-full h-full animate-glow-rotate"></div>
-      </div>
-      <div className="absolute bottom-8 left-4 w-12 h-12 opacity-50 animate-float-glow delay-400">
-        <div className="bg-[url('/images/javanese-ornament-3.png')] bg-cover w-full h-full animate-glow-rotate"></div>
-      </div>
-      <div className="absolute bottom-16 right-4 w-14 h-14 opacity-50 animate-float-glow delay-600">
-        <div className="bg-[url('/images/javanese-ornament-4.png')] bg-cover w-full h-full animate-glow-rotate"></div>
-      </div>
-      <div className="absolute top-1/3 left-2 w-10 h-10 opacity-50 animate-float-glow delay-800 hidden md:block">
-        <div className="bg-[url('/images/javanese-ornament-5.png')] bg-cover w-full h-full animate-glow-rotate"></div>
-      </div>
-      <div className="absolute bottom-1/3 right-2 w-10 h-10 opacity-50 animate-float-glow delay-1000 hidden md:block">
-        <div className="bg-[url('/images/javanese-ornament-6.png')] bg-cover w-full h-full animate-glow-rotate"></div>
-      </div>
+  <div className="bg-[url('/images/ornament3.png')] bg-cover w-full h-full animate-glow-rotate"></div>
+</div>
+<div className="absolute top-16 right-4 w-14 h-14 opacity-50 animate-float-glow delay-200">
+  <div className="bg-[url('/images/ornament2.png')] bg-cover w-full h-full animate-glow-rotate"></div>
+</div>
+<div className="absolute bottom-8 left-4 w-12 h-12 opacity-50 animate-float-glow delay-400">
+  <div className="bg-[url('/images/ornament4.png')] bg-cover w-full h-full animate-glow-rotate"></div>
+</div>
+<div className="absolute bottom-16 right-4 w-14 h-14 opacity-50 animate-float-glow delay-600">
+  <div className="bg-[url('/images/ornament3.png')] bg-cover w-full h-full animate-glow-rotate"></div>
+</div>
+<div className="absolute top-1/3 left-2 w-10 h-10 opacity-50 animate-float-glow delay-800 hidden md:block">
+  <div className="bg-[url('/images/ornament4.png')] bg-cover w-full h-full animate-glow-rotate"></div>
+</div>
+<div className="absolute bottom-1/3 right-2 w-10 h-10 opacity-50 animate-float-glow delay-1000 hidden md:block">
+  <div className="bg-[url('/images/ornament2.png')] bg-cover w-full h-full animate-glow-rotate"></div>
+</div>
+
 
       {/* Golden particles */}
       <div className="absolute inset-0 pointer-events-none">

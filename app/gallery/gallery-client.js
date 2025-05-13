@@ -6,54 +6,84 @@ import Image from 'next/image';
 const galleryItems = [
   {
     id: 1,
-    title: 'Tari Remo',
-    description: 'Tarian khas Jawa Timur yang menggambarkan keperkasaan seorang pangeran.',
-    image: '/images/gallery/remo.jpg',
-    category: 'tari',
+    title: 'Mas Rusydan di Ponorogo',
+    description: 'Mas Rusydan melakukan kunjungan ke Aloon-aloon Kab. Ponorogo untuk memberikan edukasi kebudayaan di acara Festival Reog Bulan Purnama.',
+    image: '/images/galeri1 (10).png',
+    category: 'dbcjt',
   },
   {
     id: 2,
-    title: 'Wayang Kulit',
-    description: 'Seni pertunjukan wayang kulit yang kaya akan nilai filosofis.',
-    image: '/images/gallery/wayang.jpg',
-    category: 'seni',
+    title: 'Mbak Ivana di Kediri',
+    description: 'Mbak Ivana meluncurkan advokasinya dengan memperkenalkan budaya tari pada acara "Pagelaran Budaya Nusantara" di SMP Petra Kediri.',
+    image: '/images/galeri1 (9).png',
+    category: 'dbcjt',
   },
   {
     id: 3,
-    title: 'Batik Jombang',
-    description: 'Kain batik dengan motif khas Jombang yang memukau.',
-    image: '/images/gallery/batik.jpg',
-    category: 'kerajinan',
+    title: 'Mbak Zalora di Pagelaran Wayang',
+    description: 'Mbak Zalora telah menghadiri Acara Pagelaran Budaya Wayang Dalam Rangka 100 Tahun Perguruan Taman Siswa.',
+    image: '/images/galeri1 (8).png',
+    category: 'dbcjt',
   },
   {
     id: 4,
-    title: 'Reog Ponorogo',
-    description: 'Kesenian tradisional yang memadukan tari, musik, dan topeng.',
-    image: '/images/gallery/reog.jpg',
-    category: 'seni',
+    title: 'Mbak Jasmine di Fashion Event',
+    description: 'Mbak Jasmine tampil sebagai Model Runway dalam Muslim Fashion Event. Ia membawa nuansa batik khas, mengemas edukasi budaya melalui fashion.',
+    image: '/images/galeri1 (7).png',
+    category: 'dbcjt',
   },
   {
     id: 5,
-    title: 'Keris Madura',
-    description: 'Senjata tradisional dengan nilai historis dan artistik tinggi.',
-    image: '/images/gallery/keris.jpg',
-    category: 'kerajinan',
+    title: 'Juri DBCJT 2025',
+    description: 'Mas Dasega, Mbak Debby, dan Mas Rama menjadi juri kategori bakat dalam ajang Duta Budaya Cilik Jawa Timur 2025.',
+    image: '/images/galeri1 (6).png',
+    category: 'dbjt',
   },
   {
     id: 6,
-    title: 'Ludruk',
-    description: 'Teater tradisional yang menghibur dengan humor khas Jawa Timur.',
-    image: '/images/gallery/ludruk.jpg',
-    category: 'seni',
+    title: 'Mas Yayan & Mbak Najua di Grand Final',
+    description: 'Mas Yayan & Mbak Najua hadir dalam Grand Final Mr. Teen & Ms. Teenager Indonesia 2024, ajang mencari figur inspiratif dari kalangan remaja.',
+    image: '/images/galeri1 (5).png',
+    category: 'dbjt',
+  },
+  {
+    id: 7,
+    title: 'Malam Final Putra Putri Brawijaya',
+    description: 'Mas Rama & Mbak Debby menghadiri malam Grand Final Putra Putri Brawijaya di Universitas Brawijaya Malang.',
+    image: '/images/galeri1 (4).png',
+    category: 'dbjt',
+  },
+  {
+    id: 8,
+    title: 'Mbak Debby di RRI Malang',
+    description: 'Mbak Debby menjadi narasumber di RRI Malang, membahas kekayaan budaya Jawa Timur dan peran generasi muda dalam pelestariannya.',
+    image: '/images/galeri1 (3).png',
+    category: 'dbjt',
+  },
+  {
+    id: 9,
+    title: 'Mas Azhar di Talkshow 4B',
+    description: 'Mas Azhar menjadi pembicara dalam Talkshow 4B (Business, Branding, Behavior, Brave) di Universitas Hayam Wuruk Perbanas Surabaya.',
+    image: '/images/galeri1 (2).png',
+    category: 'dbjt',
+  },
+  {
+    id: 10,
+    title: 'Mas Mahdi Jelajah Kota Lama',
+    description: 'Mas Mahdi menjelajahi Kota Lama Surabaya, kawasan bersejarah yang menyimpan jejak perkembangan kota dari masa kolonial.',
+    image: '/images/galeri1 (1).png',
+    category: 'dbjt',
   },
 ];
 
-const categories = [
+
+
+ const categories = [
   { id: 'all', name: 'Semua' },
-  { id: 'tari', name: 'Tari' },
-  { id: 'seni', name: 'Seni' },
-  { id: 'kerajinan', name: 'Kerajinan' },
+  { id: 'dbjt', name: 'Kegiatan DBJT' },
+  { id: 'dbcjt', name: 'Kegiatan DBCJT' },
 ];
+
 
 export default function GalleryClient() {
   const [selectedCategory, setSelectedCategory] = useState('all');
