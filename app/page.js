@@ -32,7 +32,7 @@ export default function Home() {
         </div>
         
         {/* Hero content */}
-        <div className={`relative text-center px-4 z-10 transition-all duration-1000 ${scrolled ? 'opacity-100' : 'opacity-0 translate-y-10'}`}>
+    <div className="relative text-center px-4 z-10 animate-hero-fade-in">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-white">
             <span className="text-[#D4A017]">DUTA</span> BUDAYA JAWA TIMUR
           </h1>
@@ -231,6 +231,20 @@ export default function Home() {
         .animate-scroll-pulse {
           animation: scrollPulse 2s infinite;
         }
+
+        @keyframes heroFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-hero-fade-in {
+  animation: heroFadeIn 1.2s cubic-bezier(0.33,1,0.68,1) both;
+}
       `}</style>
     </div>
   );
