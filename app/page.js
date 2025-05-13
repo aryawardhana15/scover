@@ -160,7 +160,7 @@ export default function Home() {
                 color: "from-[#800020] to-[#5A0015]"
               },
               {
-                title: "Golden Privilege",
+                title: "Golden Tiket",
                 description: "Keistimewaan bagi peserta terpilih untuk mendapatkan pelatihan khusus dari para ahli budaya.",
                 icon: "🏆",
                 color: "from-[#D4A017] to-[#B8860B]"
