@@ -1,267 +1,119 @@
 'use client';
 
-import Image from 'next/image';
-
 const events = [
-  {
+{
     year: 2025,
     title: 'Pendaftaran Online',
-    description: 'Pendaftaran peserta Duta Budaya Jawa Timur melalui platform online resmi. Peserta diharuskan mengisi formulir dan mengunggah dokumen pendukung.',
-    image: '/images/registration-1.jpg',
+    description: 'Pendaftaran peserta Duta Budaya Jawa Timur dilakukan secara online melalui platform resmi. Peserta diminta mengisi formulir dan mengunggah dokumen pendukung.',
     date: '1-15 Januari 2025',
+    icon: '📝'
   },
   {
     year: 2025,
-    title: 'Seleksi Wawancara',
-    description: 'Tahap seleksi wawancara untuk menilai pengetahuan budaya, kepribadian, dan komitmen peserta terhadap pelestarian budaya Jawa Timur.',
-    image: '/images/registration-2.jpg',
+    title: 'Seleksi Pemberkasan',
+    description: 'Pemeriksaan kelengkapan dan keabsahan dokumen peserta yang telah mendaftar secara online.',
+    date: '16-17 Januari 2025',
+    icon: '📑'
+  },
+  {
+    year: 2025,
+    title: 'Seleksi Tahap 1 ',
+    description: 'Tes tulis untuk mengukur pengetahuan peserta mengenai budaya Jawa Timur, sejarah, serta isu-isu kebudayaan kontemporer.',
+    date: '18-19 Januari 2025',
+    icon: '✍️'
+  },
+  {
+    year: 2025,
+    title: 'Seleksi Tahap 2',
+    description: 'Wawancara langsung untuk menilai pengetahuan budaya, sikap, dan komitmen peserta terhadap pelestarian budaya Jawa Timur.',
     date: '20-25 Januari 2025',
+    icon: '🗣️'
   },
   {
     year: 2025,
-    title: 'Pelatihan Budaya',
-    description: 'Pelatihan intensif tentang budaya Jawa Timur, termasuk seni tari, batik, dan etika keraton, untuk mempersiapkan finalis.',
-    image: '/images/registration-3.jpg',
+    title: 'Karantina',
+    description: 'Pelatihan intensif dan pembekalan mengenai budaya Jawa Timur seperti tari tradisional, batik, dan etika budaya. Finalis juga mengikuti pembentukan karakter dan penilaian lanjutan.',
     date: '1-10 Februari 2025',
+    icon: '🏕️'
   },
   {
     year: 2025,
     title: 'Grand Final',
-    description: 'Acara puncak pemilihan Duta Budaya Jawa Timur dengan penampilan budaya dan pengumuman pemenang Narapati & Kencana.',
-    image: '/images/registration-4.jpg',
+    description: 'Acara puncak pemilihan Duta Budaya Jawa Timur dengan penampilan budaya serta pengumuman pemenang Narapati & Kencana.',
     date: '15 Februari 2025',
-  },
+    icon: '👑'
+  }
 ];
 
 export default function TimelineClient() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1C2526] to-[#4A2C2A]/20 relative overflow-hidden">
-      {/* Pola latar dekoratif */}
-      <div className="absolute inset-0 overflow-hidden opacity-20 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/batik-pattern.png')] bg-repeat bg-[length:200px] sm:bg-[length:300px] animate-pattern-scroll"></div>
-      </div>
+    <div className="min-h-screen bg-gradient-to-b from-[#0E1618] to-[#1C2526] relative overflow-hidden">
+      {/* Golden borders */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#D4A017] via-[#F28C38] to-[#D4A017]"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#D4A017] via-[#F28C38] to-[#D4A017]"></div>
 
-      {/* Ornamen mengambang dengan efek glow */}
-      <div className="absolute top-10 left-4 sm:left-10 w-20 h-20 sm:w-28 sm:h-28 opacity-30 animate-float-glow animate-fade">
-        <Image src="/images/javanese-ornament-1.png" alt="" width={112} height={112} className="animate-glow" />
-      </div>
-      <div className="absolute bottom-10 right-4 sm:bottom-40 sm:right-16 w-24 h-24 sm:w-36 sm:h-36 opacity-30 animate-float-glow-delayed animate-fade delay-200">
-        <Image src="/images/javanese-ornament-2.png" alt="" width={144} height={144} className="animate-glow" />
-      </div>
-
-      {/* Bagian Hero */}
-      <div className="relative h-[40vh] sm:h-[50vh] overflow-hidden animate-container">
-        <Image
-          src="/images/timeline-hero.jpg"
-          alt="Timeline Pendaftaran"
-          fill
-          className="object-cover transform hover:scale-105 transition-transform duration-700"
-          priority
-        />
-        <div className="absolute inset-0 bg-[#1C2526]/60 flex items-center justify-center animate-fade-slide">
-          <h1 className="text-4xl sm:text-6xl lg:text-8xl font-playfair font-extrabold text-[#D4A017] text-center animate-glow-text px-4">
-            Timeline Pendaftaran
+      {/* Hero Section */}
+      <div className="relative py-24 px-6 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#F4E1B9] mb-4">
+            <span className="text-[#D4A017]">Timeline</span> Pendaftaran
           </h1>
+          <p className="text-lg text-[#B0A18F]">
+            Perjalanan Pemilihan Duta Budaya Jawa Timur Narapati & Kencana 2025
+          </p>
         </div>
       </div>
 
-      {/* Bagian Timeline */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-24 relative animate-container delay-200">
-        {/* Garis Timeline (hanya di desktop) */}
-        <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#D4A017]/30 animate-scale-x"></div>
+      {/* Timeline */}
+      <div className="relative max-w-5xl mx-auto px-6 pb-24">
+        {/* Vertical line */}
+        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#D4A017] via-[#F28C38] to-[#D4A017] transform -translate-x-1/2"></div>
 
-        {/* Event */}
-        <div className="space-y-12 sm:space-y-20">
+        {/* Events */}
+        <div className="space-y-16">
           {events.map((event, index) => (
-            <div
-              key={index}
-              className={`relative flex flex-col lg:flex-row lg:items-center ${
-                index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-              } animate-fade-slide delay-${index * 200 + 400}`}
-            >
-              {/* Titik Timeline (hanya di desktop) */}
-              <div className="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-[#D4A017] border-4 border-[#F4E1B9] animate-glow"></div>
+            <div key={index} className="relative flex flex-col md:flex-row items-center">
+              {/* Year */}
+              <div className="w-24 h-24 flex items-center justify-center rounded-full bg-[#1C2526] border-4 border-[#D4A017] text-2xl font-bold text-[#D4A017] z-10">
+                {event.year}
+              </div>
 
-              {/* Konten Event */}
-              <div className="w-full lg:w-1/2 lg:pr-10 lg:pl-10">
-                <div className="bg-[#F4E1B9] rounded-2xl p-6 sm:p-8 shadow-2xl border border-[#D4A017]/20 hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] transition-all duration-500">
-                  <div className="relative h-48 sm:h-56 mb-6 rounded-xl overflow-hidden animate-image">
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      fill
-                      className="object-cover transform hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/40 to-transparent"></div>
+              {/* Content */}
+              <div className={`flex-1 ${index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'} mt-6 md:mt-0`}>
+                <div className="bg-[#1C2526] p-8 rounded-lg border border-[#D4A017]/30 shadow-lg">
+                  <div className="flex items-center mb-4">
+                    <span className="text-3xl mr-4">{event.icon}</span>
+                    <div>
+                      <h3 className="text-2xl font-serif font-bold text-[#F4E1B9]">{event.title}</h3>
+                      <p className="text-sm text-[#D4A017]">{event.date}</p>
+                    </div>
                   </div>
-                  <div className="text-[#D4A017] font-lora font-medium mb-3 animate-fade text-sm sm:text-base">
-                    {event.date}
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-playfair font-semibold text-[#4A2C2A] mb-3 animate-fade delay-100">
-                    {event.title}
-                  </h3>
-                  <p className="text-[#1C2526] font-lora text-base sm:text-lg leading-relaxed animate-fade delay-200">
-                    {event.description}
-                  </p>
+                  <p className="text-[#B0A18F] pl-12">{event.description}</p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Bagian CTA */}
-        <div className="mt-12 sm:mt-24 text-center animate-fade-slide delay-800">
-          <h2 className="text-3xl sm:text-4xl font-playfair font-extrabold text-[#D4A017] mb-6 animate-glow-text">
-            Daftar Sekarang!
-          </h2>
-          <p className="text-base sm:text-xl font-lora text-[#F4E1B9] max-w-3xl mx-auto mb-8 sm:mb-10 animate-fade delay-200">
-            Ambil kesempatan menjadi Duta Budaya Jawa Timur dan wujudkan kontribusi nyata untuk pelestarian warisan budaya kita.
-          </p>
-          <button className="relative bg-[#F28C38] text-[#1C2526] px-8 sm:px-10 py-3 sm:py-4 rounded-full font-lora font-semibold text-base sm:text-lg transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden animate-fade delay-400">
-            <span className="relative z-10">Daftar Sekarang</span>
-            <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-          </button>
+        {/* CTA */}
+        <div className="mt-24 text-center">
+          <div className="inline-block bg-[#1C2526] px-8 py-6 rounded-lg border border-[#D4A017]/30 shadow-lg">
+            <h2 className="text-2xl md:text-3xl font-serif font-bold text-[#F4E1B9] mb-4">
+              Jadilah Bagian Tradisi Kami
+            </h2>
+            <p className="text-[#B0A18F] mb-6 max-w-2xl mx-auto">
+              Daftarkan diri Anda sekarang untuk mengikuti seleksi Duta Budaya Jawa Timur Narapati & Kencana 2025
+            </p>
+            <button className="px-8 py-3 bg-gradient-to-r from-[#D4A017] to-[#F28C38] text-[#1C2526] font-bold rounded-full hover:shadow-lg transition-all">
+              Daftar Sekarang
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Global styles */}
       <style jsx global>{`
-        /* Keyframe animasi */
-        @keyframes patternScroll {
-          0% {
-            background-position: 0 0;
-          }
-          100% {
-            background-position: 200px 200px;
-          }
-        }
-        @keyframes glow {
-          0%, 100% {
-            filter: drop-shadow(0 0 5px rgba(212, 160, 23, 0.3));
-          }
-          50% {
-            filter: drop-shadow(0 0 15px rgba(212, 160, 23, 0.7));
-          }
-        }
-        @keyframes glowText {
-          0%, 100% {
-            text-shadow: 0 0 10px rgba(212, 160, 23, 0.5);
-          }
-          50% {
-            text-shadow: 0 0 20px rgba(212, 160, 23, 0.8);
-          }
-        }
-        @keyframes fadeSlide {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        @keyframes scaleX {
-          0% {
-            transform: scaleX(0);
-          }
-          100% {
-            transform: scaleX(1);
-          }
-        }
-        @keyframes imageReveal {
-          0% {
-            opacity: 0;
-            transform: scale(0.95);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-        @keyframes floatGlow {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        @keyframes fade {
-          0% {
-            opacity: 0;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-
-        /* Kelas animasi */
-        .animate-pattern-scroll {
-          animation: patternScroll 60s linear infinite;
-        }
-        .animate-glow {
-          animation: glow 6s ease-in-out infinite;
-        }
-        .animate-glow-text {
-          animation: glowText 4s ease-in-out infinite;
-        }
-        .animate-float-glow {
-          animation: floatGlow 8s ease-in-out infinite, glow 6s ease-in-out infinite;
-        }
-        .animate-float-glow-delayed {
-          animation: floatGlow 8s ease-in-out infinite 2s, glow 6s ease-in-out infinite 2s;
-        }
-        .animate-container {
-          animation: fadeSlide 1.2s cubic-bezier(0.33, 1, 0.68, 1) both;
-        }
-        .animate-fade-slide {
-          animation: fadeSlide 0.8s cubic-bezier(0.33, 1, 0.68, 1) both;
-        }
-        .animate-image {
-          animation: imageReveal 1s cubic-bezier(0.33, 1, 0.68, 1) both;
-        }
-        .animate-scale-x {
-          animation: scaleX 1s ease-out both;
-        }
-        .animate-fade {
-          animation: fade 0.8s ease-out both;
-        }
-
-        /* Kelas delay */
-        .delay-100 {
-          animation-delay: 0.1s;
-        }
-        .delay-200 {
-          animation-delay: 0.2s;
-        }
-        .delay-400 {
-          animation-delay: 0.4s;
-        }
-        .delay-600 {
-          animation-delay: 0.6s;
-        }
-        .delay-800 {
-          animation-delay: 0.8s;
-        }
-
-        /* Tipografi */
-        .font-playfair {
+        .font-serif {
           font-family: 'Playfair Display', serif;
-        }
-        .font-lora {
-          font-family: 'Lora', serif;
-        }
-
-        /* Responsif */
-        @media (max-width: 640px) {
-          .w-1/2 {
-            width: 100%;
-          }
-          .lg\\:pr-10, .lg\\:pl-10 {
-            padding-left: 0;
-            padding-right: 0;
-          }
         }
       `}</style>
     </div>
