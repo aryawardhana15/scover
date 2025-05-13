@@ -71,10 +71,10 @@ export default function AboutClient() {
 
       {/* Floating ornaments with glow */}
       <div className="absolute top-20 left-10 w-28 h-28 opacity-30 animate-float-glow">
-        <Image src="/images/javanese-ornament-1.png" alt="" width={112} height={112} className="animate-glow" />
+        <Image src="/images/ornament2.png" alt="" width={112} height={112} className="animate-glow" />
       </div>
       <div className="absolute bottom-40 right-16 w-36 h-36 opacity-30 animate-float-glow-delayed">
-        <Image src="/images/javanese-ornament-2.png" alt="" width={144} height={144} className="animate-glow" />
+        <Image src="/images/ornament3.png" alt="" width={144} height={144} className="animate-glow" />
       </div>
 
       <div className="relative py-32 px-4 md:px-16 max-w-7xl mx-auto animate-container">
