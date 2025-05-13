@@ -76,7 +76,7 @@ export default function Home() {
               <div className="absolute -inset-2 bg-gradient-to-r from-[#D4A017] to-[#800020] rounded-2xl opacity-70 group-hover:opacity-100 blur-md transition-all duration-300"></div>
               <div className="relative h-96 rounded-xl overflow-hidden border-2 border-[#D4A017]/30">
                 <Image 
-                  src="/images/javanese-tradition.jpg" 
+                  src="/images/duta1.png" 
                   alt="Budaya Jawa Timur"
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -192,16 +192,20 @@ export default function Home() {
                 </span>
               </button>
             </Link>
-            <Link href="/contact">
-              <button className="relative bg-transparent border-2 border-[#D4A017] text-[#D4A017] px-10 py-4 rounded-full font-semibold text-lg hover:bg-[#800020]/20 transition-all duration-300">
-                <span className="relative z-10 flex items-center justify-center gap-2">
-                  <span>Kontak Kami</span>
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                </span>
-              </button>
-            </Link>
+<a
+  href="https://wa.me/6285708829751"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <button className="relative bg-transparent border-2 border-[#D4A017] text-[#D4A017] px-10 py-4 rounded-full font-semibold text-lg hover:bg-[#800020]/20 transition-all duration-300">
+    <span className="relative z-10 flex items-center justify-center gap-2">
+      <span>Kontak Kami</span>
+      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      </svg>
+    </span>
+  </button>
+</a>
           </div>
         </div>
       </section>
