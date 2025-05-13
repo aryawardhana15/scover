@@ -58,13 +58,13 @@ export default function Navbar() {
                 <span className={`absolute bottom-0 left-1/2 h-0.5 bg-[#800020] transform -translate-x-1/2 transition-all duration-300 ${scrolled ? 'group-hover:w-3/4' : 'group-hover:w-full'} w-0`}></span>
               </Link>
             ))}
-            <Link 
-              href="/register" 
+            <a 
+              href="https://linktr.ee/DutaBudayaJawaTimur2025" 
               className={`ml-4 px-6 py-2 rounded-full font-medium transition-all duration-300 shadow-md hover:shadow-lg
                 ${scrolled ? 'bg-gradient-to-r from-[#D4A017] to-[#FF8C00] text-black hover:from-[#FF8C00] hover:to-[#D4A017]' : 'bg-gradient-to-r from-[#D4A017] to-[#FF8C00] text-black hover:from-[#FF8C00] hover:to-[#D4A017]'}`}
             >
               Daftar
-            </Link>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -101,13 +101,13 @@ export default function Navbar() {
               {item.name}
             </Link>
           ))}
-          <Link
-            href="/register"
+          <a
+            href="https://linktr.ee/DutaBudayaJawaTimur2025"
             className="block mt-2 px-3 py-3 rounded-md bg-gradient-to-r from-[#D4A017] to-[#FF8C00] text-black font-medium text-center hover:opacity-90 transition-opacity duration-300"
             onClick={() => setIsOpen(false)}
           >
             Daftar Sekarang
-          </Link>
+          </a>
         </div>
       </div>
     </nav>
