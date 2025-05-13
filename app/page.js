@@ -25,10 +25,10 @@ export default function Home() {
         
         {/* Floating ornaments */}
         <div className="absolute top-1/4 left-10 w-24 h-24 opacity-15">
-          <Image src="/images/javanese-ornament-3.png" alt="" width={96} height={96} className="filter brightness-0 invert opacity-60" />
+          <Image src="/images/logo2.png" alt="" width={96} height={96} className="filter brightness-0 invert opacity-60" />
         </div>
         <div className="absolute bottom-1/4 right-16 w-32 h-32 opacity-15">
-          <Image src="/images/javanese-ornament-4.png" alt="" width={128} height={128} className="filter brightness-0 invert opacity-60" />
+          <Image src="/images/ornament2.png" alt="" width={128} height={128} className="filter brightness-0 invert opacity-60" />
         </div>
         
         {/* Hero content */}
