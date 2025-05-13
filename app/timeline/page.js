@@ -151,9 +151,9 @@ export default function TimelineClient() {
             <p className="text-[#B0A18F] mb-6 max-w-2xl mx-auto animate-fade delay-200">
               Daftarkan diri Anda sekarang untuk mengikuti seleksi Duta Budaya Jawa Timur Narapati & Kencana 2025
             </p>
-            <button className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#D4A017] to-[#F28C38] text-[#1C2526] font-bold rounded-full hover:shadow-[0_0_20px_rgba(212,160,23,0.9)] transition-all duration-300 animate-pulse">
+            <a href ="https://linktr.ee/DutaBudayaJawaTimur2025" className="px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#D4A017] to-[#F28C38] text-[#1C2526] font-bold rounded-full hover:shadow-[0_0_20px_rgba(212,160,23,0.9)] transition-all duration-300 animate-pulse">
               Daftar Sekarang
-            </button>
+            </a>
           </div>
         </div>
       </div>
