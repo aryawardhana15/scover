@@ -137,55 +137,83 @@ export default function Home() {
       </section>
 
       {/* Narapati Kencana Section */}
-      <section className="py-28 px-6 bg-[#0E1618] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[url('/images/gold-pattern.png')] bg-repeat bg-[length:300px] mix-blend-overlay"></div>
-        </div>
-        
-        <div className="max-w-6xl mx-auto relative">
-          <div className="text-center mb-16">
-            <div className="inline-block mb-4 text-[#D4A017] font-semibold uppercase tracking-widest text-sm font-sans">Pemilihan</div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-[#F4E1B9]">
-              <span className="text-[#D4A017]">Narapati & Kencana</span> Duta Budaya Jawa Timur
-            </h2>
-            <div className="mx-auto w-24 h-1 bg-gradient-to-r from-[#D4A017] to-[#F28C38]"></div>
-          </div>
+     <section className="py-28 px-6 bg-[#0E1618] relative overflow-hidden">
+  <div className="absolute inset-0 opacity-10">
+    <div className="absolute inset-0 bg-[url('/images/gold-pattern.png')] bg-repeat bg-[length:300px] mix-blend-overlay"></div>
+  </div>
+  
+  <div className="max-w-6xl mx-auto relative">
+    <div className="text-center mb-16">
+      <div className="inline-block mb-4 text-[#D4A017] font-semibold uppercase tracking-widest text-sm font-sans">Pemilihan</div>
+      <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4 text-[#F4E1B9]">
+        <span className="text-[#D4A017]">Narapati & Kencana</span> Duta Budaya Jawa Timur
+      </h2>
+      <div className="mx-auto w-24 h-1 bg-gradient-to-r from-[#D4A017] to-[#F28C38]"></div>
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {[
+        {
+          title: "Syarat & Ketentuan",
+          description: "Persyaratan lengkap untuk mengikuti seleksi Duta Budaya Jawa Timur Narapati & Kencana yang dilaksanakan di Surabaya.",
+          icon: "📜",
+          color: "from-[#800020] to-[#5A0015]",
+          link: "https://linktr.ee/DutaBudayaJawaTimur2025?utm_source=linktree_admin_share",
+          linkText: "Lihat Syarat Lengkap"
+        },
+        {
+          title: "Golden Tiket",
+          description: "Keistimewaan bagi peserta terpilih untuk mendapatkan pelatihan khusus dari para ahli budaya.",
+          icon: "🏆",
+          color: "from-[#D4A017] to-[#B8860B]",
+          link: "https://www.instagram.com/p/DJk13nzznnu/?igsh=aXkzbWRiMmtnNDY0",
+          linkText: "Info Golden Ticket"
+        },
+        {
+          title: "Pendaftaran",
+          description: "Proses pendaftaran untuk menjadi calon Duta Budaya Jawa Timur Narapati & Kencana.",
+          icon: "✍️",
+          color: "from-[#1C2526] to-[#3A2C1A]",
+          link: "https://tr.ee/CpGBp6cLG2",
+          linkText: "Daftar Sekarang"
+        }
+      ].map((item, index) => (
+        <div 
+          key={index}
+          className="bg-[#1C2526] p-8 rounded-xl shadow-2xl hover:shadow-[0_10px_30px_rgba(212,160,23,0.3)] transition-all duration-500 hover:-translate-y-2 border-t-4 border-[#D4A017] group relative overflow-hidden flex flex-col h-full"
+        >
+          <div className="absolute -inset-1 bg-gradient-to-br from-[#D4A017] to-[#F28C38] opacity-0 group-hover:opacity-20 rounded-xl transition-opacity duration-500 -z-10"></div>
+          <div className="text-5xl mb-6 text-[#D4A017]">{item.icon}</div>
+          <h3 className="text-2xl font-serif font-semibold mb-4 text-[#F4E1B9]">{item.title}</h3>
+          <p className="text-[#B0A18F] font-sans mb-6 flex-grow">{item.description}</p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Syarat & Ketentuan",
-                description: "Persyaratan lengkap untuk mengikuti seleksi Duta Budaya Jawa Timur Narapati & Kencana yang dilaksanakan di Surabaya.",
-                icon: "📜",
-                color: "from-[#800020] to-[#5A0015]"
-              },
-              {
-                title: "Golden Tiket",
-                description: "Keistimewaan bagi peserta terpilih untuk mendapatkan pelatihan khusus dari para ahli budaya.",
-                icon: "🏆",
-                color: "from-[#D4A017] to-[#B8860B]"
-              },
-              {
-                title: "Pendaftaran",
-                description: "Proses pendaftaran untuk menjadi calon Duta Budaya Jawa Timur Narapati & Kencana.",
-                icon: "✍️",
-                color: "from-[#1C2526] to-[#3A2C1A]"
-              }
-            ].map((item, index) => (
-              <div 
-                key={index}
-                className="bg-[#1C2526] p-8 rounded-xl shadow-2xl hover:shadow-[0_10px_30px_rgba(212,160,23,0.3)] transition-all duration-500 hover:-translate-y-2 border-t-4 border-[#D4A017] group relative overflow-hidden"
+          {/* Elegant Link Button */}
+          <a 
+            href={item.link} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="mt-auto inline-block relative group"
+          >
+            <div className="flex items-center text-[#D4A017] hover:text-[#F28C38] transition-colors duration-300">
+              <span className="font-serif font-medium">{item.linkText}</span>
+              <svg 
+                className="w-4 h-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
               >
-                <div className="absolute -inset-1 bg-gradient-to-br from-[#D4A017] to-[#F28C38] opacity-0 group-hover:opacity-20 rounded-xl transition-opacity duration-500 -z-10"></div>
-                <div className="text-5xl mb-6 text-[#D4A017]">{item.icon}</div>
-                <h3 className="text-2xl font-serif font-semibold mb-4 text-[#F4E1B9]">{item.title}</h3>
-                <p className="text-[#B0A18F] font-sans">{item.description}</p>
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300 -z-10`}></div>
-              </div>
-            ))}
-          </div>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+            <div className="absolute bottom-0 left-0 h-[1px] bg-[#D4A017] w-0 group-hover:w-full transition-all duration-300"></div>
+          </a>
+          
+          <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 rounded-xl transition-opacity duration-300 -z-10`}></div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* CTA Section */}
       <section className="py-28 px-6 bg-gradient-to-br from-[#1C2526] to-[#2A1A1B] relative overflow-hidden">
