@@ -53,13 +53,7 @@ export default function ContactClient() {
 
       {/* Hero Section */}
       <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
-        <Image
-          src="/images/contact-hero.jpg"
-          alt="Contact Us"
-          fill
-          className="object-cover transform hover:scale-105 transition-transform duration-700"
-          priority
-        />
+      
         <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/70 to-[#1C2526]/20 flex items-center justify-center">
           <div className="text-center animate-fade-in">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-[#F4E1B9] drop-shadow-[0_2px_10px_rgba(212,160,23,0.5)]">

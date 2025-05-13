@@ -109,14 +109,14 @@ export default function GalleryClient() {
       </div>
 
       {/* Hero Section */}
-      <div className="text-center mb-12 md:mb-16 px-4">
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-[#D4A017] mb-6 animate-fade-in">
-          Galeri Budaya
-        </h1>
-        <p className="text-lg md:text-xl text-[#F4E1B9] max-w-2xl mx-auto animate-fade-in delay-200 font-lora leading-relaxed">
-          Jelajahi keindahan dan kekayaan budaya Jawa Timur melalui lensa kami
-        </p>
-      </div>
+  <div className="text-center mb-12 md:mb-16 px-4 pt-16 md:pt-0">
+  <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-[#D4A017] mb-6 animate-fade-in">
+    Galeri Budaya
+  </h1>
+  <p className="text-lg md:text-xl text-[#F4E1B9] max-w-2xl mx-auto animate-fade-in delay-200 font-lora leading-relaxed">
+    Jelajahi keindahan dan kekayaan budaya Jawa Timur melalui lensa kami
+  </p>
+</div>
 
       {/* Category Filter */}
       <div className="max-w-7xl mx-auto px-4 mb-8 md:mb-12">
