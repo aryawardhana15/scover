@@ -1,117 +1,180 @@
 'use client';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const menuItems = [
-    { name: 'Beranda', path: '/' },
-    { name: 'Tentang', path: '/about' },
-    { name: 'Timeline', path: '/timeline' },
-    { name: 'Galeri', path: '/gallery' },
-    { name: 'Kontak Dan Sponsorship', path: '/contact' }
-  ];
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
-    <nav className={`fixed w-full top-0 z-50 transition-all duration-500 ${scrolled ? 'bg-[#0E1618]/95 shadow-xl py-0' : 'bg-[#0E1618] py-2'} backdrop-blur-md border-b border-[#D4A017]/30`}>
-      {/* Gold decorative border */}
-      <div className="h-[3px] w-full bg-gradient-to-r from-transparent via-[#D4A017] to-transparent opacity-80"></div>
-      
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-white shadow-lg' : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center group">
-            <div className="relative flex-shrink-0 flex items-center">
-              <div className="absolute -left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-6 h-6 bg-[#D4A017] rounded-full filter blur-[8px]"></div>
-              </div>
-              <div className="flex items-center">
-                <span className={`text-2xl font-serif font-bold ${scrolled ? 'ml-0' : 'ml-4'}`}>
-                  <span className="text-[#D4A017] group-hover:text-[#F28C38] transition-colors duration-300">DUTA</span> 
-                  <span className="text-[#F4E1B9]"> BUDAYA</span>
-                </span>
-                <span className="text-[#F4E1B9] ml-2 text-sm hidden md:block">Jawa Timur</span>
-              </div>
-            </div>
-          </Link>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-1">
-            {menuItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.path}
-                className={`relative px-4 py-2 text-lg font-serif transition-all duration-300 group
-                  ${scrolled ? 'text-[#F4E1B9] hover:text-[#D4A017]' : 'text-[#F4E1B9] hover:text-[#D4A017]'}`}
-              >
-                {item.name}
-                <span className={`absolute bottom-0 left-1/2 h-[2px] bg-[#D4A017] transform -translate-x-1/2 transition-all duration-300 ${scrolled ? 'group-hover:w-3/4' : 'group-hover:w-full'} w-0`}></span>
-              </Link>
-            ))}
-            <Link 
-              href="/register" 
-              className={`ml-4 px-6 py-2 rounded-full font-serif font-bold transition-all duration-300 shadow-lg hover:shadow-xl
-                ${scrolled ? 'bg-gradient-to-r from-[#D4A017] to-[#F28C38] text-[#1C2526] hover:from-[#F28C38] hover:to-[#D4A017]' : 'bg-gradient-to-r from-[#D4A017] to-[#F28C38] text-[#1C2526] hover:from-[#F28C38] hover:to-[#D4A017]'}`}
-            >
-              Daftar
+          <div className="flex-shrink-0">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/images/logo/logo.png"
+                alt="Scover Bimbel"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
+              <span className="ml-2 text-xl font-bold text-gray-900">
+                Scover Bimbel
+              </span>
             </Link>
+          </div>
+
+          {/* Desktop Navigation */}
+          <div className="hidden md:block">
+            <div className="ml-10 flex items-baseline space-x-8">
+              <Link
+                href="/"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Beranda
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Tentang
+              </Link>
+              <Link
+                href="/programs"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Program
+              </Link>
+              <Link
+                href="/tutors"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Pengajar
+              </Link>
+              <Link
+                href="/gallery"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Galeri
+              </Link>
+              <Link
+                href="/timeline"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Timeline
+              </Link>
+              <Link
+                href="/partners"
+                className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors duration-200"
+              >
+                Partner
+              </Link>
+              <Link
+                href="/registration"
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors duration-200"
+              >
+                Daftar Sekarang
+              </Link>
+            </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden">
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md focus:outline-none transition-all ${isOpen ? 'text-[#D4A017]' : 'text-[#F4E1B9]'}`}
-              aria-label="Toggle menu"
+              onClick={toggleMenu}
+              className="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600"
             >
-              {isOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                {isMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                ) : (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
+                )}
+              </svg>
             </button>
           </div>
         </div>
-      </div>
 
-      {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
-        <div className="pt-2 pb-4 px-4 space-y-2 bg-[#1C2526]/95 backdrop-blur-md border-t border-[#D4A017]/30">
-          {menuItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.path}
-              className="block px-3 py-3 rounded-md text-[#F4E1B9] text-lg font-serif hover:text-[#D4A017] hover:bg-[#D4A017]/10 transition-all duration-300 border-b border-[#D4A017]/20 last:border-0"
-              onClick={() => setIsOpen(false)}
-            >
-              {item.name}
-            </Link>
-          ))}
-        <a
-  href="https://linktr.ee/DutaBudayaJawaTimur2025"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="block mt-2 px-3 py-3 rounded-md bg-gradient-to-r from-[#D4A017] to-[#FF8C00] text-black font-medium text-center hover:opacity-90 transition-opacity duration-300"
-  onClick={() => setIsOpen(false)}
->
-  Daftar Sekarang
-</a>
-        </div>
+        {/* Mobile Navigation Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-lg rounded-lg mt-2">
+              <Link
+                href="/"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Beranda
+              </Link>
+              <Link
+                href="/about"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Tentang
+              </Link>
+              <Link
+                href="/programs"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Program
+              </Link>
+              <Link
+                href="/tutors"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Pengajar
+              </Link>
+              <Link
+                href="/gallery"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Galeri
+              </Link>
+              <Link
+                href="/timeline"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Timeline
+              </Link>
+              <Link
+                href="/partners"
+                className="text-gray-700 hover:text-blue-600 block px-3 py-2 text-base font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Partner
+              </Link>
+              <Link
+                href="/registration"
+                className="bg-blue-600 text-white block px-3 py-2 rounded-lg text-base font-medium hover:bg-blue-700 mx-3 mt-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Daftar Sekarang
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   );

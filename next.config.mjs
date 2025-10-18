@@ -11,9 +11,6 @@ const nextConfig = {
     domains: ['cdnjs.cloudflare.com'],
     unoptimized: true,
   },
-  experimental: {
-    appDir: true,
-  },
 };
 
 export default nextConfig;

@@ -37,30 +37,33 @@ export default function ContactClient() {
   };
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#1C2526] to-[#4A2C2A]/10">
+    <div className="relative min-h-screen bg-gradient-to-b from-white to-gray-50">
       {/* Decorative background */}
-      <div className="absolute inset-0 overflow-hidden opacity-15 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/batik-pattern.png')] bg-repeat bg-[length:200px] animate-pattern-scroll md:bg-[length:300px]"></div>
+      <div className="absolute inset-0 overflow-hidden opacity-5 pointer-events-none">
+        <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/education-pattern.png')] bg-repeat bg-[length:200px] animate-pattern-scroll md:bg-[length:300px]"></div>
       </div>
 
       {/* Floating decorative elements */}
       <div className="animate-float-slow absolute top-1/4 left-4 w-16 h-16 opacity-20 md:w-24 md:h-24 md:left-10">
-        <Image src="/images/ornament2.png" alt="" width={96} height={96} />
+        <div className="w-full h-full bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] rounded-full flex items-center justify-center text-white text-2xl">
+          📞
+        </div>
       </div>
       <div className="animate-float-fast absolute bottom-1/4 right-4 w-20 h-20 opacity-20 md:w-32 md:h-32 md:right-16">
-        <Image src="/images/ornament3.png" alt="" width={128} height={128} />
+        <div className="w-full h-full bg-gradient-to-br from-[#F59E0B] to-[#F97316] rounded-full flex items-center justify-center text-white text-3xl">
+          💬
+        </div>
       </div>
 
       {/* Hero Section */}
       <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
-      
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/70 to-[#1C2526]/20 flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] flex items-center justify-center">
           <div className="text-center animate-fade-in">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-[#F4E1B9] drop-shadow-[0_2px_10px_rgba(212,160,23,0.5)]">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white drop-shadow-[0_2px_10px_rgba(30,64,175,0.5)]">
               Hubungi Kami
             </h1>
-            <p className="text-lg md:text-xl text-[#F4E1B9]/90 font-lora mt-4 max-w-xl mx-auto px-4">
-              Mari wujudkan pelestarian budaya Jawa Timur bersama-sama
+            <p className="text-lg md:text-xl text-blue-100 mt-4 max-w-xl mx-auto px-4">
+              Konsultasikan kebutuhan pendidikanmu dengan tim kami
             </p>
           </div>
         </div>
@@ -68,26 +71,26 @@ export default function ContactClient() {
 
       {/* Tab Navigation */}
       <div className="flex justify-center mt-8">
-        <div className="inline-flex rounded-full bg-[#1C2526] shadow-lg p-1 border border-[#D4A017]/20">
+        <div className="inline-flex rounded-full bg-white shadow-lg p-1 border border-gray-200">
           <button
             onClick={() => setActiveTab('general')}
             className={`px-6 py-2 rounded-full transition-all duration-300 ${
               activeTab === 'general'
-                ? 'bg-[#D4A017] text-[#1C2526]'
-                : 'text-[#F4E1B9] hover:bg-[#4A2C2A]/50'
+                ? 'bg-[#1E40AF] text-white'
+                : 'text-gray-700 hover:bg-gray-100'
             }`}
           >
-            Kontak Umum
+            Konsultasi
           </button>
           <button
             onClick={() => setActiveTab('sponsorship')}
             className={`px-6 py-2 rounded-full transition-all duration-300 ${
               activeTab === 'sponsorship'
-                ? 'bg-[#D4A017] text-[#1C2526]'
-                : 'text-[#F4E1B9] hover:bg-[#4A2C2A]/50'
+                ? 'bg-[#1E40AF] text-white'
+                : 'text-gray-700 hover:bg-gray-100'
             }`}
           >
-            Sponsorship
+            Kerjasama
           </button>
         </div>
       </div>
@@ -98,11 +101,11 @@ export default function ContactClient() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
             {/* Contact Info */}
             <div className="animate-fade-in-left">
-              <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#D4A017] mb-8">
-                Mari Berkolaborasi
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1E40AF] mb-8">
+                Konsultasi Gratis
               </h2>
-              <p className="text-lg md:text-xl text-[#F4E1B9] mb-8 font-lora leading-relaxed">
-                Kami terbuka untuk ide, kolaborasi, dan pertanyaan seputar budaya Jawa Timur. Hubungi kami untuk memulai perjalanan budaya yang menginspirasi.
+              <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                Tim kami siap membantu Anda menentukan program yang tepat sesuai kebutuhan dan tujuan pendidikan. Konsultasi gratis untuk semua calon siswa.
               </p>
 
               <div className="space-y-6">
@@ -110,20 +113,20 @@ export default function ContactClient() {
                   {
                     icon: '📧',
                     title: 'Email',
-                    content: 'dutabudayajawatimur@gmail.com',
-                    link: 'mailto:dutabudayajawatimur@gmail.com',
+                    content: 'info@scoverbimbel.com',
+                    link: 'mailto:info@scoverbimbel.com',
                   },
                   {
                     icon: '📱',
-                    title: 'Telepon',
-                    content: '+62 857 0882 9751 (Mbak Najua)',
-                    link: 'tel:+6285708829751',
+                    title: 'WhatsApp',
+                    content: '+62 896 9705 3591',
+                    link: 'https://wa.me/6289697053591',
                   },
                   {
                     icon: '📍',
                     title: 'Alamat',
-                    content: 'Jawa Timur, Indonesia',
-                    link: 'https://www.google.com/maps/place/Jawa+Timur,+Indonesia',
+                    content: 'Malang, Jawa Timur, Indonesia',
+                    link: 'https://www.google.com/maps/place/Malang,+Jawa+Timur,+Indonesia',
                   },
                 ].map((item, index) => (
                   <a
@@ -131,15 +134,15 @@ export default function ContactClient() {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-start gap-4 p-4 bg-[#F4E1B9] rounded-xl shadow-[0_8px_30px_rgba(74,44,42,0.15)] hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] transition-all duration-300 animate-fade-in-up group border border-[#D4A017]/20"
+                    className="flex items-start gap-4 p-4 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 animate-fade-in-up group border border-gray-200"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="text-2xl md:text-3xl text-[#F28C38] group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
+                    <div className="text-2xl md:text-3xl text-[#1E40AF] group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
                     <div>
-                      <h3 className="font-playfair font-semibold text-[#6B2D2F] mb-1 text-lg md:text-xl">
+                      <h3 className="font-bold text-gray-900 mb-1 text-lg md:text-xl">
                         {item.title}
                       </h3>
-                      <p className="text-[#1C2526] font-lora text-sm md:text-base">
+                      <p className="text-gray-600 text-sm md:text-base">
                         {item.content}
                       </p>
                     </div>
@@ -149,12 +152,12 @@ export default function ContactClient() {
 
               {/* Interactive Map */}
               <div className="mt-8 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                <h3 className="text-2xl md:text-3xl font-playfair font-semibold text-[#D4A017] mb-4">
-                  Temukan Kami
+                <h3 className="text-2xl md:text-3xl font-bold text-[#1E40AF] mb-4">
+                  Lokasi Kami
                 </h3>
-                <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-[0_8px_30px_rgba(74,44,42,0.15)] border border-[#D4A017]/20">
+                <div className="relative h-64 md:h-80 rounded-xl overflow-hidden shadow-lg border border-gray-200">
                   <iframe
-                    src="https://www.google.com/maps?q=Jawa+Timur,+Indonesia&output=embed"
+                    src="https://www.google.com/maps?q=Malang,+Jawa+Timur,+Indonesia&output=embed"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -163,7 +166,6 @@ export default function ContactClient() {
                     referrerPolicy="no-referrer-when-downgrade"
                     className="w-full h-full"
                   ></iframe>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/20 to-transparent pointer-events-none"></div>
                 </div>
               </div>
             </div>
@@ -173,11 +175,11 @@ export default function ContactClient() {
               <form
                 action="https://formspree.io/f/mjkwpbdg"
                 method="POST"
-                className="bg-[#F4E1B9] rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(74,44,42,0.15)] border border-[#D4A017]/20"
+                className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200"
               >
                 <div className="space-y-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+                    <label htmlFor="name" className="block text-sm md:text-base font-medium text-gray-700 mb-1">
                       Nama Lengkap
                     </label>
                     <input
@@ -185,13 +187,13 @@ export default function ContactClient() {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
                       placeholder="Masukkan nama lengkap Anda"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+                    <label htmlFor="email" className="block text-sm md:text-base font-medium text-gray-700 mb-1">
                       Email
                     </label>
                     <input
@@ -199,13 +201,13 @@ export default function ContactClient() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
                       placeholder="Masukkan alamat email Anda"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="subject" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+                    <label htmlFor="subject" className="block text-sm md:text-base font-medium text-gray-700 mb-1">
                       Subjek
                     </label>
                     <input
@@ -213,13 +215,13 @@ export default function ContactClient() {
                       id="subject"
                       name="subject"
                       required
-                      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
                       placeholder="Masukkan subjek pesan"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+                    <label htmlFor="message" className="block text-sm md:text-base font-medium text-gray-700 mb-1">
                       Pesan
                     </label>
                     <textarea
@@ -227,17 +229,17 @@ export default function ContactClient() {
                       name="message"
                       required
                       rows={4}
-                      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
                       placeholder="Tulis pesan Anda di sini..."
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full relative py-3 px-6 rounded-lg font-lora font-semibold text-base md:text-lg transition-all duration-300 shadow-lg bg-[#F28C38] text-[#1C2526] hover:bg-[#D4A017] hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
+                    className="w-full relative py-3 px-6 rounded-lg font-semibold text-base md:text-lg transition-all duration-300 shadow-lg bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] text-white hover:shadow-[0_0_20px_rgba(30,64,175,0.7)] group overflow-hidden"
                   >
                     <span className="relative z-10">Kirim Pesan</span>
-                    <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                    <span className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] to-[#1E40AF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                   </button>
                 </div>
               </form>
@@ -245,38 +247,38 @@ export default function ContactClient() {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16">
-            {/* Sponsorship Info */}
+            {/* Partnership Info */}
             <div className="animate-fade-in-left">
-              <h2 className="text-3xl md:text-4xl font-playfair font-bold text-[#D4A017] mb-8">
-                Sponsorship Duta Budaya
+              <h2 className="text-3xl md:text-4xl font-bold text-[#1E40AF] mb-8">
+                Kerjasama Institusi
               </h2>
-              <p className="text-lg md:text-xl text-[#F4E1B9] mb-8 font-lora leading-relaxed">
-                Jadilah bagian dari pelestarian budaya Jawa Timur dengan menjadi sponsor program Duta Budaya Narapati & Kencana. Kami menawarkan berbagai peluang kerjasama yang dapat memberikan nilai tambah bagi brand Anda.
+              <p className="text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">
+                Bekerjasama dengan sekolah, universitas, dan institusi pendidikan untuk memberikan program bimbingan belajar yang berkualitas. Kami menawarkan berbagai bentuk kerjasama yang saling menguntungkan.
               </p>
 
               <div className="space-y-6">
                 {[
                   {
                     icon: '💎',
-                    title: 'Keuntungan Sponsorship',
-                    content: 'Eksposur brand di seluruh Jawa Timur, kesempatan networking dengan komunitas budaya, dan citra positif sebagai pendukung pelestarian budaya.',
+                    title: 'Keuntungan Kerjasama',
+                    content: 'Program khusus untuk siswa, harga khusus, laporan progress berkala, dan dukungan penuh untuk kesuksesan siswa.',
                   },
                   {
                     icon: '🤝',
                     title: 'Bentuk Kerjasama',
-                    content: 'Sponsorship bisa berupa dana, produk, atau layanan yang mendukung program Duta Budaya Jawa Timur.',
+                    content: 'Kerjasama bisa berupa program khusus, diskon khusus, atau layanan tambahan untuk mendukung pembelajaran siswa.',
                   },
                 ].map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 p-6 bg-[#F4E1B9] rounded-xl shadow-[0_8px_30px_rgba(74,44,42,0.15)] border border-[#D4A017]/20"
+                    className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg border border-gray-200"
                   >
-                    <div className="text-2xl md:text-3xl text-[#F28C38]">{item.icon}</div>
+                    <div className="text-2xl md:text-3xl text-[#1E40AF]">{item.icon}</div>
                     <div>
-                      <h3 className="font-playfair font-semibold text-[#6B2D2F] mb-2 text-lg md:text-xl">
+                      <h3 className="font-bold text-gray-900 mb-2 text-lg md:text-xl">
                         {item.title}
                       </h3>
-                      <p className="text-[#1C2526] font-lora text-sm md:text-base">
+                      <p className="text-gray-600 text-sm md:text-base">
                         {item.content}
                       </p>
                     </div>
@@ -284,61 +286,61 @@ export default function ContactClient() {
                 ))}
               </div>
 
-              {/* Sponsorship Benefits */}
+              {/* Partnership Benefits */}
               <div className="mt-8">
-                <h3 className="text-2xl md:text-3xl font-playfair font-semibold text-[#D4A017] mb-4">
-                  Manfaat Sponsorship
+                <h3 className="text-2xl md:text-3xl font-bold text-[#1E40AF] mb-4">
+                  Manfaat Kerjasama
                 </h3>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {[
-                    'Logo di semua materi promosi',
-                    'Branding di acara utama',
-                    'Kesempatan product placement',
-                    'Konten eksklusif di media sosial',
-                    'Tiket VIP untuk acara final',
-                    'Kesempatan menjadi tamu undangan'
+                    'Program khusus untuk siswa',
+                    'Harga khusus dan diskon',
+                    'Laporan progress berkala',
+                    'Konsultasi akademik gratis',
+                    'Try out dan simulasi ujian',
+                    'Dukungan penuh untuk kesuksesan siswa'
                   ].map((benefit, index) => (
-                    <li key={index} className="flex items-start bg-[#F4E1B9]/90 p-3 rounded-lg">
-                      <span className="text-[#D4A017] mr-2">✓</span>
-                      <span className="text-[#1C2526] font-lora">{benefit}</span>
+                    <li key={index} className="flex items-start bg-gray-50 p-3 rounded-lg">
+                      <span className="text-[#1E40AF] mr-2">✓</span>
+                      <span className="text-gray-700">{benefit}</span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
 
-            {/* Sponsorship Form */}
+            {/* Partnership Form */}
             <div className="animate-fade-in-right">
-              <div className="bg-[#F4E1B9] rounded-2xl p-6 md:p-8 shadow-[0_8px_30px_rgba(74,44,42,0.15)] border border-[#D4A017]/20">
-                <h3 className="text-2xl md:text-3xl font-playfair font-semibold text-[#6B2D2F] mb-6">
-                  Minat Menjadi Sponsor?
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">
+                  Minat Kerjasama?
                 </h3>
-                <p className="text-[#1C2526] font-lora mb-6">
-                  Isi formulir berikut ini dan tim kami akan menghubungi Anda untuk membahas peluang kerjasama sponsorship.
+                <p className="text-gray-600 mb-6">
+                  Isi formulir berikut ini dan tim kami akan menghubungi Anda untuk membahas peluang kerjasama institusi.
                 </p>
 
   <form
   onSubmit={(e) => e.preventDefault()} // Mencegah pengiriman default
   className="space-y-6"
 >
-  <input type="hidden" name="form_type" value="sponsorship" />
+  <input type="hidden" name="form_type" value="partnership" />
 
   <div>
-    <label htmlFor="company" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
-      Nama Perusahaan/Organisasi
+    <label htmlFor="company" className="block text-sm md:text-base font-medium text-gray-700 mb-1">
+      Nama Sekolah/Institusi
     </label>
     <input
       type="text"
       id="company"
       name="company"
       required
-      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
-      placeholder="Nama perusahaan/organisasi Anda"
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
+      placeholder="Nama sekolah/institusi Anda"
     />
   </div>
 
   <div>
-    <label htmlFor="contact_person" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+    <label htmlFor="contact_person" className="block text-sm md:text-base font-medium text-gray-700 mb-1">
       Nama Kontak
     </label>
     <input
@@ -346,13 +348,13 @@ export default function ContactClient() {
       id="contact_person"
       name="contact_person"
       required
-      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
       placeholder="Nama lengkap Anda"
     />
   </div>
 
   <div>
-    <label htmlFor="sponsor_email" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+    <label htmlFor="sponsor_email" className="block text-sm md:text-base font-medium text-gray-700 mb-1">
       Email
     </label>
     <input
@@ -360,13 +362,13 @@ export default function ContactClient() {
       id="sponsor_email"
       name="email"
       required
-      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
       placeholder="Alamat email Anda"
     />
   </div>
 
   <div>
-    <label htmlFor="phone" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+    <label htmlFor="phone" className="block text-sm md:text-base font-medium text-gray-700 mb-1">
       Nomor Telepon/WhatsApp
     </label>
     <input
@@ -374,27 +376,27 @@ export default function ContactClient() {
       id="phone"
       name="phone"
       required
-      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
       placeholder="Nomor telepon Anda (contoh: +6281234567890)"
     />
   </div>
 
   <div>
-    <label htmlFor="sponsor_message" className="block text-sm md:text-base font-medium text-[#1C2526] mb-1 font-lora">
+    <label htmlFor="sponsor_message" className="block text-sm md:text-base font-medium text-gray-700 mb-1">
       Pesan Tambahan
     </label>
     <textarea
       id="sponsor_message"
       name="message"
       rows={3}
-      className="w-full px-4 py-3 border border-[#D4A017]/30 rounded-lg focus:ring-2 focus:ring-[#F28C38] focus:border-transparent transition-all duration-300 bg-[#F4E1B9] text-[#1C2526] placeholder-[#4A2C2A]/50"
+      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300 bg-white text-gray-900 placeholder-gray-500"
       placeholder="Tulis pesan tambahan Anda..."
     ></textarea>
   </div>
 
   <button
     type="submit"
-    className="w-full relative py-3 px-6 rounded-lg font-lora font-semibold text-base md:text-lg transition-all duration-300 shadow-lg bg-[#F28C38] text-[#1C2526] hover:bg-[#D4A017] hover:shadow-[0_0_20px_rgba(212,160,23,0.7)] group overflow-hidden"
+    className="w-full relative py-3 px-6 rounded-lg font-semibold text-base md:text-lg transition-all duration-300 shadow-lg bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] text-white hover:shadow-[0_0_20px_rgba(30,64,175,0.7)] group overflow-hidden"
     onClick={(e) => {
       e.preventDefault();
       const company = document.getElementById('company').value;
@@ -404,18 +406,18 @@ export default function ContactClient() {
       const message = document.getElementById('sponsor_message').value;
 
       // Format pesan WhatsApp yang lebih rapi
-      const whatsappMessage = `📩 *Permohonan Sponsorship Duta Budaya Jawa Timur* 📩%0A%0A------------------------%0A*Nama Perusahaan/Organisasi:* ${company}%0A*Nama Kontak:* ${contactPerson}%0A*Email:* ${email}%0A*Nomor Telepon/WhatsApp:* ${phone}%0A*Pesan Tambahan:* ${message || 'Tidak ada pesan tambahan'}%0A------------------------%0A%0A📌 Terima kasih atas minat Anda!`;
+      const whatsappMessage = `📩 *Permohonan Kerjasama Scover Bimbel* 📩%0A%0A------------------------%0A*Nama Sekolah/Institusi:* ${company}%0A*Nama Kontak:* ${contactPerson}%0A*Email:* ${email}%0A*Nomor Telepon/WhatsApp:* ${phone}%0A*Pesan Tambahan:* ${message || 'Tidak ada pesan tambahan'}%0A------------------------%0A%0A📌 Terima kasih atas minat Anda!`;
       
-      // Nomor WhatsApp tujuan (Mas Azharlal)
-      const whatsappNumber = '+6281252492802';
+      // Nomor WhatsApp tujuan
+      const whatsappNumber = '+6285708829751';
       const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
       // Buka WhatsApp di tab/window baru
       window.open(whatsappUrl, '_blank');
     }}
   >
-    <span className="relative z-10">Kirim Permohonan Sponsorship</span>
-    <span className="absolute inset-0 bg-gradient-to-r from-[#F28C38] to-[#D4A017] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+    <span className="relative z-10">Kirim Permohonan Kerjasama</span>
+    <span className="absolute inset-0 bg-gradient-to-r from-[#3B82F6] to-[#1E40AF] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
   </button>
 </form>
               </div>

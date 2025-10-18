@@ -3,264 +3,213 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
-const galleryItems = [
-  {
-    id: 1,
-    title: 'Mas Rusydan di Ponorogo',
-    description: 'Mas Rusydan melakukan kunjungan ke Aloon-aloon Kab. Ponorogo untuk memberikan edukasi kebudayaan di acara Festival Reog Bulan Purnama.',
-    image: '/images/galeri1 (10).png',
-    category: 'dbcjt',
-  },
-  {
-    id: 2,
-    title: 'Mbak Ivana di Kediri',
-    description: 'Mbak Ivana meluncurkan advokasinya dengan memperkenalkan budaya tari pada acara "Pagelaran Budaya Nusantara" di SMP Petra Kediri.',
-    image: '/images/galeri1 (9).png',
-    category: 'dbcjt',
-  },
-  {
-    id: 3,
-    title: 'Mbak Zalora di Pagelaran Wayang',
-    description: 'Mbak Zalora telah menghadiri Acara Pagelaran Budaya Wayang Dalam Rangka 100 Tahun Perguruan Taman Siswa.',
-    image: '/images/galeri1 (8).png',
-    category: 'dbcjt',
-  },
-  {
-    id: 4,
-    title: 'Mbak Jasmine di Fashion Event',
-    description: 'Mbak Jasmine tampil sebagai Model Runway dalam Muslim Fashion Event. Ia membawa nuansa batik khas, mengemas edukasi budaya melalui fashion.',
-    image: '/images/galeri1 (7).png',
-    category: 'dbcjt',
-  },
-  {
-    id: 5,
-    title: 'Juri DBCJT 2025',
-    description: 'Mas Dasega, Mbak Debby, dan Mas Rama menjadi juri kategori bakat dalam ajang Duta Budaya Cilik Jawa Timur 2025.',
-    image: '/images/galeri1 (6).png',
-    category: 'dbjt',
-  },
-  {
-    id: 6,
-    title: 'Mas Yayan & Mbak Najua di Grand Final',
-    description: 'Mas Yayan & Mbak Najua hadir dalam Grand Final Mr. Teen & Ms. Teenager Indonesia 2024, ajang mencari figur inspiratif dari kalangan remaja.',
-    image: '/images/galeri1 (5).png',
-    category: 'dbjt',
-  },
-  {
-    id: 7,
-    title: 'Malam Final Putra Putri Brawijaya',
-    description: 'Mas Rama & Mbak Debby menghadiri malam Grand Final Putra Putri Brawijaya di Universitas Brawijaya Malang.',
-    image: '/images/galeri1 (4).png',
-    category: 'dbjt',
-  },
-  {
-    id: 8,
-    title: 'Mbak Debby di RRI Malang',
-    description: 'Mbak Debby menjadi narasumber di RRI Malang, membahas kekayaan budaya Jawa Timur dan peran generasi muda dalam pelestariannya.',
-    image: '/images/galeri1 (3).png',
-    category: 'dbjt',
-  },
-  {
-    id: 9,
-    title: 'Mas Azhar di Talkshow 4B',
-    description: 'Mas Azhar menjadi pembicara dalam Talkshow 4B (Business, Branding, Behavior, Brave) di Universitas Hayam Wuruk Perbanas Surabaya.',
-    image: '/images/galeri1 (2).png',
-    category: 'dbjt',
-  },
-  {
-    id: 10,
-    title: 'Mas Mahdi Jelajah Kota Lama',
-    description: 'Mas Mahdi menjelajahi Kota Lama Surabaya, kawasan bersejarah yang menyimpan jejak perkembangan kota dari masa kolonial.',
-    image: '/images/galeri1 (1).png',
-    category: 'dbjt',
-  },
+// All gallery images with varied sizes for dynamic masonry layout
+const galleryImages = [
+  // Row 1 - Mixed sizes
+  { id: 1, src: '/images/gallery/1.jpg', alt: 'Kelas Pembelajaran Scover', category: 'Fasilitas', icon: '🏫', color: 'from-[#1E40AF] to-[#3B82F6]', span: 'col-span-2 row-span-2' },
+  { id: 2, src: '/images/gallery/2.jpg', alt: 'Sesi Belajar Intensif', category: 'Kegiatan', icon: '👥', color: 'from-[#10B981] to-[#059669]', span: 'col-span-1 row-span-1' },
+  { id: 3, src: '/images/gallery/3.jpg', alt: 'Kelas Diskusi Interaktif', category: 'Kegiatan', icon: '💬', color: 'from-[#F59E0B] to-[#F97316]', span: 'col-span-1 row-span-1' },
+  
+  // Row 2
+  { id: 4, src: '/images/gallery/4.JPG', alt: 'Belajar & Kebersamaan', category: 'Fasilitas', icon: '💻', color: 'from-[#1E40AF] to-[#3B82F6]', span: 'col-span-1 row-span-1' },
+  { id: 5, src: '/images/gallery/5.jpg', alt: 'Workshop Pendidikan', category: 'Kegiatan', icon: '📊', color: 'from-[#10B981] to-[#059669]', span: 'col-span-1 row-span-2' },
+  { id: 6, src: '/images/gallery/6.jpg', alt: 'Ruang Belajar Nyaman', category: 'Fasilitas', icon: '🏠', color: 'from-[#8B5CF6] to-[#7C3AED]', span: 'col-span-2 row-span-1' },
+  
+  // Row 3
+  { id: 7, src: '/images/gallery/7.jpg', alt: 'Sesi Konsultasi', category: 'Kegiatan', icon: '📚', color: 'from-[#1E40AF] to-[#3B82F6]', span: 'col-span-1 row-span-2' },
+  { id: 8, src: '/images/gallery/8.JPG', alt: 'Event Scover', category: 'Acara', icon: '🎉', color: 'from-[#10B981] to-[#059669]', span: 'col-span-2 row-span-1' },
+  { id: 9, src: '/images/gallery/9.jpg', alt: 'Keakraban Siswa', category: 'kegiatan', icon: '🏆', color: 'from-[#8B5CF6] to-[#7C3AED]', span: 'col-span-1 row-span-1' },
+  
+  // Row 4
+  { id: 10, src: '/images/gallery/10.jpg', alt: 'Momen Kelulusan', category: 'Acara', icon: '🎓', color: 'from-[#10B981] to-[#059669]', span: 'col-span-1 row-span-1' },
+  { id: 11, src: '/images/gallery/11.JPG', alt: 'Aktivitas Tambahan', category: 'Kegiatan', icon: '✨', color: 'from-[#F59E0B] to-[#F97316]', span: 'col-span-1 row-span-1' },
 ];
-
-
-
- const categories = [
-  { id: 'all', name: 'Semua' },
-  { id: 'dbjt', name: 'Kegiatan DBJT' },
-  { id: 'dbcjt', name: 'Kegiatan DBCJT' },
-];
-
 
 export default function GalleryClient() {
-  const [selectedCategory, setSelectedCategory] = useState('all');
   const [selectedImage, setSelectedImage] = useState(null);
-
-  const filteredItems = selectedCategory === 'all'
-    ? galleryItems
-    : galleryItems.filter(item => item.category === selectedCategory);
+  const [imageLoaded, setImageLoaded] = useState({});
 
   return (
-    <div className="relative min-h-screen bg-gradient-to-b from-[#1C2526] to-[#4A2C2A]/10 py-12 md:py-20">
-      {/* Decorative background */}
-      <div className="absolute inset-0 overflow-hidden opacity-15 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/batik-pattern.png')] bg-repeat bg-[length:200px] animate-pattern-scroll md:bg-[length:300px]"></div>
+    <div className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-white min-h-screen">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#1E40AF]/10 to-[#3B82F6]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-br from-[#F59E0B]/10 to-[#F97316]/10 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Floating decorative elements */}
-      <div className="animate-float-slow absolute top-1/4 left-4 w-16 h-16 opacity-20 md:w-24 md:h-24 md:left-10">
-        <Image src="/images/javanese-ornament-1.png" alt="" width={96} height={96} />
+      <div className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+        {/* Hero Section */}
+        <div className="text-center mb-12 sm:mb-16">
+          <div className="inline-block px-4 sm:px-6 py-2 bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] text-white rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
+            📸 Galeri Kami
       </div>
-      <div className="animate-float-fast absolute bottom-1/4 right-4 w-20 h-20 opacity-20 md:w-32 md:h-32 md:right-16">
-        <Image src="/images/javanese-ornament-2.png" alt="" width={128} height={128} />
-      </div>
-
-      {/* Hero Section */}
-  <div className="text-center mb-12 md:mb-16 px-4 pt-16 md:pt-0">
-  <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair font-bold text-[#D4A017] mb-6 animate-fade-in">
-    Galeri Budaya
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-poppins px-4">
+            <span className="bg-gradient-to-r from-gray-900 via-[#1E40AF] to-gray-900 bg-clip-text text-transparent">
+              Momen
+            </span>
+            <br />
+            <span className="text-[#F59E0B]">Kebersamaan</span>
   </h1>
-  <p className="text-lg md:text-xl text-[#F4E1B9] max-w-2xl mx-auto animate-fade-in delay-200 font-lora leading-relaxed">
-    Jelajahi keindahan dan kekayaan budaya Jawa Timur melalui lensa kami
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
+            Dokumentasi kegiatan, fasilitas, dan pencapaian di Scover Bimbel
   </p>
 </div>
 
-      {/* Category Filter */}
-      <div className="max-w-7xl mx-auto px-4 mb-8 md:mb-12">
-        <div className="flex flex-wrap justify-center gap-2 md:gap-4 animate-fade-in-up delay-300">
-          {categories.map(category => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-300 font-lora text-sm md:text-base ${
-                selectedCategory === category.id
-                  ? 'bg-[#D4A017] text-[#1C2526] shadow-lg'
-                  : 'bg-[#1C2526] text-[#F4E1B9] hover:bg-[#4A2C2A]/50 border border-[#D4A017]/20'
-              }`}
+        {/* Dynamic Masonry Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-4 mb-12">
+          {galleryImages.map((image, index) => (
+            <div
+              key={image.id}
+              className={`group relative ${image.span} overflow-hidden rounded-3xl cursor-pointer hover:scale-[1.02] transition-all duration-500`}
+              onClick={() => setSelectedImage(image)}
+              style={{
+                animationDelay: `${index * 100}ms`,
+                animation: 'fadeInUp 0.6s ease-out forwards',
+                opacity: 0
+              }}
             >
-              {category.name}
-            </button>
-          ))}
+              {/* Image Container */}
+              <div className="relative w-full h-full">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  onLoadingComplete={() => setImageLoaded(prev => ({ ...prev, [image.id]: true }))}
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = `<div class="w-full h-full bg-gradient-to-br ${image.color} flex flex-col items-center justify-center text-white p-6"><div class="text-6xl mb-4">${image.icon}</div><div class="text-lg font-bold text-center">${image.alt}</div></div>`;
+                  }}
+                />
+                
+                {/* Gradient Overlay */}
+                <div className={`absolute inset-0 bg-gradient-to-t ${image.color} opacity-0 group-hover:opacity-80 transition-opacity duration-500`}></div>
+                
+                {/* Content Overlay */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 p-6 text-white">
+                  <div className="text-4xl mb-3 transform scale-0 group-hover:scale-100 transition-transform duration-500">
+                    {image.icon}
+                  </div>
+                  <h3 className="text-lg font-bold text-center mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    {image.alt}
+                  </h3>
+                  <span className="text-xs font-semibold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                    {image.category}
+                  </span>
+                </div>
+
+                {/* Corner Badge */}
+                <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {image.category}
         </div>
       </div>
 
-      {/* Gallery Grid */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {filteredItems.map((item, index) => (
-            <div
-              key={item.id}
-              className="group relative bg-[#F4E1B9] rounded-2xl overflow-hidden shadow-[0_8px_30px_rgba(74,44,42,0.15)] hover:shadow-[0_8px_30px_rgba(212,160,23,0.3)] cursor-pointer animate-fade-in-up border border-[#D4A017]/20"
-              style={{ animationDelay: `${index * 100}ms` }}
-              onClick={() => setSelectedImage(item)}
-            >
-              <div className="relative h-48 md:h-64">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-8 h-8 text-[#F4E1B9]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
+              {/* Loading Skeleton */}
+              {!imageLoaded[image.id] && (
+                <div className={`absolute inset-0 bg-gradient-to-br ${image.color} opacity-20 animate-pulse`}></div>
+              )}
                 </div>
+          ))}
               </div>
-              <div className="p-4 md:p-6">
-                <h3 className="text-lg md:text-xl font-playfair font-semibold text-[#6B2D2F] mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-[#1C2526] font-lora text-sm md:text-base leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+
+        {/* Stats Section */}
+        {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {[
+            { number: '500+', label: 'Foto & Video', icon: '📸' },
+            { number: '100+', label: 'Acara', icon: '🎉' },
+            { number: '1000+', label: 'Momen Berharga', icon: '⭐' },
+            { number: '5+', label: 'Tahun Dokumentasi', icon: '📅' }
+          ].map((stat, index) => (
+            <div key={index} className="text-center p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div className="text-3xl mb-2">{stat.icon}</div>
+              <div className="text-2xl font-bold text-[#1E40AF] font-poppins mb-1">{stat.number}</div>
+              <div className="text-sm text-gray-600">{stat.label}</div>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 bg-[#1C2526]/95 z-50 flex items-center justify-center p-4 animate-fade-in"
+          className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setSelectedImage(null)}
         >
-          <div
-            className="relative max-w-4xl w-full bg-[#F4E1B9] rounded-2xl overflow-hidden animate-scale-in shadow-[0_8px_30px_rgba(212,160,23,0.3)] border border-[#D4A017]/20"
-            onClick={e => e.stopPropagation()}
-          >
-            <div className="relative h-[50vh] sm:h-[60vh] md:h-[70vh]">
-              <Image
-                src={selectedImage.image}
-                alt={selectedImage.title}
-                fill
-                className="object-contain"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1C2526]/20 to-transparent"></div>
-            </div>
-            <div className="p-4 md:p-6">
-              <h3 className="text-xl md:text-2xl font-playfair font-semibold text-[#6B2D2F] mb-2">
-                {selectedImage.title}
-              </h3>
-              <p className="text-[#1C2526] font-lora text-sm md:text-base leading-relaxed">
-                {selectedImage.description}
-              </p>
-            </div>
             <button
-              className="absolute top-4 right-4 w-10 h-10 bg-[#D4A017]/80 rounded-full flex items-center justify-center text-[#1C2526] hover:bg-[#D4A017] transition-colors duration-300"
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10 bg-white/10 backdrop-blur-sm rounded-full p-3"
               onClick={() => setSelectedImage(null)}
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
+          
+          <div
+            className="relative max-w-6xl max-h-[90vh] w-full h-full flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Image */}
+            <div className="relative w-full h-full flex items-center justify-center mb-6">
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                width={1200}
+                height={800}
+                className="object-contain max-h-[calc(90vh-100px)] rounded-2xl animate-scale-in"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  e.target.parentElement.innerHTML = `<div class="bg-gradient-to-br ${selectedImage.color} rounded-2xl flex flex-col items-center justify-center text-white p-12"><div class="text-8xl mb-6">${selectedImage.icon}</div><div class="text-3xl font-bold">${selectedImage.alt}</div></div>`;
+                }}
+              />
+            </div>
+
+            {/* Info */}
+            <div className="text-center text-white">
+              <div className={`inline-block bg-gradient-to-r ${selectedImage.color} px-4 py-2 rounded-full text-sm font-semibold mb-3`}>
+                {selectedImage.category}
+              </div>
+              <h3 className="text-2xl font-bold mb-2">{selectedImage.alt}</h3>
+            </div>
           </div>
         </div>
       )}
 
-      {/* Global styles for animations */}
+      {/* Global Styles */}
       <style jsx global>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
         @keyframes fadeIn {
           from { opacity: 0; }
           to { opacity: 1; }
         }
-        @keyframes fadeInUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
+
         @keyframes scaleIn {
-          from { opacity: 0; transform: scale(0.8); }
-          to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes floatSlow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(15px); }
-        }
-        @keyframes floatFast {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-20px); }
-        }
-        @keyframes patternScroll {
-          0% { background-position: 0 0; }
-          100% { background-position: 200px 200px; }
-        }
-        .animate-fade-in {
-          animation: fadeIn 1s ease-out forwards;
-        }
-        .animate-fade-in-up {
-          animation: fadeInUp 0.8s ease-out forwards;
-        }
-        .animate-scale-in {
-          animation: scaleIn 0.5s ease-out forwards;
-        }
-        .animate-float-slow {
-          animation: floatSlow 8s ease-in-out infinite;
-        }
-        .animate-float-fast {
-          animation: floatFast 10s ease-in-out infinite 2s;
-        }
-        .animate-pattern-scroll {
-          animation: patternScroll 60s linear infinite;
-        }
-        @media (max-width: 767px) {
-          .group:hover {
-            transform: none !important;
+          from {
+            opacity: 0;
+            transform: scale(0.9);
           }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .animate-fade-in {
+          animation: fadeIn 0.3s ease-out forwards;
+        }
+
+        .animate-scale-in {
+          animation: scaleIn 0.4s ease-out forwards;
         }
       `}</style>
     </div>
