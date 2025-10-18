@@ -1255,10 +1255,10 @@ body {
   transform: translateY(-4px) scale(1.08);
 }
 
-.cta-tutors-magnetic:hover {
+/* .cta-tutors-magnetic:hover {
   transform: translateY(-10px) scale(1.12);
   box-shadow: 0 30px 60px rgba(0, 48, 73, 0.4);
-}
+} */
 
 .cta-gallery-photo:hover {
   transform: translateY(-8px) scale(1.1);

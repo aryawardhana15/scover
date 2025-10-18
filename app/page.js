@@ -1083,16 +1083,7 @@ export default function Home() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                       </svg>
                     </span>
-                    {/* Multi-layer Background Animation */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#fabe49] to-[#ffdc30] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#003049] to-[#0c5681] opacity-100 group-hover:opacity-0 transition-opacity duration-700"></div>
-                    {/* Shimmer Effect */}
-                    <div className="absolute inset-0 -top-2 -left-2 w-full h-full bg-gradient-to-r from-transparent via-white/25 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1200"></div>
-                    {/* Pulse Ring */}
-                    <div className="absolute inset-0 rounded-3xl border-2 border-white/40 animate-pulse-ring-slow"></div>
-                    {/* Floating Icons */}
-                    <div className="absolute top-2 left-4 text-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500">👨‍🏫</div>
-                    <div className="absolute bottom-2 right-4 text-2xl opacity-30 group-hover:opacity-60 transition-opacity duration-500">🎓</div>
+                
                   </button>
                 </Link>
               </div>
@@ -1223,15 +1214,8 @@ export default function Home() {
                 </svg>
               </span>
               {/* Multi-layer Background Animation */}
-              <div className="absolute inset-0 bg-gradient-to-r from-[#F59E0B] to-[#F97316] opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] opacity-100 group-hover:opacity-0 transition-opacity duration-700"></div>
-              {/* Enhanced Shine effect */}
-              <div className="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 group-hover:left-[100%] transition-all duration-1000"></div>
-              {/* Photo Frame Effect */}
-              <div className="absolute top-2 left-3 w-6 h-6 border-2 border-white/40 rounded group-hover:border-white/80 transition-colors duration-500"></div>
-              <div className="absolute bottom-2 right-3 w-4 h-4 border-2 border-white/40 rounded group-hover:border-white/80 transition-colors duration-500"></div>
-              {/* Pulse Ring */}
-              <div className="absolute inset-0 rounded-2xl sm:rounded-3xl border-2 border-white/30 animate-pulse-ring"></div>
+           
+            
             </Link>
           </div>
 
@@ -1403,13 +1387,6 @@ export default function Home() {
                     <svg className="w-6 h-6 group-hover/btn:translate-x-2 transition-transform duration-500 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                       </svg>
-                    {/* Multi-layer Background Animation */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#fabe49] to-[#ffdc30] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700"></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#003049] to-[#0c5681] opacity-100 group-hover/btn:opacity-0 transition-opacity duration-700"></div>
-                    {/* Enhanced Shimmer */}
-                    <div className="absolute inset-0 -top-2 -left-2 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1200"></div>
-                    {/* Pulse Ring */}
-                    <div className="absolute inset-0 rounded-2xl border-2 border-white/40 animate-pulse-ring-slow"></div>
                   </button>
                 </Link>
               </div>
@@ -1434,17 +1411,7 @@ export default function Home() {
                     <svg className="w-6 h-6 group-hover/btn:translate-x-2 transition-transform duration-500 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                       </svg>
-                    {/* Multi-layer Background Animation */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#003049] to-[#0c5681] opacity-0 group-hover/btn:opacity-100 transition-opacity duration-700"></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#fabe49] to-[#ffdc30] opacity-100 group-hover/btn:opacity-0 transition-opacity duration-700"></div>
-                    {/* Enhanced Shimmer */}
-                    <div className="absolute inset-0 -top-2 -left-2 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1200"></div>
-                    {/* Pulse Ring */}
-                    <div className="absolute inset-0 rounded-2xl border-2 border-[#003049]/40 animate-pulse-ring-slow"></div>
-                    {/* Floating Particles */}
-                    <div className="absolute top-2 left-4 w-1 h-1 bg-[#003049]/30 rounded-full animate-float-particle-1"></div>
-                    <div className="absolute top-4 right-6 w-1.5 h-1.5 bg-[#0c5681]/40 rounded-full animate-float-particle-2"></div>
-                    <div className="absolute bottom-3 left-8 w-1 h-1 bg-[#fabe49]/50 rounded-full animate-float-particle-3"></div>
+                 
                   </button>
                 </Link>
               </div>
