@@ -3,15 +3,58 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
-import FAQSchema, { defaultFAQs } from '../components/FAQSchema';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [currentText, setCurrentText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   const typingTexts = ['Impian', 'Prestasi', 'Kesuksesan', 'Masa Depan'];
+
+  const programs = [
+    {
+      title: "Primary and Secondary Education",
+      subtitle: "SD • SMP • SMA • SNBT • Kedinasan",
+      description: "Program pembelajaran dasar hingga persiapan masuk perguruan tinggi dan kedinasan",
+      image: "/images/logo/primary.png",
+      stats: [
+        { label: "Program", value: "6 Jenis" },
+        { label: "Success Rate", value: "95%" }
+      ],
+      features: ["Kelas Reguler", "Persiapan SNBT", "Kedinasan", "Codelab"],
+      color: "from-[#1E3A8A] to-[#1E40AF]",
+      popular: true
+    },
+    {
+      title: "Scover Overseas Program",
+      subtitle: "TOEFL • IELTS • Bahasa • Ausbildung",
+      description: "Program persiapan studi dan kerja di luar negeri dengan sertifikasi internasional",
+      image: "/images/logo/overseas.png",
+      stats: [
+        { label: "Bahasa", value: "6 Jenis" },
+        { label: "Countries", value: "15+" }
+      ],
+      features: ["TOEFL/IELTS", "Bahasa Asing", "Ausbildung", "Visa Support"],
+      color: "from-[#10B981] to-[#059669]",
+      popular: false
+    },
+    {
+      title: "Scover Campus Connect",
+      subtitle: "Professional • Academic • Career",
+      description: "Program pengembangan profesional untuk mahasiswa dan alumni",
+      image: "/images/logo/campus.png",
+      stats: [
+        { label: "Program", value: "5 Jenis" },
+        { label: "Alumni", value: "500+" }
+      ],
+      features: ["Professional Ready", "ClassBoost", "SkillForge", "CareerBridge"],
+      color: "from-[#8B5CF6] to-[#7C3AED]",
+      popular: false
+    }
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +63,35 @@ export default function Home() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % programs.length);
+      }, 5000);
+      
+      return () => clearInterval(interval);
+    }
+  }, [isMobile, programs.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % programs.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + programs.length) % programs.length);
+  };
 
   // Typing Animation Effect
   useEffect(() => {
@@ -150,8 +222,6 @@ export default function Home() {
         <link rel="canonical" href="https://scoverbimbel.com" />
       </Head>
       
-      {/* FAQ Schema untuk SEO */}
-      <FAQSchema faqs={defaultFAQs} />
       
       <div className="relative overflow-hidden bg-white">
       {/* Hero Section - Educational Focus */}
@@ -522,171 +592,103 @@ export default function Home() {
       </section>
 
       {/* Programs Section - Interactive Design */}
-      <section className="py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+      <section className="py-12 sm:py-20 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl animate-float-slow"></div>
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-orange-400/10 rounded-full blur-3xl animate-float-fast"></div>
+          <div className="absolute top-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-blue-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 left-0 w-56 sm:w-80 h-56 sm:h-80 bg-orange-400/10 rounded-full blur-3xl"></div>
+        </div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Header */}
+          <div className="text-center mb-8 sm:mb-16">
+            <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white shadow-md rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6 border border-gray-100">
+              <span className="text-gray-700">3 Program Utama</span>
             </div>
-            
-          <div className="max-w-7xl mx-auto relative z-10">
-            <div className="text-center mb-16">
-              <div className="inline-flex items-center px-6 py-3 bg-white shadow-md rounded-full text-sm font-semibold mb-6 border border-gray-100">
-                <span className="text-gray-700">3 Program Utama</span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 font-poppins px-4">
+              <span className="text-gray-900">Temukan</span>
+              <br />
+              <span className="bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#fabe49] bg-clip-text text-transparent">
+                Program Impianmu
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+              Pilih jalur kesuksesanmu dengan program yang disesuaikan untuk setiap tujuan
+            </p>
+          </div>
+
+          {/* Desktop: Grid Layout, Mobile: Carousel */}
+          <div className="relative">
+            {/* Mobile Carousel */}
+            <div className="lg:hidden">
+              <div className="relative overflow-hidden">
+                <div 
+                  className="flex transition-transform duration-500 ease-out"
+                  style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                >
+                  {programs.map((program, index) => (
+                    <div key={index} className="w-full flex-shrink-0 px-4">
+                      <ProgramCard program={program} />
+                    </div>
+                  ))}
+                </div>
               </div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 font-poppins">
-                <span className="text-gray-900">Temukan</span>
-                <br />
-                <span className="bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#fabe49] bg-clip-text text-transparent">
-                  Program Impianmu
-                </span>
-              </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-                Pilih jalur kesuksesanmu dengan program yang disesuaikan untuk setiap tujuan
-              </p>
+
+              {/* Mobile Navigation */}
+              <div className="flex justify-center items-center mt-6 gap-4">
+                <button 
+                  onClick={prevSlide}
+                  className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all"
+                  aria-label="Previous slide"
+                >
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                
+                <div className="flex gap-2">
+                  {programs.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`transition-all duration-300 rounded-full ${
+                        idx === currentSlide 
+                          ? 'bg-blue-600 w-8 h-3' 
+                          : 'bg-gray-300 w-3 h-3'
+                      }`}
+                      aria-label={`Go to slide ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+                
+                <button 
+                  onClick={nextSlide}
+                  className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all"
+                  aria-label="Next slide"
+                >
+                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
             </div>
-    
-          {/* Interactive Program Grid - 3 Main Programs */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {[
-              {
-                title: "Primary and Secondary Education",
-                subtitle: "SD • SMP • SMA • SNBT • Kedinasan",
-                description: "Program pembelajaran dasar hingga persiapan masuk perguruan tinggi dan kedinasan",
-                icon: "",
-                stats: [
-                  { label: "Program", value: "6 Jenis" },
-                  { label: "Success Rate", value: "95%" }
-                ],
-                features: ["Kelas Reguler", "Persiapan SNBT", "Kedinasan", "Codelab"],
-                color: "from-[#1E40AF] to-[#3B82F6]",
-                textColor: "text-white",
-                popular: true
-              },
-              {
-                title: "Scover Overseas Program",
-                subtitle: "TOEFL • IELTS • Bahasa • Ausbildung",
-                description: "Program persiapan studi dan kerja di luar negeri dengan sertifikasi internasional",
-                icon: "",
-                stats: [
-                  { label: "Bahasa", value: "6 Jenis" },
-                  { label: "Countries", value: "15+" }
-                ],
-                features: ["TOEFL/IELTS", "Bahasa Asing", "Ausbildung", "Visa Support"],
-                color: "from-[#10B981] to-[#059669]",
-                textColor: "text-white",
-                popular: false
-              },
-              {
-                title: "Scover Campus Connect",
-                subtitle: "Professional • Academic • Career",
-                description: "Program pengembangan profesional untuk mahasiswa dan alumni",
-                icon: "",
-                stats: [
-                  { label: "Program", value: "5 Jenis" },
-                  { label: "Alumni", value: "500+" }
-                ],
-                features: ["Professional Ready", "ClassBoost", "SkillForge", "CareerBridge"],
-                color: "from-[#8B5CF6] to-[#7C3AED]",
-                textColor: "text-white",
-                popular: false
-              }
-            ].map((program, index) => {
-              return (
-                <Link 
-          key={index}
-                  href="/programs"
-                  className="group relative block"
+
+            {/* Desktop Grid */}
+            <div className="hidden lg:grid lg:grid-cols-3 gap-8">
+              {programs.map((program, index) => (
+                <div
+                  key={index}
                   style={{
                     animationDelay: `${index * 200}ms`,
-                    animation: 'fadeInUp 0.8s ease-out forwards',
-                    opacity: 0
+                    opacity: 0,
+                    animation: 'fadeInUp 0.8s ease-out forwards'
                   }}
                 >
-                  {/* Popular Badge */}
-                  {program.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
-                      <div className="bg-gradient-to-r from-[#fabe49] to-[#ffdc30] text-[#003049] px-4 py-1.5 rounded-full text-xs font-bold shadow-lg">
-                        ⭐ Paling Populer
-                      </div>
-                    </div>
-                  )}
-
-                  <div className={`relative bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 ${program.popular ? 'border-[#fabe49]' : 'border-gray-100'} group-hover:scale-[1.03] group-hover:-translate-y-2`}>
-                    {/* Header with Gradient */}
-                    <div className={`relative bg-gradient-to-br ${program.color} p-8 pb-10 ${program.textColor} overflow-hidden`}>
-                      {/* Decorative Elements */}
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-white/10 rounded-full -mr-12 -mt-12"></div>
-                      <div className="absolute bottom-0 left-0 w-20 h-20 bg-white/10 rounded-full -ml-10 -mb-10"></div>
-                      <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-white/5 rounded-full"></div>
-                      
-                      <div className="relative z-10">
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="text-5xl filter drop-shadow-lg">{program.icon}</div>
-                          <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
-                            <span className="text-sm font-bold">{program.stats[0].value}</span>
-                          </div>
-                        </div>
-                        
-                        <h3 className="text-2xl font-bold mb-2 font-poppins leading-tight">{program.title}</h3>
-                        <p className="text-white/90 text-sm font-medium mb-3">{program.subtitle}</p>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 pt-4">
-                      <p className="text-gray-600 mb-4 leading-relaxed text-sm">{program.description}</p>
-
-                      {/* Stats */}
-                      <div className="grid grid-cols-2 gap-3 mb-4">
-                        {program.stats.map((stat, idx) => (
-                          <div key={idx} className="bg-gray-50 rounded-xl p-3 text-center border border-gray-100">
-                            <div className="text-lg font-bold text-gray-900 mb-1">
-                              {stat.value}
-                            </div>
-                            <div className="text-xs text-gray-600 font-semibold">{stat.label}</div>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* Features List */}
-                      <div className="space-y-2 mb-6">
-                        {program.features.slice(0, 4).map((feature, idx) => (
-                          <div key={idx} className="flex items-center">
-                            <div className="w-4 h-4 rounded-full bg-green-500 flex items-center justify-center mr-3 flex-shrink-0">
-                              <svg className="w-2.5 h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                            </div>
-                            <span className="text-xs text-gray-700 font-medium">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-
-                      {/* CTA Button - Enhanced with 3D Effect */}
-                      <button className={`w-full bg-gradient-to-r ${program.color} text-white py-4 px-6 rounded-2xl font-bold text-sm hover:shadow-2xl transition-all duration-500 hover:scale-105 relative overflow-hidden group/btn cta-program-3d`}>
-                        <span className="relative z-10 flex items-center justify-center gap-3">
-                          <span>Lihat Detail Program</span>
-                            <svg className="w-5 h-5 group-hover/btn:translate-x-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                            </svg>
-                          </span>
-                          {/* Enhanced Hover Overlay */}
-                          <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity duration-500"></div>
-                          {/* Shimmer Effect */}
-                          <div className="absolute inset-0 -top-2 -left-2 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000"></div>
-                          {/* Glow Effect */}
-                          <div className="absolute inset-0 rounded-2xl shadow-lg group-hover/btn:shadow-2xl transition-shadow duration-500"></div>
-                        </button>
-                      </div>
-
-                      {/* Bottom Accent Line */}
-                      <div className={`h-1.5 bg-gradient-to-r ${program.color}`}></div>
-                    </div>
-                  </Link>
-                )
-              })}
+                  <ProgramCard program={program} />
+                </div>
+              ))}
             </div>
+          </div>
           
           {/* Bottom CTA */}
           <div className="text-center mt-16">
@@ -1876,5 +1878,109 @@ export default function Home() {
       `}</style>
     </div>
     </>
+  );
+}
+
+function ProgramCard({ program }) {
+  return (
+    <div className="group relative">
+      {/* Popular Badge */}
+      {program.popular && (
+        <div className="absolute -top-3 left-1/2 -translate-x-1/2 z-20">
+          <div className="bg-gradient-to-r from-[#fabe49] to-[#ffdc30] text-[#003049] px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold shadow-lg">
+            ⭐ Paling Populer
+          </div>
+        </div>
+      )}
+
+      <div className={`relative bg-white rounded-3xl overflow-visible shadow-lg hover:shadow-2xl transition-all duration-500 border-2 ${
+        program.popular ? 'border-[#fabe49]' : 'border-gray-100'
+      } hover:scale-[1.02] hover:-translate-y-2`}>
+        
+        {/* Header dengan layout yang benar-benar sama seperti gambar */}
+        <div className="relative bg-[#1E3A8A] h-40 sm:h-48 overflow-visible">
+          {/* Image Container - Responsif untuk mobile dan desktop */}
+          <div className="absolute left-0 sm:-left-1 md:-left-2 -top-2 sm:-top-3 md:-top-4 bottom-0 w-2/5 z-20 flex items-end justify-center">
+            <div className="w-full h-48 sm:h-56 md:h-64 flex items-end justify-center overflow-visible">
+              <img 
+                src={program.image}
+                alt={program.title}
+                className="w-full h-full object-cover object-center sm:object-bottom"
+                style={{ objectPosition: 'center' }}
+              />
+            </div>
+          </div>
+          
+          {/* Content - Right Side dengan layout responsif */}
+          <div className="absolute right-0 top-0 bottom-0 w-3/5 p-3 sm:p-4 md:p-6 flex flex-col justify-center">
+            <div className="relative z-10">
+              {/* Badge kuning di pojok kanan atas */}
+              <div className="flex items-start justify-end mb-1.5 sm:mb-2 md:mb-3">
+                <div className="bg-[#fabe49] text-[#003049] px-2 sm:px-3 py-1 sm:py-1.5 rounded-md font-semibold shadow-sm">
+                  <span className="text-xs">{program.stats[0].value}</span>
+                </div>
+              </div>
+              
+              {/* Title "Primary and Secondary Education" */}
+              <h3 className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-1.5 md:mb-2 leading-tight text-right">
+                {program.title}
+              </h3>
+              
+              {/* Subtitle "SD-SMP-SMA" */}
+              <p className="text-white text-xs sm:text-sm md:text-base font-medium text-right">{program.subtitle}</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Content - Background abu-abu responsif untuk mobile */}
+        <div className="bg-gray-100 p-3 sm:p-4 md:p-5">
+          <p className="text-gray-700 mb-2.5 sm:mb-3 md:mb-4 leading-relaxed text-xs sm:text-sm">
+            {program.description}
+          </p>
+
+          {/* Stats */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-2.5 sm:mb-3 md:mb-4">
+            {program.stats.map((stat, idx) => (
+              <div key={idx} className="bg-white rounded-lg p-2 sm:p-3 text-center border border-gray-200 shadow-sm">
+                <div className="text-sm sm:text-base md:text-lg font-bold text-gray-900 mb-0.5">
+                  {stat.value}
+                </div>
+                <div className="text-xs text-gray-600 font-medium">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Features List */}
+          <div className="space-y-1 sm:space-y-1.5 md:space-y-2 mb-3 sm:mb-4 md:mb-5">
+            {program.features.slice(0, 4).map((feature, idx) => (
+              <div key={idx} className="flex items-center">
+                <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-green-500 flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
+                  <svg className="w-2 sm:w-2.5 h-2 sm:h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <span className="text-xs sm:text-sm text-gray-700 font-medium">{feature}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA Button */}
+          <Link href="/programs">
+            <button className={`w-full bg-gradient-to-r ${program.color} text-white py-3 sm:py-4 px-4 sm:px-5 rounded-xl font-semibold text-xs sm:text-sm hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group/btn`}>
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <span>Lihat Detail Program</span>
+                <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </span>
+              <div className="absolute inset-0 bg-white opacity-0 group-hover/btn:opacity-20 transition-opacity duration-300"></div>
+            </button>
+          </Link>
+        </div>
+
+        {/* Bottom Accent Line */}
+        <div className={`h-1 sm:h-1.5 bg-gradient-to-r ${program.color}`}></div>
+      </div>
+    </div>
   );
 }

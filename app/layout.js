@@ -1,8 +1,5 @@
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
-import GoogleAnalytics, { GoogleSearchConsole } from '../components/GoogleAnalytics';
-import LoadingOptimization from '../components/LoadingOptimization';
-import WebVitals from '../components/WebVitals';
 import './globals.css';
 import { Inter, Poppins } from 'next/font/google';
 
@@ -160,16 +157,8 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#003049" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
-        {/* Google Search Console */}
-        <GoogleSearchConsole GSC_VERIFICATION_ID={process.env.NEXT_PUBLIC_GSC_VERIFICATION_ID} />
       </head>
       <body className={`${inter.className} bg-white text-gray-900`}>
-        {/* Google Analytics */}
-        <GoogleAnalytics GA_TRACKING_ID={process.env.NEXT_PUBLIC_GA_ID} />
-        
-        {/* Performance Optimizations */}
-        <LoadingOptimization />
-        <WebVitals />
         
         <Navbar />
         <main>{children}</main>
