@@ -138,11 +138,11 @@ export default function Home() {
         {/* Educational Background Elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Floating Educational Icons */}
-          <div className="particle absolute top-20 left-10 w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-2xl animate-float-slow">📚</div>
-          <div className="particle absolute top-40 right-20 w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-xl animate-float-medium">🎓</div>
-          <div className="particle absolute bottom-20 left-1/4 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-lg animate-float-fast">🏆</div>
-          <div className="particle absolute top-1/2 right-1/3 w-18 h-18 bg-purple-100 rounded-full flex items-center justify-center text-2xl animate-float-slow">📊</div>
-          <div className="particle absolute top-1/3 left-1/3 w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-sm animate-float-medium">⭐</div>
+          <div className="particle absolute top-20 left-10 w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-2xl animate-float-slow"></div>
+          <div className="particle absolute top-40 right-20 w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center text-xl animate-float-medium"></div>
+          <div className="particle absolute bottom-20 left-1/4 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-lg animate-float-fast"></div>
+          <div className="particle absolute top-1/2 right-1/3 w-18 h-18 bg-purple-100 rounded-full flex items-center justify-center text-2xl animate-float-slow"></div>
+          <div className="particle absolute top-1/3 left-1/3 w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center text-sm animate-float-medium"></div>
         </div>
         
         <div className="container mx-auto px-4 relative z-10">
@@ -214,53 +214,23 @@ export default function Home() {
             <div className="relative hidden lg:block">
               <div className="relative">
                 {/* Main Card */}
-                <div className="bg-white rounded-3xl shadow-2xl p-8 overflow-hidden border border-gray-100">
-                  {/* Achievement Badge */}
-                  <div className="absolute -top-4 -right-4 bg-gradient-to-r from-orange-400 to-orange-500 text-white px-6 py-3 rounded-2xl shadow-lg transform rotate-12">
+                <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 relative">
+                  {/* Achievement Badge - Integrated */}
+                  {/* <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-2 rounded-xl shadow-lg z-10">
                     <div className="text-sm font-bold">🏆 Terbaik 2024</div>
-                  </div>
+                  </div> */}
                   
-                  {/* Student Success Visual */}
-                  <div className="text-center mb-6">
-                    <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">
-                      🎓
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">500+ Siswa Berhasil</h3>
-                    <p className="text-gray-600">Diterima di PTN Favorit</p>
-                  </div>
-                  
-                  {/* Success Stats */}
-                  <div className="grid grid-cols-2 gap-4 mb-6">
-                    <div className="bg-blue-50 rounded-xl p-4 text-center">
-                      <div className="text-2xl font-bold text-blue-600">95%</div>
-                      <div className="text-sm text-gray-600">Kelulusan</div>
-                    </div>
-                    <div className="bg-orange-50 rounded-xl p-4 text-center">
-                      <div className="text-2xl font-bold text-orange-600">15+</div>
-                      <div className="text-sm text-gray-600">Tutor Ahli</div>
-                    </div>
-                  </div>
-                  
-                  {/* Testimonial */}
-                  <div className="bg-gray-50 rounded-xl p-4">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full flex items-center justify-center text-white font-bold">
-                        A
-                      </div>
-                      <div>
-                        <div className="font-semibold text-gray-900">Ahmad Suryadi</div>
-                        <div className="text-sm text-gray-600">Alumni 2023</div>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-600 italic">
-                      "Berhasil masuk ITB berkat bimbingan Scover. Metode belajarnya sangat efektif!"
-                    </p>
-                  </div>
+                  {/* Profile Image Only */}
+                  <img 
+                    src="/images/logo/Profil Scover.png" 
+                    alt="Profile Scover" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 {/* Floating Elements */}
-                <div className="absolute -top-6 -left-6 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-xl animate-bounce delay-300">📚</div>
-                <div className="absolute -bottom-6 -right-6 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-lg animate-bounce delay-700">⭐</div>
+                <div className="absolute -top-6 -left-6 w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-xl animate-bounce delay-300"></div>
+                <div className="absolute -bottom-6 -right-6 w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-lg animate-bounce delay-700"></div>
               </div>
             </div>
           </div>
@@ -562,7 +532,7 @@ export default function Home() {
                 title: "Primary and Secondary Education",
                 subtitle: "SD • SMP • SMA • SNBT • Kedinasan",
                 description: "Program pembelajaran dasar hingga persiapan masuk perguruan tinggi dan kedinasan",
-                icon: "🎓",
+                icon: "",
                 stats: [
                   { label: "Program", value: "6 Jenis" },
                   { label: "Success Rate", value: "95%" }
@@ -576,7 +546,7 @@ export default function Home() {
                 title: "Scover Overseas Program",
                 subtitle: "TOEFL • IELTS • Bahasa • Ausbildung",
                 description: "Program persiapan studi dan kerja di luar negeri dengan sertifikasi internasional",
-                icon: "✈️",
+                icon: "",
                 stats: [
                   { label: "Bahasa", value: "6 Jenis" },
                   { label: "Countries", value: "15+" }
@@ -590,7 +560,7 @@ export default function Home() {
                 title: "Scover Campus Connect",
                 subtitle: "Professional • Academic • Career",
                 description: "Program pengembangan profesional untuk mahasiswa dan alumni",
-                icon: "🏢",
+                icon: "",
                 stats: [
                   { label: "Program", value: "5 Jenis" },
                   { label: "Alumni", value: "500+" }

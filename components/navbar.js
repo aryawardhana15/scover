@@ -37,9 +37,7 @@ export default function Navbar() {
     { href: "/", label: "Beranda" },
     { href: "/about", label: "Tentang" },
     { href: "/programs", label: "Program" },
-    { href: "/tutors", label: "Pengajar" },
     { href: "/gallery", label: "Galeri" },
-    { href: "/timeline", label: "Timeline" },
     { href: "/partners", label: "Partner" },
   ];
 
@@ -150,70 +148,71 @@ export default function Navbar() {
           </div>
         </div>
 
-         {/* Mobile Navigation Menu dengan animasi slide */}
-         {isMenuOpen && (
-           <div className="lg:hidden">
-             <div className="px-4 pt-4 pb-6 bg-gradient-to-br from-white via-gray-50 to-blue-50 shadow-2xl rounded-2xl mt-3 border border-gray-100">
-               {/* Header dengan logo */}
-               <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
-                 <div className="flex items-center">
-                   <Image
-                     src="/images/logo/logo2.png"
-                     alt="Scover Bimbel"
-                     width={120}
-                     height={35}
-                     className="h-8 w-auto"
-                   />
-                 </div>
-                 <button
-                   onClick={() => setIsMenuOpen(false)}
-                   className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
-                 >
-                   <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                   </svg>
-                 </button>
-               </div>
+        {/* PERBAIKAN: Mobile Navigation Menu dengan animasi yang benar */}
+        <div className={`lg:hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen 
+            ? 'max-h-96 opacity-100 visible' 
+            : 'max-h-0 opacity-0 invisible'
+        }`}>
+          <div className="px-4 pt-4 pb-6 bg-gradient-to-br from-white via-gray-50 to-blue-50 shadow-2xl rounded-2xl mt-3 border border-gray-100">
+            {/* Header dengan logo */}
+            <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
+              <div className="flex items-center">
+                <Image
+                  src="/images/logo/logo2.png"
+                  alt="Scover Bimbel"
+                  width={120}
+                  height={35}
+                  className="h-8 w-auto"
+                />
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-200"
+              >
+                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
 
-               {/* Navigation Links dengan icon */}
-               <div className="space-y-3 mb-6">
-                 {navLinks.map((link, index) => (
-                   <Link
-                     key={link.href}
-                     href={link.href}
-                     className="flex items-center px-4 py-3 text-gray-700 hover:text-[#003049] hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 text-base font-medium rounded-xl transition-all duration-300 group"
-                     onClick={() => setIsMenuOpen(false)}
-                   >
-                     <div className="w-2 h-2 bg-gradient-to-r from-[#003049] to-[#0c5681] rounded-full mr-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                     <span className="flex-1">{link.label}</span>
-                     <svg className="w-4 h-4 text-gray-400 group-hover:text-[#003049] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                     </svg>
-                   </Link>
-                 ))}
-               </div>
-               
-               {/* Mobile CTA Button dengan gradient */}
-               <div className="pt-4 border-t border-gray-200">
-                 <Link
-                   href="/registration"
-                   className="block w-full bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#003049] text-white px-6 py-4 rounded-xl text-base font-bold text-center hover:shadow-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
-                   onClick={() => setIsMenuOpen(false)}
-                 >
-                   <div className="absolute inset-0 bg-gradient-to-r from-[#ffdc30] to-[#fabe49] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-                   <span className="relative flex items-center justify-center space-x-2">
-                     <span>Daftar Sekarang</span>
-                     <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                     </svg>
-                   </span>
-                 </Link>
-               </div>
-             </div>
-           </div>
-         )}
+            {/* Navigation Links dengan icon */}
+            <div className="space-y-3 mb-6">
+              {navLinks.map((link, index) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="flex items-center px-4 py-3 text-gray-700 hover:text-[#003049] hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 text-base font-medium rounded-xl transition-all duration-300 group"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <div className="w-2 h-2 bg-gradient-to-r from-[#003049] to-[#0c5681] rounded-full mr-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <span className="flex-1">{link.label}</span>
+                  <svg className="w-4 h-4 text-gray-400 group-hover:text-[#003049] group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              ))}
+            </div>
+            
+            {/* Mobile CTA Button dengan gradient */}
+            <div className="pt-4 border-t border-gray-200">
+              <Link
+                href="/registration"
+                className="block w-full bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#003049] text-white px-6 py-4 rounded-xl text-base font-bold text-center hover:shadow-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-[#ffdc30] to-[#fabe49] opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                <span className="relative flex items-center justify-center space-x-2">
+                  <span>Daftar Sekarang</span>
+                  <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </span>
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-
     </nav>
   );
 }
