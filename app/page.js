@@ -2,6 +2,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Head from 'next/head';
+import FAQSchema, { defaultFAQs } from '../components/FAQSchema';
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -132,7 +134,26 @@ export default function Home() {
 
 
   return (
-    <div className="relative overflow-hidden bg-white">
+    <>
+      <Head>
+        <title>Scover Bimbel - Bimbingan Belajar Terbaik di Malang | UTBK, SBMPTN, Kedinasan</title>
+        <meta name="description" content="Scover Bimbel Malang - Bimbingan belajar terpercaya dengan pengajar berkualitas. Program UTBK, SBMPTN, Kedinasan, TOEFL, dan Studi Luar Negeri. 90% siswa berhasil masuk PTN favorit." />
+        <meta name="keywords" content="bimbel malang, bimbingan belajar malang, UTBK malang, SBMPTN malang, kedinasan malang, TOEFL malang, bimbel terbaik malang, tutor malang, les malang, bimbel UTBK malang" />
+        <meta property="og:title" content="Scover Bimbel - Bimbingan Belajar Terbaik di Malang" />
+        <meta property="og:description" content="Bimbingan belajar terpercaya dengan pengajar berkualitas untuk program UTBK, SBMPTN, Kedinasan, TOEFL, dan Studi Luar Negeri." />
+        <meta property="og:image" content="https://scoverbimbel.com/images/logo/logo2.png" />
+        <meta property="og:url" content="https://scoverbimbel.com" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Scover Bimbel - Bimbingan Belajar Terbaik di Malang" />
+        <meta name="twitter:description" content="Bimbingan belajar terpercaya dengan pengajar berkualitas untuk program UTBK, SBMPTN, Kedinasan, TOEFL, dan Studi Luar Negeri." />
+        <meta name="twitter:image" content="https://scoverbimbel.com/images/logo/logo2.png" />
+        <link rel="canonical" href="https://scoverbimbel.com" />
+      </Head>
+      
+      {/* FAQ Schema untuk SEO */}
+      <FAQSchema faqs={defaultFAQs} />
+      
+      <div className="relative overflow-hidden bg-white">
       {/* Hero Section - Educational Focus */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-blue-50 via-white to-orange-50 relative overflow-hidden min-h-screen flex items-center">
         {/* Educational Background Elements */}
@@ -1854,5 +1875,6 @@ export default function Home() {
         }
       `}</style>
     </div>
+    </>
   );
 }
