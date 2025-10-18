@@ -22,7 +22,7 @@ export default function Home() {
       image: "/images/logo/primary.png",
       stats: [
         { label: "Program", value: "6 Jenis" },
-        { label: "Success Rate", value: "95%" }
+        { label: "Success Rate", value: "86%" }
       ],
       features: ["Kelas Reguler", "Persiapan SNBT", "Kedinasan", "Codelab"],
       color: "from-[#1E3A8A] to-[#1E40AF]",
@@ -37,7 +37,7 @@ export default function Home() {
         { label: "Bahasa", value: "6 Jenis" },
         { label: "Countries", value: "15+" }
       ],
-      features: ["TOEFL/IELTS", "Bahasa Asing", "Ausbildung", "Visa Support"],
+      features: ["TOEFL/IELTS", "Bahasa Asing", "Ausbildung"],
       color: "from-[#10B981] to-[#059669]",
       popular: false
     },
@@ -243,7 +243,7 @@ export default function Home() {
               {/* Educational Badge */}
               <div className="mb-8 animate-slide-down">
                 <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#003049] to-[#0c5681] text-white rounded-full px-6 py-3 shadow-lg mb-6">
-                  <span className="text-2xl">🎓</span>
+                <img src="/images/logo/logo.png" alt="Scover Logo" className="w-6 h-6" />
                   <span className="text-sm font-medium">#1 Bimbel Terpercaya di Malang</span>
                 </div>
               </div>
@@ -258,17 +258,17 @@ export default function Home() {
               </h1>
               
               {/* Educational Description */}
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed animate-fade-in">
+              {/* <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 mb-6 sm:mb-8 leading-relaxed animate-fade-in">
                 Bimbingan belajar berkualitas dengan metode terbukti, tutor berpengalaman, dan fasilitas modern untuk kesuksesan akademikmu.
-              </p>
+              </p> */}
               
               {/* Educational Features */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8 animate-scale-in">
                 {[
-                  { icon: "👨‍🏫", text: "Tutor Berpengalaman" },
-                  { icon: "📈", text: "95% Success Rate" },
-                  { icon: "🏆", text: "Prestasi Terbukti" },
-                  { icon: "💻", text: "Fasilitas Modern" }
+                  { icon: "", text: "Tutor Berpengalaman" },
+                  { icon: "", text: "86% Success Rate" },
+                  { icon: "", text: "Prestasi Terbukti" },
+                  { icon: "", text: "Fasilitas Modern" }
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center space-x-2 sm:space-x-3 bg-white rounded-lg sm:rounded-xl p-3 sm:p-4 shadow-md hover:shadow-lg transition-all duration-300">
                     <span className="text-lg sm:text-2xl">{feature.icon}</span>
@@ -279,18 +279,9 @@ export default function Home() {
               
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
-                <Link href="/registration" className="group relative bg-gradient-to-r from-[#003049] to-[#0c5681] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#fabe49] to-[#ffdc30] rounded-2xl opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
-                  <span className="relative z-10 flex items-center justify-center gap-2">
-                    <span>Daftar Sekarang</span>
-                    <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#fabe49] to-[#ffdc30] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </Link>
+                
 
-                <Link href="/programs" className="group relative bg-white text-[#003049] px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-[#003049]">
+                <Link href="/programs" className="group relative bg-gradient-to-r from-[#003049] to-[#0c5681] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden">
                   <span className="relative z-10 flex items-center justify-center gap-2">
                     <span>Lihat Program</span>
                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -305,7 +296,7 @@ export default function Home() {
             <div className="relative hidden lg:block">
               <div className="relative">
                 {/* Main Card */}
-                <div className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-gray-100 relative">
+                <div className=" rounded-3xl  overflow-hidden  relative">
                   {/* Achievement Badge - Integrated */}
                   {/* <div className="absolute top-4 right-4 bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-2 rounded-xl shadow-lg z-10">
                     <div className="text-sm font-bold">🏆 Terbaik 2024</div>
@@ -330,64 +321,57 @@ export default function Home() {
 
       {/* About Section - Schoters Style with Alumni Carousel */}
       <section className="py-20 bg-white relative overflow-hidden">
+        
         <div className="container mx-auto px-4">
+           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto">
             {/* Left Side - Content */}
-            <div className="space-y-6">
-              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#ffdc30] to-[#fabe49] rounded-full px-6 py-3 mb-4 shadow-md">
-                <span className="text-2xl">💡</span>
-                <span className="font-bold text-[#003049]">Sekilas Tentang Kami</span>
+            <div className="space-y-8">
+            {/* Badge with floating animation */}
+          {/* Educational Badge */}
+          <div className="mb-8 animate-slide-down">
+                <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#fabe49] to-[#ffdc30] text-white rounded-full px-6 py-3 shadow-lg mb-6">
+                 
+                  <span className="text-sm font-medium">Sekilas Tentang Kami</span>
+                </div>
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-poppins font-black text-gray-900 leading-tight">
-                Mengapa Memilih <br />
-                <span className="bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#fabe49] bg-clip-text text-transparent">
+            {/* Main Heading with 3D effect */}
+            <div className="relative">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
+                <span className="block text-gray-900 mb-2">Mengapa</span>
+                <span className="block text-gray-900 mb-2">Memilih</span>
+                <span className="relative inline-block">
+                  <span className="absolute -inset-1 bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#fabe49] blur-lg opacity-75"></span>
+                  <span className="relative bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#fabe49] bg-clip-text text-transparent">
                   Scover?
+                  </span>
+                  <div className="absolute -right-8 -top-4 w-12 h-12 bg-yellow-400 rounded-full flex items-center justify-center shadow-xl transform rotate-12 animate-bounce">
+                    
+                  </div>
                 </span>
               </h2>
+            </div>
               
-              <p className="text-lg text-gray-600 leading-relaxed">
+            {/* Description */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border-2 border-gray-100">
+              <p className="text-lg text-gray-700 leading-relaxed">
                 Kami memberikan pengalaman belajar yang berbeda dengan pendekatan personal dan teknologi modern untuk mencapai target akademik Anda.
               </p>
-              
-              <div className="space-y-4">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center">
-                    <span className="text-white text-xl">👨‍🏫</span>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-lg mb-1">Tutor Berpengalaman</h3>
-                    <p className="text-gray-600">Dibimbing langsung oleh alumni PTN terbaik dengan track record mengajar terbukti</p>
-                  </div>
                 </div>
                 
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center">
-                    <span className="text-white text-xl">📚</span>
+            {/* CTA Button with creative design */}
+            <div className="pt-4">
+              <button className="group relative inline-flex items-center space-x-3 bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#003049] text-white px-10 py-5 rounded-full font-bold text-lg shadow-2xl hover:shadow-[#003049]/50 transition-all duration-300 transform hover:scale-105 overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#fabe49] to-[#ffdc30] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                <span className="relative z-10 group-hover:text-[#003049] transition-colors">Pelajari Lebih Lanjut</span>
+                <div className="relative z-10 w-8 h-8 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-90 transition-transform duration-500">
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-lg mb-1">Metode Terbukti</h3>
-                    <p className="text-gray-600">Sistem pembelajaran yang sudah terbukti efektif dengan hasil nyata</p>
+              </button>
                   </div>
-                </div>
-                
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center">
-                    <span className="text-white text-xl">💻</span>
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-900 text-lg mb-1">Fasilitas Modern</h3>
-                    <p className="text-gray-600">Ruang belajar nyaman dengan teknologi pembelajaran terkini</p>
-                  </div>
-                </div>
-              </div>
-              
-              <Link href="/about" className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#003049] to-[#0c5681] text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
-                <span>Pelajari Lebih Lanjut</span>
-                <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
-              </Link>
             </div>
             
             {/* Right Side - Alumni Carousel (3 rows, zig-zag direction) */}
@@ -757,7 +741,7 @@ export default function Home() {
                         "Lulusan UI Fisika",
                         "Alumni beasiswa LPDP",
                         "Mentor Olimpiade Fisika",
-                        "95% siswa lolos PTN impian"
+                        "86% siswa lolos PTN impian"
                       ],
                       color: "green",
                       photo: "budi.png"
@@ -1018,7 +1002,7 @@ export default function Home() {
                             </p>
                             
                             {/* Achievements with green checkmarks */}
-                            <div className="space-y-3">
+                            {/* <div className="space-y-3">
                               {tutor.achievements.map((achievement, idx) => (
                                 <div key={idx} className="flex items-start">
                                   <div className="flex-shrink-0 mt-1">
@@ -1031,7 +1015,7 @@ export default function Home() {
                                   </p>
                                 </div>
                               ))}
-                            </div>
+                            </div> */}
                           </div>
                         </div>
                       </div>

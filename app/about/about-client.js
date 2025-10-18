@@ -36,26 +36,6 @@ export default function AboutClient() {
         </>
       ),
     },
-    nilai: {
-      title: 'Nilai-Nilai',
-      icon: '💎',
-      content: (
-        <>
-          <p>
-            <strong>Integritas:</strong> Kami mengutamakan kejujuran dan transparansi dalam setiap aspek pembelajaran.
-          </p>
-          <p>
-            <strong>Kualitas:</strong> Komitmen untuk memberikan pendidikan terbaik dengan standar tinggi.
-          </p>
-          <p>
-            <strong>Inovasi:</strong> Terus mengembangkan metode pembelajaran yang efektif dan modern.
-          </p>
-          <p>
-            <strong>Dedikasi:</strong> Berkomitmen penuh untuk kesuksesan setiap siswa.
-          </p>
-        </>
-      ),
-    },
   };
 
   return (
@@ -89,7 +69,7 @@ export default function AboutClient() {
         <div className="mb-20">
           <div className="flex justify-center mb-12">
             <div className="inline-flex rounded-2xl bg-white shadow-2xl p-2 border border-gray-200">
-              {['visi', 'sejarah', 'nilai'].map((tab) => (
+              {['visi', 'sejarah'].map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
@@ -99,7 +79,7 @@ export default function AboutClient() {
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >
-                  {tab === 'visi' ? '🎯 Visi & Misi' : tab === 'sejarah' ? '📚 Sejarah' : '💎 Nilai-Nilai'}
+                  {tab === 'visi' ? ' Visi & Misi' : ' Sejarah'}
                 </button>
               ))}
             </div>
@@ -134,15 +114,15 @@ export default function AboutClient() {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-blue-100">Tingkat Kelulusan</span>
-                    <span className="text-2xl font-bold">95%</span>
+                    <span className="text-2xl font-bold">86%</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-blue-100">Tahun Pengalaman</span>
-                    <span className="text-2xl font-bold">10+</span>
+                    <span className="text-2xl font-bold">5+</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-blue-100">Tutor Ahli</span>
-                    <span className="text-2xl font-bold">15+</span>
+                    <span className="text-2xl font-bold">80+</span>
                   </div>
                 </div>
               </div>
@@ -153,7 +133,7 @@ export default function AboutClient() {
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-[#1E40AF] rounded-full mr-3"></div>
-                    <span className="text-gray-700">Didirikan tahun 2014</span>
+                    <span className="text-gray-700">Didirikan tahun 2023</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-[#F59E0B] rounded-full mr-3"></div>
@@ -161,7 +141,7 @@ export default function AboutClient() {
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-[#10B981] rounded-full mr-3"></div>
-                    <span className="text-gray-700">4 Program Utama</span>
+                    <span className="text-gray-700">3 Program Utama</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-2 h-2 bg-[#8B5CF6] rounded-full mr-3"></div>
@@ -173,40 +153,7 @@ export default function AboutClient() {
           </div>
         </div>
 
-        {/* Team Section */}
-        <div className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-gray-900 via-[#1E40AF] to-gray-900 bg-clip-text text-transparent">
-                Tim
-              </span>
-              <span className="text-[#F59E0B]"> Profesional</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Dibalik kesuksesan Scover Bimbel, ada tim yang berdedikasi dan berpengalaman
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { name: "Direktur", role: "Pendiri & CEO", icon: "👨‍💼", color: "from-[#1E40AF] to-[#3B82F6]" },
-              { name: "Manajer Akademik", role: "Kurikulum & Kualitas", icon: "👩‍💼", color: "from-[#10B981] to-[#059669]" },
-              { name: "Koordinator Tutor", role: "Pengembangan SDM", icon: "👨‍🏫", color: "from-[#F59E0B] to-[#F97316]" },
-              { name: "Marketing Manager", role: "Promosi & Kerjasama", icon: "👩‍💻", color: "from-[#8B5CF6] to-[#7C3AED]" }
-            ].map((member, index) => (
-              <div key={index} className="group">
-                <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 text-center">
-                  <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-br ${member.color} rounded-2xl flex items-center justify-center text-2xl text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    {member.icon}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-sm text-[#1E40AF] font-semibold">{member.role}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
+       
         {/* Call to Action */}
         <div className="text-center">
           <div className="bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] rounded-3xl p-12 text-white relative overflow-hidden">
