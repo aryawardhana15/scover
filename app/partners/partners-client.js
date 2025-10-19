@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function PartnersClient() {
   const partners = [
@@ -63,22 +64,22 @@ export default function PartnersClient() {
 
   const benefits = [
     {
-      icon: '🤝',
+      illustration: '/images/logo/kerjasama strategis.png',
       title: 'Kerjasama Strategis',
       description: 'Menjalin kemitraan yang saling menguntungkan dengan institusi pendidikan terpercaya'
     },
     {
-      icon: '📚',
+      illustration: '/images/logo/Program khusus.png',
       title: 'Program Khusus',
       description: 'Menyediakan program khusus untuk siswa dari sekolah mitra dengan harga khusus'
     },
     {
-      icon: '🎯',
+      illustration: '/images/logo/targeted learning.png',
       title: 'Targeted Learning',
       description: 'Pembelajaran yang disesuaikan dengan kurikulum dan kebutuhan sekolah mitra'
     },
     {
-      icon: '📊',
+      illustration: '/images/logo/laporan berkala.png',
       title: 'Laporan Berkala',
       description: 'Memberikan laporan progress siswa secara berkala kepada sekolah mitra'
     }
@@ -87,14 +88,14 @@ export default function PartnersClient() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-28 px-6 bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] overflow-hidden">
+      <section className="relative py-28 px-6 bg-gradient-to-br from-[#003049] to-[#0c5681] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('/images/education-pattern.png')] bg-repeat bg-[length:300px] mix-blend-overlay"></div>
         </div>
         
         <div className="max-w-6xl mx-auto text-center relative z-10">
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-            Mitra <span className="text-[#F59E0B]">Kerjasama</span>
+            Mitra <span className="text-[#fabe49]">Kerjasama</span>
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             Bekerjasama dengan sekolah, universitas, dan institusi pendidikan terpercaya untuk memberikan pendidikan terbaik
@@ -104,26 +105,53 @@ export default function PartnersClient() {
 
       {/* Benefits Section */}
       <section className="py-16 px-6 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Keuntungan <span className="text-[#1E40AF]">Kerjasama</span>
+              Keuntungan <span className="text-[#003049]">Kerjasama</span>
             </h2>
             <p className="text-xl text-gray-600">
               Mengapa sekolah memilih bekerjasama dengan Scover Bimbel?
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] rounded-full flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
-                  {benefit.icon}
+          {/* Horizontal Banner Layout */}
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-4 divide-y lg:divide-y-0 lg:divide-x divide-gray-200">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="p-8 text-center group hover:bg-gray-50 transition-all duration-300">
+                  {/* Illustration */}
+                  <div className="mb-6 flex justify-center">
+                    <div className="relative w-32 h-32">
+                      <Image
+                        src={benefit.illustration}
+                        alt={benefit.title}
+                        fill
+                        className="object-contain group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.parentElement.innerHTML = `
+                            <div class="w-32 h-32 bg-gradient-to-br from-[#003049] to-[#0c5681] rounded-2xl flex items-center justify-center">
+                              <div class="text-white text-4xl font-bold">${benefit.title.charAt(0)}</div>
+                            </div>
+                          `;
+                        }}
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[#003049] transition-colors duration-300">
+                    {benefit.title}
+                  </h3>
+                  
+                  {/* Description */}
+                  <p className="text-gray-600 leading-relaxed text-sm">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">{benefit.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -133,7 +161,7 @@ export default function PartnersClient() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Jaringan <span className="text-[#1E40AF]">Kerjasama</span> Kami
+              Jaringan <span className="text-[#003049]">Kerjasama</span> Kami
             </h2>
             <p className="text-xl text-gray-600">
               Lebih dari 50 institusi pendidikan telah mempercayai Scover Bimbel
@@ -148,9 +176,9 @@ export default function PartnersClient() {
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {category.schools.map((school, schoolIndex) => (
-                  <div key={schoolIndex} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-[#1E40AF] p-6">
+                  <div key={schoolIndex} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-[#003049] p-6">
                     <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] rounded-lg flex items-center justify-center text-2xl mr-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-[#003049] to-[#0c5681] rounded-lg flex items-center justify-center text-2xl mr-4">
                         {school.logo}
                       </div>
                       <div>
@@ -161,11 +189,11 @@ export default function PartnersClient() {
                     
                     <div className="space-y-2">
                       <div className="flex items-center text-sm text-gray-600">
-                        <span className="w-2 h-2 bg-[#1E40AF] rounded-full mr-2"></span>
+                        <span className="w-2 h-2 bg-[#003049] rounded-full mr-2"></span>
                         <span>Lokasi: {school.location}</span>
                       </div>
                       <div className="flex items-center text-sm text-gray-600">
-                        <span className="w-2 h-2 bg-[#F59E0B] rounded-full mr-2"></span>
+                        <span className="w-2 h-2 bg-[#fabe49] rounded-full mr-2"></span>
                         <span>Status: Mitra Aktif</span>
                       </div>
                     </div>
@@ -182,7 +210,7 @@ export default function PartnersClient() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Proses <span className="text-[#1E40AF]">Kerjasama</span>
+              Proses <span className="text-[#003049]">Kerjasama</span>
             </h2>
             <p className="text-xl text-gray-600">
               Langkah-langkah untuk menjadi mitra Scover Bimbel
@@ -213,7 +241,7 @@ export default function PartnersClient() {
               }
             ].map((process, index) => (
               <div key={index} className="text-center">
-                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] rounded-full flex items-center justify-center text-white font-bold text-xl">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-[#003049] to-[#0c5681] rounded-full flex items-center justify-center text-white font-bold text-xl">
                   {process.step}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4">{process.title}</h3>
@@ -225,7 +253,7 @@ export default function PartnersClient() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 px-6 bg-gradient-to-br from-[#1E40AF] to-[#3B82F6]">
+      <section className="py-16 px-6 bg-gradient-to-br from-[#003049] to-[#0c5681]">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ingin Menjadi Mitra Kami?
@@ -235,12 +263,12 @@ export default function PartnersClient() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-6">
             <Link href="/contact">
-              <button className="bg-white text-[#1E40AF] px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300">
+              <button className="bg-white text-[#003049] px-8 py-4 rounded-full font-bold text-lg hover:shadow-lg transition-all duration-300">
                 Hubungi Tim Kerjasama
               </button>
             </Link>
             <Link href="/programs">
-              <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#1E40AF] transition-all duration-300">
+              <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#003049] transition-all duration-300">
                 Lihat Program Kerjasama
               </button>
             </Link>

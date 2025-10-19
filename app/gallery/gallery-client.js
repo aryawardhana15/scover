@@ -6,23 +6,23 @@ import Image from 'next/image';
 // All gallery images with varied sizes for dynamic masonry layout
 const galleryImages = [
   // Row 1 - Mixed sizes
-  { id: 1, src: '/images/gallery/1.jpg', alt: 'Kelas Pembelajaran Scover', category: 'Fasilitas', icon: '🏫', color: 'from-[#1E40AF] to-[#3B82F6]', span: 'col-span-2 row-span-2' },
-  { id: 2, src: '/images/gallery/2.jpg', alt: 'Sesi Belajar Intensif', category: 'Kegiatan', icon: '👥', color: 'from-[#10B981] to-[#059669]', span: 'col-span-1 row-span-1' },
-  { id: 3, src: '/images/gallery/3.jpg', alt: 'Kelas Diskusi Interaktif', category: 'Kegiatan', icon: '💬', color: 'from-[#F59E0B] to-[#F97316]', span: 'col-span-1 row-span-1' },
+  { id: 1, src: '/images/gallery/1.jpg', alt: 'Kelas Pembelajaran Scover', category: 'Fasilitas', icon: '', color: 'from-[#003049] to-[#0c5681]', span: 'col-span-2 row-span-2' },
+  { id: 2, src: '/images/gallery/2.jpg', alt: 'Sesi Belajar Intensif', category: 'Kegiatan', icon: '', color: 'from-[#fabe49] to-[#ffdc30]', span: 'col-span-1 row-span-1' },
+  { id: 3, src: '/images/gallery/3.jpg', alt: 'Kelas Diskusi Interaktif', category: 'Kegiatan', icon: '', color: 'from-[#0c5681] to-[#003049]', span: 'col-span-1 row-span-1' },
   
   // Row 2
-  { id: 4, src: '/images/gallery/4.JPG', alt: 'Belajar & Kebersamaan', category: 'Fasilitas', icon: '💻', color: 'from-[#1E40AF] to-[#3B82F6]', span: 'col-span-1 row-span-1' },
-  { id: 5, src: '/images/gallery/5.jpg', alt: 'Workshop Pendidikan', category: 'Kegiatan', icon: '📊', color: 'from-[#10B981] to-[#059669]', span: 'col-span-1 row-span-2' },
-  { id: 6, src: '/images/gallery/6.jpg', alt: 'Ruang Belajar Nyaman', category: 'Fasilitas', icon: '🏠', color: 'from-[#8B5CF6] to-[#7C3AED]', span: 'col-span-2 row-span-1' },
+  { id: 4, src: '/images/gallery/4.JPG', alt: 'Belajar & Kebersamaan', category: 'Fasilitas', icon: '', color: 'from-[#003049] to-[#0c5681]', span: 'col-span-1 row-span-1' },
+  { id: 5, src: '/images/gallery/5.jpg', alt: 'Workshop Pendidikan', category: 'Kegiatan', icon: '', color: 'from-[#fabe49] to-[#ffdc30]', span: 'col-span-1 row-span-2' },
+  { id: 6, src: '/images/gallery/6.jpg', alt: 'Ruang Belajar Nyaman', category: 'Fasilitas', icon: '', color: 'from-[#0c5681] to-[#003049]', span: 'col-span-2 row-span-1' },
   
   // Row 3
-  { id: 7, src: '/images/gallery/7.jpg', alt: 'Sesi Konsultasi', category: 'Kegiatan', icon: '📚', color: 'from-[#1E40AF] to-[#3B82F6]', span: 'col-span-1 row-span-2' },
-  { id: 8, src: '/images/gallery/8.JPG', alt: 'Event Scover', category: 'Acara', icon: '🎉', color: 'from-[#10B981] to-[#059669]', span: 'col-span-2 row-span-1' },
-  { id: 9, src: '/images/gallery/9.jpg', alt: 'Keakraban Siswa', category: 'kegiatan', icon: '🏆', color: 'from-[#8B5CF6] to-[#7C3AED]', span: 'col-span-1 row-span-1' },
+  { id: 7, src: '/images/gallery/7.jpg', alt: 'Sesi Konsultasi', category: 'Kegiatan', icon: '', color: 'from-[#003049] to-[#0c5681]', span: 'col-span-1 row-span-2' },
+  { id: 8, src: '/images/gallery/8.JPG', alt: 'Event Scover', category: 'Acara', icon: '', color: 'from-[#fabe49] to-[#ffdc30]', span: 'col-span-2 row-span-1' },
+  { id: 9, src: '/images/gallery/9.jpg', alt: 'Keakraban Siswa', category: 'kegiatan', icon: '', color: 'from-[#0c5681] to-[#003049]', span: 'col-span-1 row-span-1' },
   
   // Row 4
-  { id: 10, src: '/images/gallery/10.jpg', alt: 'Momen Kelulusan', category: 'Acara', icon: '🎓', color: 'from-[#10B981] to-[#059669]', span: 'col-span-1 row-span-1' },
-  { id: 11, src: '/images/gallery/11.JPG', alt: 'Aktivitas Tambahan', category: 'Kegiatan', icon: '✨', color: 'from-[#F59E0B] to-[#F97316]', span: 'col-span-1 row-span-1' },
+  { id: 10, src: '/images/gallery/10.jpg', alt: 'Momen Kelulusan', category: 'Acara', icon: '', color: 'from-[#fabe49] to-[#ffdc30]', span: 'col-span-1 row-span-1' },
+  { id: 11, src: '/images/gallery/11.JPG', alt: 'Aktivitas Tambahan', category: 'Kegiatan', icon: '', color: 'from-[#003049] to-[#0c5681]', span: 'col-span-1 row-span-1' },
 ];
 
 export default function GalleryClient() {
@@ -33,22 +33,22 @@ export default function GalleryClient() {
     <div className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-white min-h-screen">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#1E40AF]/10 to-[#3B82F6]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-br from-[#F59E0B]/10 to-[#F97316]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#003049]/10 to-[#0c5681]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-br from-[#fabe49]/10 to-[#ffdc30]/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block px-4 sm:px-6 py-2 bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] text-white rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
-            📸 Galeri Kami
+          <div className="inline-block px-4 sm:px-6 py-2 bg-gradient-to-r from-[#003049] to-[#0c5681] text-white rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
+            Galeri Kami
       </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-poppins px-4">
-            <span className="bg-gradient-to-r from-gray-900 via-[#1E40AF] to-gray-900 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-900 via-[#003049] to-gray-900 bg-clip-text text-transparent">
               Momen
             </span>
             <br />
-            <span className="text-[#F59E0B]">Kebersamaan</span>
+            <span className="text-[#fabe49]">Kebersamaan</span>
   </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Dokumentasi kegiatan, fasilitas, dan pencapaian di Scover Bimbel
@@ -79,7 +79,7 @@ export default function GalleryClient() {
                   onLoadingComplete={() => setImageLoaded(prev => ({ ...prev, [image.id]: true }))}
                   onError={(e) => {
                     e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = `<div class="w-full h-full bg-gradient-to-br ${image.color} flex flex-col items-center justify-center text-white p-6"><div class="text-6xl mb-4">${image.icon}</div><div class="text-lg font-bold text-center">${image.alt}</div></div>`;
+                    e.target.parentElement.innerHTML = `<div class="w-full h-full bg-gradient-to-br ${image.color} flex flex-col items-center justify-center text-white p-6"><div class="text-lg font-bold text-center">${image.alt}</div></div>`;
                   }}
                 />
                 
@@ -88,9 +88,6 @@ export default function GalleryClient() {
                 
                 {/* Content Overlay */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 p-6 text-white">
-                  <div className="text-4xl mb-3 transform scale-0 group-hover:scale-100 transition-transform duration-500">
-                    {image.icon}
-                  </div>
                   <h3 className="text-lg font-bold text-center mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     {image.alt}
                   </h3>
@@ -159,7 +156,7 @@ export default function GalleryClient() {
                 className="object-contain max-h-[calc(90vh-100px)] rounded-2xl animate-scale-in"
                 onError={(e) => {
                   e.target.style.display = 'none';
-                  e.target.parentElement.innerHTML = `<div class="bg-gradient-to-br ${selectedImage.color} rounded-2xl flex flex-col items-center justify-center text-white p-12"><div class="text-8xl mb-6">${selectedImage.icon}</div><div class="text-3xl font-bold">${selectedImage.alt}</div></div>`;
+                  e.target.parentElement.innerHTML = `<div class="bg-gradient-to-br ${selectedImage.color} rounded-2xl flex flex-col items-center justify-center text-white p-12"><div class="text-3xl font-bold">${selectedImage.alt}</div></div>`;
                 }}
               />
             </div>

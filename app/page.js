@@ -11,6 +11,82 @@ export default function Home() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  
+  // Touch/Swipe functionality
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+  const [partnersScrollPosition, setPartnersScrollPosition] = useState(0);
+
+  // Touch event handlers
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (carouselType) => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      // Swipe left - next slide
+      if (carouselType === 'hero') {
+        setCurrentSlide((prev) => (prev + 1) % programs.length);
+      } else if (carouselType === 'partners') {
+        // For partners carousel, we can pause animation temporarily or adjust speed
+        const partnersWrapper = document.querySelector('.partners-carousel-wrapper');
+        if (partnersWrapper) {
+          partnersWrapper.style.animationPlayState = 'paused';
+          setTimeout(() => {
+            partnersWrapper.style.animationPlayState = 'running';
+          }, 1000);
+        }
+      } else if (carouselType === 'alumni') {
+        // For alumni carousel, pause all alumni animations temporarily
+        const alumniRows = document.querySelectorAll('.alumni-carousel-row-1, .alumni-carousel-row-2, .alumni-carousel-row-3');
+        alumniRows.forEach(row => {
+          row.style.animationPlayState = 'paused';
+        });
+        setTimeout(() => {
+          alumniRows.forEach(row => {
+            row.style.animationPlayState = 'running';
+          });
+        }, 1000);
+      }
+    }
+    if (isRightSwipe) {
+      // Swipe right - previous slide
+      if (carouselType === 'hero') {
+        setCurrentSlide((prev) => (prev - 1 + programs.length) % programs.length);
+      } else if (carouselType === 'partners') {
+        // For partners carousel, we can pause animation temporarily or adjust speed
+        const partnersWrapper = document.querySelector('.partners-carousel-wrapper');
+        if (partnersWrapper) {
+          partnersWrapper.style.animationPlayState = 'paused';
+          setTimeout(() => {
+            partnersWrapper.style.animationPlayState = 'running';
+          }, 1000);
+        }
+      } else if (carouselType === 'alumni') {
+        // For alumni carousel, pause all alumni animations temporarily
+        const alumniRows = document.querySelectorAll('.alumni-carousel-row-1, .alumni-carousel-row-2, .alumni-carousel-row-3');
+        alumniRows.forEach(row => {
+          row.style.animationPlayState = 'paused';
+        });
+        setTimeout(() => {
+          alumniRows.forEach(row => {
+            row.style.animationPlayState = 'running';
+          });
+        }, 1000);
+      }
+    }
+  };
 
   const typingTexts = ['Impian', 'Prestasi', 'Kesuksesan', 'Masa Depan'];
 
@@ -151,7 +227,7 @@ export default function Home() {
     pagination.innerHTML = '';
     for (let i = 0; i <= maxSlide; i++) {
       const dot = document.createElement('button');
-      dot.className = `w-3 h-3 rounded-full transition-all duration-300 ${i === 0 ? 'bg-blue-600 w-8' : 'bg-gray-300'}`;
+      dot.className = `w-4 h-4 rounded-full transition-all duration-500 shadow-lg ${i === 0 ? 'bg-gradient-to-r from-blue-600 to-purple-600 w-12 scale-125' : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'}`;
       dot.addEventListener('click', () => goToSlide(i));
       pagination.appendChild(dot);
     }
@@ -160,10 +236,10 @@ export default function Home() {
       const slideWidth = slides[0].offsetWidth;
       wrapper.style.transform = `translateX(-${currentSlide * slideWidth * slidesPerView}px)`;
       
-      // Update pagination
+      // Update pagination with enhanced styling
       const dots = pagination.children;
       for (let i = 0; i < dots.length; i++) {
-        dots[i].className = `w-3 h-3 rounded-full transition-all duration-300 ${i === currentSlide ? 'bg-blue-600 w-8' : 'bg-gray-300'}`;
+        dots[i].className = `w-4 h-4 rounded-full transition-all duration-500 shadow-lg ${i === currentSlide ? 'bg-gradient-to-r from-blue-600 to-purple-600 w-12 scale-125' : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'}`;
       }
     };
     
@@ -378,7 +454,12 @@ export default function Home() {
             <div className="space-y-6 relative">
               {/* Row 1 - Scroll Left to Right */}
               <div className="alumni-carousel-container overflow-hidden">
-                <div className="alumni-carousel-row-1 flex animate-scroll-right space-x-4">
+                <div 
+                  className="alumni-carousel-row-1 flex animate-scroll-right space-x-4"
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={() => handleTouchEnd('alumni')}
+                >
                   {[
                     { name: "M. Try Radjha Bintang", university: "Universitas Hasanuddin", program: "Pendidikan Dokter", year: "2024", photo: "/images/alumni/M. Try Radjha Bintang-Pendidikan Dokter-UNIVERSITAS HASANUDDIN.png" },
                     { name: "FIRLI HIDAYANI P. U.", university: "Universitas Brawijaya", program: "Bio Informatika", year: "2024", photo: "/images/alumni/FIRLI HIDAYANI P. U.-bio informatika-Universitas Brawijaya.png" },
@@ -443,7 +524,12 @@ export default function Home() {
             
               {/* Row 2 - Scroll Right to Left */}
               <div className="alumni-carousel-container overflow-hidden">
-                <div className="alumni-carousel-row-2 flex animate-scroll-left space-x-4">
+                <div 
+                  className="alumni-carousel-row-2 flex animate-scroll-left space-x-4"
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={() => handleTouchEnd('alumni')}
+                >
                   {[
                     { name: "Nurul Mutmainna Munir", university: "Universitas Hasanuddin", program: "Pendidikan Dokter", year: "2024", photo: "/images/alumni/Nurul Mutmainna Munir-Pendidikan Dokter-Universitas Hasanuddin.png" },
                     { name: "M. Riffat Al Fayyadh", university: "UPN Veteran Jawa Timur", program: "Manajemen", year: "2024", photo: "/images/alumni/riffat.png" },
@@ -508,7 +594,12 @@ export default function Home() {
               
               {/* Row 3 - Scroll Left to Right */}
               <div className="alumni-carousel-container overflow-hidden">
-                <div className="alumni-carousel-row-3 flex animate-scroll-right-slow space-x-4">
+                <div 
+                  className="alumni-carousel-row-3 flex animate-scroll-right-slow space-x-4"
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={() => handleTouchEnd('alumni')}
+                >
                   {[
                     { name: "Razan Muhammad Ihsan", university: "Universitas Negeri Malang", program: "Manajemen", year: "2024", photo: "/images/alumni/RAZAN MUHAMMAD IHSAN-manajemen-Universitas Negeri Malang.png" },
                     { name: "Ginaya Desembria M", university: "Universitas Hasanuddin", program: "Pendidikan Dokter", year: "2024", photo: "/images/alumni/Ginaya Desembria M-Pendidikan Dokter-UNIVERSITAS HASANUDDIN.png" },
@@ -584,61 +675,67 @@ export default function Home() {
         </div>
         
         <div className="max-w-7xl mx-auto relative z-10">
-          {/* Header */}
-          <div className="text-center mb-8 sm:mb-16">
-            <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white shadow-md rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6 border border-gray-100">
+          {/* Header - Enhanced Responsive */}
+          <div className="text-center mb-8 sm:mb-12 md:mb-16 px-4">
+            <div className="inline-flex items-center px-4 sm:px-6 py-2 sm:py-3 bg-white shadow-lg rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6 border border-gray-200 hover:shadow-xl transition-all duration-300">
               <span className="text-gray-700">3 Program Utama</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 font-poppins px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-3 sm:mb-4 md:mb-6 font-poppins leading-tight">
               <span className="text-gray-900">Temukan</span>
               <br />
               <span className="bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#fabe49] bg-clip-text text-transparent">
                 Program Impianmu
               </span>
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed px-4">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               Pilih jalur kesuksesanmu dengan program yang disesuaikan untuk setiap tujuan
             </p>
           </div>
 
           {/* Desktop: Grid Layout, Mobile: Carousel */}
           <div className="relative">
-            {/* Mobile Carousel */}
+            {/* Mobile & Tablet Carousel */}
             <div className="lg:hidden">
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden rounded-2xl">
                 <div 
-                  className="flex transition-transform duration-500 ease-out"
+                  className="flex transition-transform duration-700 ease-out"
                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={() => handleTouchEnd('hero')}
                 >
                   {programs.map((program, index) => (
-                    <div key={index} className="w-full flex-shrink-0 px-4">
+                    <div key={index} className="w-full flex-shrink-0 px-2 sm:px-4">
+                      <div className="transform scale-95 sm:scale-100 transition-all duration-300 hover:scale-100">
                       <ProgramCard program={program} />
+                      </div>
                     </div>
                   ))}
                 </div>
+                
               </div>
 
-              {/* Mobile Navigation */}
-              <div className="flex justify-center items-center mt-6 gap-4">
+              {/* Mobile Navigation - Enhanced */}
+              <div className="flex justify-center items-center mt-8 gap-6">
                 <button 
                   onClick={prevSlide}
-                  className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all"
+                  className="bg-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#003049] hover:scale-110 group"
                   aria-label="Previous slide"
                 >
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg className="w-6 h-6 text-[#003049] group-hover:text-[#0c5681] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
                   </svg>
                 </button>
                 
-                <div className="flex gap-2">
+                <div className="flex gap-3 bg-white/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg">
                   {programs.map((_, idx) => (
                     <button
                       key={idx}
                       onClick={() => setCurrentSlide(idx)}
-                      className={`transition-all duration-300 rounded-full ${
+                      className={`transition-all duration-500 rounded-full ${
                         idx === currentSlide 
-                          ? 'bg-blue-600 w-8 h-3' 
-                          : 'bg-gray-300 w-3 h-3'
+                          ? 'bg-gradient-to-r from-[#003049] to-[#0c5681] w-8 h-4 shadow-md' 
+                          : 'bg-gray-300 hover:bg-gray-400 w-4 h-4 hover:scale-110'
                       }`}
                       aria-label={`Go to slide ${idx + 1}`}
                     />
@@ -647,21 +744,22 @@ export default function Home() {
                 
                 <button 
                   onClick={nextSlide}
-                  className="bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all"
+                  className="bg-white rounded-full p-4 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 border-gray-200 hover:border-[#003049] hover:scale-110 group"
                   aria-label="Next slide"
                 >
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg className="w-6 h-6 text-[#003049] group-hover:text-[#0c5681] transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                   </svg>
                 </button>
               </div>
             </div>
 
-            {/* Desktop Grid */}
-            <div className="hidden lg:grid lg:grid-cols-3 gap-8">
+            {/* Desktop & Large Tablet Grid */}
+            <div className="hidden lg:grid lg:grid-cols-3 gap-6 xl:gap-8">
               {programs.map((program, index) => (
                 <div
                   key={index}
+                  className="transform transition-all duration-500 hover:scale-105 hover:-translate-y-2"
                   style={{
                     animationDelay: `${index * 200}ms`,
                     opacity: 0,
@@ -674,12 +772,12 @@ export default function Home() {
             </div>
           </div>
           
-          {/* Bottom CTA */}
-          <div className="text-center mt-16">
-            <p className="text-gray-600 mb-6 text-lg">Tidak yakin program mana yang cocok?</p>
-            {/* DESAIN: Tombol sekunder (outline) dibuat konsisten */}
+          {/* Bottom CTA - Enhanced Responsive */}
+          <div className="text-center mt-12 sm:mt-16 px-4">
+            <p className="text-gray-600 mb-6 text-base sm:text-lg md:text-xl max-w-2xl mx-auto">Tidak yakin program mana yang cocok?</p>
+            {/* DESAIN: Tombol sekunder (outline) dibuat konsisten dan responsif */}
             <Link href="/contact">
-              <button className="bg-white border-2 border-blue-700 text-blue-700 px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <button className="bg-white border-2 border-[#003049] text-[#003049] px-6 sm:px-8 md:px-10 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-[#003049]/5 transition-all duration-300 shadow-lg hover:shadow-xl hover:border-[#0c5681] hover:text-[#0c5681] hover:scale-105">
                 Konsultasi Gratis
               </button>
             </Link>
@@ -960,15 +1058,22 @@ export default function Home() {
                             <div className={`absolute top-16 right-10 ${colors.sparkle} text-4xl animate-pulse delay-300`}>✦</div>
                             <div className={`absolute bottom-12 right-20 ${colors.sparkle} text-2xl animate-pulse delay-700`}>✦</div>
                             
-                            {/* Profile Photo - LARGE LIKE SCHOTERS WITH BREAKOUT EFFECT */}
+                            {/* Profile Photo - ENHANCED CIRCULAR DESIGN */}
                             <div className="relative z-10 flex justify-center mb-6">
-                              <div className="relative">
-                                {/* Larger photo container with breakout effect */}
-                                <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl transform scale-110">
+                              <div className="relative group">
+                                {/* Outer glow ring */}
+                                <div className="absolute inset-0 w-52 h-52 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 opacity-75 blur-xl group-hover:opacity-100 transition-all duration-500 animate-pulse"></div>
+                                
+                                {/* Middle ring */}
+                                <div className="absolute inset-2 w-48 h-48 rounded-full bg-white shadow-inner border-4 border-gradient-to-r from-blue-200 to-purple-200"></div>
+                                
+                                {/* Main photo container with enhanced effects */}
+                                <div className="relative w-48 h-48 rounded-full overflow-hidden border-4 border-white shadow-2xl transform scale-110 group-hover:scale-115 transition-all duration-300">
+                                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 z-10"></div>
                                   <img 
                                     src={`/images/tutors/${tutor.photo || tutor.name.toLowerCase().replace(/\s+/g, '-') + '.jpg'}`}
                                     alt={tutor.name}
-                                    className="object-cover w-full h-full transform scale-90"
+                                    className="object-cover w-full h-full transform scale-90 group-hover:scale-95 transition-all duration-300"
                                     onError={(e) => {
                                       console.log('Image error for:', tutor.photo);
                                       if (e.target && e.target.parentElement) {
@@ -977,7 +1082,22 @@ export default function Home() {
                                       }
                                     }}
                                   />
+                                  
+                                  {/* Overlay with name badge */}
+                                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                                    <div className="text-white text-center">
+                                      <div className="text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full inline-block">
+                                        {tutor.displayName || tutor.name}
+                                      </div>
                                 </div>
+                                  </div>
+                                </div>
+                                
+                                {/* Floating elements around photo */}
+                                <div className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg animate-bounce delay-100">⭐</div>
+                                <div className="absolute -bottom-2 -left-4 w-6 h-6 bg-green-400 rounded-full flex items-center justify-center text-white font-bold text-xs shadow-lg animate-bounce delay-300">✓</div>
+                                <div className="absolute top-1/2 -left-6 w-4 h-4 bg-pink-400 rounded-full animate-ping"></div>
+                                <div className="absolute top-1/2 -right-6 w-4 h-4 bg-blue-400 rounded-full animate-ping delay-500"></div>
                               </div>
                             </div>
                             
@@ -1028,22 +1148,22 @@ export default function Home() {
                 <div className="flex justify-center items-center mt-12 space-x-4">
                   <button 
                     id="tutors-carousel-prev"
-                    className="tutors-carousel-prev bg-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 hover:border-blue-500"
+                    className="tutors-carousel-prev bg-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 hover:border-[#003049]"
                   >
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-[#003049] hover:text-[#0c5681] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                     </svg>
                   </button>
                   
-                  <div id="tutors-pagination" className="flex space-x-2">
+                  <div id="tutors-pagination" className="flex space-x-3 justify-center">
                     {/* Pagination dots will be generated by JS */}
                   </div>
                   
                   <button 
                     id="tutors-carousel-next"
-                    className="tutors-carousel-next bg-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 hover:border-blue-500"
+                    className="tutors-carousel-next bg-white rounded-full p-4 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200 hover:border-[#003049]"
                   >
-                    <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-[#003049] hover:text-[#0c5681] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
                   </button>
@@ -1051,7 +1171,7 @@ export default function Home() {
               </div>
               
               {/* CTA to See All Tutors - Enhanced with Magnetic Effect */}
-              <div className="text-center mt-16">
+              {/* <div className="text-center mt-16">
                 <Link href="/tutors">
                   <button className="relative group px-12 py-6 bg-gradient-to-r from-[#003049] to-[#0c5681] text-white rounded-3xl font-bold text-lg shadow-2xl hover:shadow-[#003049]/40 transition-all duration-700 hover:scale-110 overflow-hidden cta-tutors-magnetic">
                     <span className="relative z-10 flex items-center justify-center gap-4">
@@ -1063,7 +1183,7 @@ export default function Home() {
                 
                   </button>
                 </Link>
-              </div>
+              </div> */}
             </div>
           </section>
 
@@ -1220,76 +1340,104 @@ export default function Home() {
           
           {/* Infinite Carousel */}
           <div className="partners-carousel-container overflow-hidden">
-            <div className="partners-carousel-wrapper flex animate-scroll">
+            <div 
+              className="partners-carousel-wrapper flex animate-scroll"
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={() => handleTouchEnd('partners')}
+            >
               {/* First set of partners */}
               {[
                 { name: "SMA Ar-Rohmah", logo: "/images/partners/AR ROHMAH IIBS KAMPUS II.png", type: "Sekolah" },
                 { name: "MA AL UMM", logo: "/images/partners/MA AL UMM.png", type: "Sekolah" },
-                { name: "MAN 1 KOTA MALANG", logo: "/images/partners/MAN 1 KOTA MALANG.png", type: "Sekolah" },
+                { name: "MAN 1 KOTA MALANG", logo: "/images/partners/MAN 1.png", type: "Sekolah" },
+                { name: "SAMAN 1 TUMPANG", logo: "/images/partners/SAMAN 1 TUMPANG.png", type: "Sekolah" },
+                { name: "SEKOLAH ALAM INSAN MULIA", logo: "/images/partners/SEKOLAH ALAM INSAN MULIA.png", type: "Sekolah" },
+                { name: "SMA BAITUL MANSHURIN", logo: "/images/partners/SMA BAITUL MANSHURIN.png", type: "Sekolah" },
+                { name: "SMA BSS MALANG", logo: "/images/partners/SMA BSS MALANG.png", type: "Sekolah" },
+                { name: "SMA IIBS AL IZZAH", logo: "/images/partners/SMA IIBS AL IZZAH.png", type: "Sekolah" },
+                { name: "SMA WIJAYA PUTRA", logo: "/images/partners/SMA WIJAYA PUTRA.png", type: "Sekolah" },
+                { name: "SMAN 7 MALANG", logo: "/images/partners/SMAN 7 MALANG.png", type: "Sekolah" },
+                { name: "SMK TELKOM MALANG", logo: "/images/partners/SMK TELKOM MALANG.png", type: "Sekolah" },
+                { name: "Partner 1", logo: "/images/partners/PARTNER 1.png", type: "Mitra" },
+                { name: "Partner 2", logo: "/images/partners/PARTNER 2.png", type: "Mitra" },
+                { name: "Partner 3", logo: "/images/partners/PARTNER 3.png", type: "Mitra" },
+                { name: "Partner 4", logo: "/images/partners/PARTNER 4.png", type: "Mitra" },
+                { name: "Partner 5", logo: "/images/partners/PARTNER 5.png", type: "Mitra" },
+                { name: "Partner 6", logo: "/images/partners/PARTNER 6.png", type: "Mitra" },
+                { name: "Partner 7", logo: "/images/partners/PARTNER 7.png", type: "Mitra" },
+                { name: "Partner 8", logo: "/images/partners/PARTNER 8.png", type: "Mitra" },
+                { name: "Partner 9", logo: "/images/partners/PARTNER 9.png", type: "Mitra" },
+                { name: "Partner 10", logo: "/images/partners/PARTNER 10.png", type: "Mitra" },
+                { name: "Partner 11", logo: "/images/partners/PARTNER 11.png", type: "Mitra" },
+                { name: "Partner 12", logo: "/images/partners/PARTNER 12.png", type: "Mitra" },
+                { name: "Partner 13", logo: "/images/partners/PARTNER 13.png", type: "Mitra" },
+                { name: "Partner 14", logo: "/images/partners/PARTNER 14.png", type: "Mitra" }
+              ].map((partner, index) => (
+                <div key={index} className="partners-carousel-slide flex-shrink-0 mx-4 flex items-center justify-center">
+                  <div className="w-16 h-16 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                    <Image 
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                      onError={(e) => {
+                        if (e.target && e.target.parentElement) {
+                          e.target.style.display = 'none';
+                          e.target.parentElement.innerHTML = '<div class="text-2xl">🏫</div>';
+                        }
+                      }}
+                    />
+                  </div>
+                </div>
+      ))}
+              
+              {/* Duplicate set for infinite effect */}
+              {[
+                { name: "SMA Ar-Rohmah", logo: "/images/partners/AR ROHMAH IIBS KAMPUS II.png", type: "Sekolah" },
+                { name: "MA AL UMM", logo: "/images/partners/MA AL UMM.png", type: "Sekolah" },
+                { name: "MAN 1 KOTA MALANG", logo: "/images/partners/MAN 1.png", type: "Sekolah" },
                 { name: "SAMAN 1 TUMPANG", logo: "/images/partners/SAMAN 1 TUMPANG.png", type: "Sekolah" },
                 { name: "SEKOLAH ALAM INSAN MULIA", logo: "/images/partners/SEKOLAH ALAM INSAN MULIA.png", type: "Sekolah" },
                 { name: "SMA BAITUL MANSHURIN", logo: "/images/partners/SMA BAITUL MANSHURIN.png", type: "Sekolah" },
                 { name: "SMA BBS MALANG", logo: "/images/partners/SMA BBS MALANG.png", type: "Sekolah" },
                 { name: "SMA IIBS AL IZZAH", logo: "/images/partners/SMA IIBS AL IZZAH.png", type: "Sekolah" },
                 { name: "SMA WIJAYA PUTRA", logo: "/images/partners/SMA WIJAYA PUTRA.png", type: "Sekolah" },
-                { name: "SMAN 7 MALANG", logo: "/images/partners/SMAN 7 MALANG", type: "Sekolah" },
-                { name: "SMK TELKOM MALANG", logo: "/images/partners/SMK TELKOM MALANG", type: "Sekolah" }
+                { name: "SMAN 7 MALANG", logo: "/images/partners/SMAN 7 MALANG.png", type: "Sekolah" },
+                { name: "SMK TELKOM MALANG", logo: "/images/partners/SMK TELKOM MALANG.png", type: "Sekolah" },
+                { name: "Partner 1", logo: "/images/partners/PARTNER 1.png", type: "Mitra" },
+                { name: "Partner 2", logo: "/images/partners/PARTNER 2.png", type: "Mitra" },
+                { name: "Partner 3", logo: "/images/partners/PARTNER 3.png", type: "Mitra" },
+                { name: "Partner 4", logo: "/images/partners/PARTNER 4.png", type: "Mitra" },
+                { name: "Partner 5", logo: "/images/partners/PARTNER 5.png", type: "Mitra" },
+                { name: "Partner 6", logo: "/images/partners/PARTNER 6.png", type: "Mitra" },
+                { name: "Partner 7", logo: "/images/partners/PARTNER 7.png", type: "Mitra" },
+                { name: "Partner 8", logo: "/images/partners/PARTNER 8.png", type: "Mitra" },
+                { name: "Partner 9", logo: "/images/partners/PARTNER 9.png", type: "Mitra" },
+                { name: "Partner 10", logo: "/images/partners/PARTNER 10.png", type: "Mitra" },
+                { name: "Partner 11", logo: "/images/partners/PARTNER 11.png", type: "Mitra" },
+                { name: "Partner 12", logo: "/images/partners/PARTNER 12.png", type: "Mitra" },
+                { name: "Partner 13", logo: "/images/partners/PARTNER 13.png", type: "Mitra" },
+                { name: "Partner 14", logo: "/images/partners/PARTNER 14.png", type: "Mitra" }
               ].map((partner, index) => (
-                <div key={index} className="partners-carousel-slide flex-shrink-0 mx-8">
-                  <div className=" rounded-2xl p-3  transition-all duration-300 hover:scale-105 w-48 h-32 flex flex-col items-center justify-center">
-                    <div className="w-16 h-16 mb-3 rounded-full flex items-center justify-center">
-                      <Image 
-                        src={partner.logo}
-                        alt={partner.name}
-                        width={70}
-                        height={70}
-                        className="object-contain"
-                        onError={(e) => {
-                          if (e.target && e.target.parentElement) {
-                            e.target.style.display = 'none';
-                            e.target.parentElement.innerHTML = '<div class="text-2xl">🏫</div>';
-                          }
-                        }}
-                      />
-                    </div>
-                    <h3 className="text-sm font-bold text-gray-900 text-center mb-1">{partner.name}</h3>
-                    <p className="text-xs text-gray-500">{partner.type}</p>
+                <div key={`duplicate-${index}`} className="partners-carousel-slide flex-shrink-0 mx-4 flex items-center justify-center">
+                  <div className="w-16 h-16 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+                    <Image 
+                      src={partner.logo}
+                      alt={partner.name}
+                      width={64}
+                      height={64}
+                      className="object-contain"
+                      onError={(e) => {
+                        if (e.target && e.target.parentElement) {
+                          e.target.style.display = 'none';
+                          e.target.parentElement.innerHTML = '<div class="text-2xl">🏫</div>';
+                        }
+                      }}
+                    />
                   </div>
-        </div>
-      ))}
-              
-              {/* Duplicate set for infinite effect */}
-              {[
-                { name: "SMA Ar-Rohmah", logo: "/images/partners/sma-ar-rohmah.png", type: "Sekolah" },
-                { name: "SMA Negeri 1 Malang", logo: "/images/partners/sma-negeri-1.png", type: "Sekolah" },
-                { name: "SMA Negeri 3 Malang", logo: "/images/partners/sma-negeri-3.png", type: "Sekolah" },
-                { name: "SMA Negeri 5 Malang", logo: "/images/partners/sma-negeri-5.png", type: "Sekolah" },
-                { name: "SMA Al-Ma'arif", logo: "/images/partners/sma-al-maarif.png", type: "Sekolah" },
-                { name: "SMA Muhammadiyah 1", logo: "/images/partners/sma-muhammadiyah-1.png", type: "Sekolah" },
-                { name: "SMA Katolik St. Albertus", logo: "/images/partners/sma-katolik-st-albertus.png", type: "Sekolah" },
-                { name: "SMA Kristen Petra", logo: "/images/partners/sma-kristen-petra.png", type: "Sekolah" }
-              ].map((partner, index) => (
-                <div key={`duplicate-${index}`} className="partners-carousel-slide flex-shrink-0 mx-8">
-                  <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border border-gray-100 w-48 h-32 flex flex-col items-center justify-center">
-                    <div className="w-16 h-16 mb-3 bg-gradient-to-br from-blue-100 to-orange-100 rounded-full flex items-center justify-center">
-                      <Image 
-                        src={partner.logo}
-                        alt={partner.name}
-                        width={40}
-                        height={40}
-                        className="object-contain"
-                        onError={(e) => {
-                          if (e.target && e.target.parentElement) {
-                            e.target.style.display = 'none';
-                            e.target.parentElement.innerHTML = '<div class="text-2xl">🏫</div>';
-                          }
-                        }}
-                      />
-                    </div>
-                    <h3 className="text-sm font-bold text-gray-900 text-center mb-1">{partner.name}</h3>
-                    <p className="text-xs text-gray-500">{partner.type}</p>
-                  </div>
-        </div>
+                </div>
       ))}
             </div>
     </div>
@@ -1343,55 +1491,78 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Action Cards - Enhanced Glassmorphism Style */}
+          {/* Action Cards - Exact Match with Reference Design */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-            {/* Primary CTA - Daftar with 3D Magnetic Effect */}
-            <div className="group relative glassmorphism rounded-3xl p-8 hover:shadow-2xl transition-all duration-700 hover:scale-110 overflow-hidden cta-main-daftar">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#003049]/10 to-[#0c5681]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              <div className="relative z-10 text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-[#003049] to-[#0c5681] rounded-3xl flex items-center justify-center text-5xl mx-auto mb-6 shadow-2xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-700 relative overflow-hidden">
-                  📝
-                  {/* Icon Shimmer */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            {/* Primary CTA - Daftar Sekarang */}
+            <div className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              {/* Illustration Container */}
+              <div className="mb-6 relative">
+                <div className="w-full h-48 flex items-center justify-center relative">
+                  <Image 
+                    src="/images/logo/daftar.png" 
+                    alt="Daftar Sekarang" 
+                    width={200} 
+                    height={200} 
+                    className="object-contain"
+                  />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-3 font-poppins group-hover:text-[#003049] transition-colors duration-500">Daftar Sekarang</h3>
-                <p className="text-gray-600 text-lg mb-6 group-hover:text-gray-700 transition-colors duration-500">
-                  Pilih program yang sesuai dengan kebutuhanmu dan mulai belajar hari ini
-                </p>
-                <Link href="/registration">
-                  <button className="w-full bg-gradient-to-r from-[#003049] to-[#0c5681] text-white py-5 px-8 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-700 hover:scale-110 flex items-center justify-center gap-3 group/btn relative overflow-hidden cta-main-btn">
-                    <span className="relative z-10">Daftar Sekarang</span>
-                    <svg className="w-6 h-6 group-hover/btn:translate-x-2 transition-transform duration-500 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                  </button>
-                </Link>
               </div>
+              
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center font-poppins">
+                Daftar Sekarang
+              </h3>
+              
+              {/* Description */}
+              <p className="text-gray-600 text-base mb-6 text-center leading-relaxed">
+                Pilih program yang sesuai dengan kebutuhanmu dan mulai belajar hari ini
+              </p>
+              
+              {/* CTA Button */}
+              <Link href="/registration">
+                <button className="w-full bg-gradient-to-r from-[#003049] to-[#0c5681] text-white py-4 px-6 rounded-xl font-bold text-base hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                  <span>Daftar Sekarang</span>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </button>
+              </Link>
             </div>
 
-            {/* Secondary CTA - Konsultasi with Floating Particles */}
-            <div className="group relative glassmorphism rounded-3xl p-8 hover:shadow-2xl transition-all duration-700 hover:scale-110 overflow-hidden cta-main-konsultasi">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#fabe49]/10 to-[#ffdc30]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              <div className="relative z-10 text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-[#fabe49] to-[#ffdc30] rounded-3xl flex items-center justify-center text-5xl mx-auto mb-6 shadow-2xl group-hover:scale-125 group-hover:rotate-12 transition-all duration-700 relative overflow-hidden">
-                  💬
-                  {/* Icon Shimmer */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+            {/* Secondary CTA - Konsultasi Gratis */}
+            <div className="group relative bg-white rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+              {/* Illustration Container */}
+              <div className="mb-6 relative">
+                <div className="w-full h-48 flex items-center justify-center relative">
+                  <Image 
+                    src="/images/logo/konsultasi.png" 
+                    alt="Konsultasi Gratis" 
+                    width={200} 
+                    height={200} 
+                    className="object-contain"
+                  />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-3 font-poppins group-hover:text-[#fabe49] transition-colors duration-500">Konsultasi Gratis</h3>
-                <p className="text-gray-600 text-lg mb-6 group-hover:text-gray-700 transition-colors duration-500">
-                  Butuh bantuan memilih program? Tim kami siap membantu kamu menemukan solusi terbaik
-                </p>
-                <Link href="/contact">
-                  <button className="w-full bg-gradient-to-r from-[#fabe49] to-[#ffdc30] text-[#003049] py-5 px-8 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all duration-700 hover:scale-110 flex items-center justify-center gap-3 group/btn relative overflow-hidden cta-main-btn">
-                    <span className="relative z-10">Hubungi Kami</span>
-                    <svg className="w-6 h-6 group-hover/btn:translate-x-2 transition-transform duration-500 relative z-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                      </svg>
-                 
-                  </button>
-                </Link>
               </div>
+              
+              {/* Title */}
+              <h3 className="text-2xl font-bold text-gray-900 mb-4 text-center font-poppins">
+                Konsultasi Gratis
+              </h3>
+              
+              {/* Description */}
+              <p className="text-gray-600 text-base mb-6 text-center leading-relaxed">
+                Butuh bantuan memilih program? Tim kami siap membantu kamu menemukan solusi terbaik
+              </p>
+              
+              {/* CTA Button */}
+              <Link href="/contact">
+                <button className="w-full bg-gradient-to-r from-[#fabe49] to-[#ffdc30] text-[#003049] py-4 px-6 rounded-xl font-bold text-base hover:shadow-lg transition-all duration-300 flex items-center justify-center gap-2">
+                  <span>Hubungi Kami</span>
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -1523,7 +1694,7 @@ export default function Home() {
         }
         
         .animate-scroll {
-          animation: scroll 30s linear infinite;
+          animation: scroll 80s linear infinite;
         }
         
         .partners-carousel-container:hover .animate-scroll {
@@ -1878,14 +2049,14 @@ function ProgramCard({ program }) {
       )}
 
       <div className={`relative bg-white rounded-3xl overflow-visible shadow-lg hover:shadow-2xl transition-all duration-500 border-2 ${
-        program.popular ? 'border-[#fabe49]' : 'border-gray-100'
+        program.popular ? 'border-[#fabe49] shadow-[#fabe49]/20' : 'border-gray-200 hover:border-[#003049]/30'
       } hover:scale-[1.02] hover:-translate-y-2`}>
         
-        {/* Header dengan layout yang benar-benar sama seperti gambar */}
-        <div className="relative bg-[#1E3A8A] h-40 sm:h-48 overflow-visible">
-          {/* Image Container - Responsif untuk mobile dan desktop */}
-          <div className="absolute left-0 sm:-left-1 md:-left-2 -top-2 sm:-top-3 md:-top-4 bottom-0 w-2/5 z-20 flex items-end justify-center">
-            <div className="w-full h-48 sm:h-56 md:h-64 flex items-end justify-center overflow-visible">
+        {/* Header dengan layout profesional dan warna biru gelap konsisten */}
+        <div className="relative bg-gradient-to-br from-[#003049] to-[#0c5681] h-36 sm:h-40 md:h-44 lg:h-48 overflow-visible">
+          {/* Image Container - Enhanced Responsive */}
+          <div className="absolute left-0 sm:-left-1 md:-left-2 -top-1 sm:-top-2 md:-top-3 lg:-top-4 bottom-0 w-2/5 z-20 flex items-end justify-center">
+            <div className="w-full h-40 sm:h-48 md:h-56 lg:h-64 flex items-end justify-center overflow-visible">
               <img 
                 src={program.image}
                 alt={program.title}
@@ -1895,65 +2066,65 @@ function ProgramCard({ program }) {
             </div>
           </div>
           
-          {/* Content - Right Side dengan layout responsif */}
-          <div className="absolute right-0 top-0 bottom-0 w-3/5 p-3 sm:p-4 md:p-6 flex flex-col justify-center">
+          {/* Content - Right Side dengan layout responsif enhanced */}
+          <div className="absolute right-0 top-0 bottom-0 w-3/5 p-2 sm:p-3 md:p-4 lg:p-6 flex flex-col justify-center">
             <div className="relative z-10">
               {/* Badge kuning di pojok kanan atas */}
-              <div className="flex items-start justify-end mb-1.5 sm:mb-2 md:mb-3">
-                <div className="bg-[#fabe49] text-[#003049] px-2 sm:px-3 py-1 sm:py-1.5 rounded-md font-semibold shadow-sm">
-                  <span className="text-xs">{program.stats[0].value}</span>
+              <div className="flex items-start justify-end mb-1 sm:mb-1.5 md:mb-2 lg:mb-3">
+                <div className="bg-[#fabe49] text-[#003049] px-2 sm:px-2.5 md:px-3 py-1 sm:py-1.5 rounded-lg font-bold shadow-md">
+                  <span className="text-xs sm:text-sm">{program.stats[0].value}</span>
                 </div>
               </div>
               
-              {/* Title "Primary and Secondary Education" */}
-              <h3 className="text-white text-base sm:text-lg md:text-xl lg:text-2xl font-bold mb-1 sm:mb-1.5 md:mb-2 leading-tight text-right">
+              {/* Title dengan responsive typography */}
+              <h3 className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold mb-1 sm:mb-1.5 md:mb-2 leading-tight text-right">
                 {program.title}
               </h3>
               
-              {/* Subtitle "SD-SMP-SMA" */}
-              <p className="text-white text-xs sm:text-sm md:text-base font-medium text-right">{program.subtitle}</p>
+              {/* Subtitle dengan responsive typography */}
+              <p className="text-white/90 text-xs sm:text-sm md:text-base font-medium text-right leading-relaxed">{program.subtitle}</p>
             </div>
           </div>
         </div>
 
-        {/* Content - Background abu-abu responsif untuk mobile */}
-        <div className="bg-gray-100 p-3 sm:p-4 md:p-5">
-          <p className="text-gray-700 mb-2.5 sm:mb-3 md:mb-4 leading-relaxed text-xs sm:text-sm">
+        {/* Content - Background putih bersih dengan shadow subtle */}
+        <div className="bg-white p-3 sm:p-4 md:p-5 lg:p-6">
+          <p className="text-gray-700 mb-3 sm:mb-4 md:mb-5 leading-relaxed text-xs sm:text-sm md:text-base">
             {program.description}
           </p>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 gap-2 sm:gap-3 mb-2.5 sm:mb-3 md:mb-4">
+          {/* Stats dengan desain yang lebih profesional dan responsif */}
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-5 md:mb-6">
             {program.stats.map((stat, idx) => (
-              <div key={idx} className="bg-white rounded-lg p-2 sm:p-3 text-center border border-gray-200 shadow-sm">
-                <div className="text-sm sm:text-base md:text-lg font-bold text-gray-900 mb-0.5">
+              <div key={idx} className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 text-center border border-blue-200 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-[#003049] mb-0.5 sm:mb-1">
                   {stat.value}
                 </div>
-                <div className="text-xs text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-xs sm:text-sm text-[#0c5681] font-semibold leading-tight">{stat.label}</div>
               </div>
             ))}
           </div>
 
-          {/* Features List */}
-          <div className="space-y-1 sm:space-y-1.5 md:space-y-2 mb-3 sm:mb-4 md:mb-5">
+          {/* Features List dengan desain yang lebih profesional dan responsif */}
+          <div className="space-y-1.5 sm:space-y-2 md:space-y-3 mb-4 sm:mb-5 md:mb-6">
             {program.features.slice(0, 4).map((feature, idx) => (
-              <div key={idx} className="flex items-center">
-                <div className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-green-500 flex items-center justify-center mr-2 sm:mr-3 flex-shrink-0">
-                  <svg className="w-2 sm:w-2.5 h-2 sm:h-2.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div key={idx} className="flex items-center bg-gradient-to-r from-green-50 to-emerald-50 rounded-md sm:rounded-lg p-1.5 sm:p-2 md:p-3 border border-green-200 hover:shadow-sm transition-all duration-300">
+                <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 rounded-full bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center mr-2 sm:mr-3 md:mr-4 flex-shrink-0 shadow-sm">
+                  <svg className="w-2 sm:w-2.5 md:w-3 h-2 sm:h-2.5 md:h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                   </svg>
                 </div>
-                <span className="text-xs sm:text-sm text-gray-700 font-medium">{feature}</span>
+                <span className="text-xs sm:text-sm md:text-base text-gray-800 font-semibold leading-tight">{feature}</span>
               </div>
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button dengan warna biru gelap konsisten dan responsif */}
           <Link href="/programs">
-            <button className={`w-full bg-gradient-to-r ${program.color} text-white py-3 sm:py-4 px-4 sm:px-5 rounded-xl font-semibold text-xs sm:text-sm hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group/btn`}>
-              <span className="relative z-10 flex items-center justify-center gap-2">
+            <button className="w-full bg-gradient-to-r from-[#003049] to-[#0c5681] text-white py-3 sm:py-4 md:py-5 px-4 sm:px-5 md:px-6 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm md:text-base hover:shadow-xl transition-all duration-300 hover:scale-105 relative overflow-hidden group/btn">
+              <span className="relative z-10 flex items-center justify-center gap-1 sm:gap-2">
                 <span>Lihat Detail Program</span>
-                <svg className="w-4 h-4 sm:w-5 sm:h-5 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 group-hover/btn:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
@@ -1962,8 +2133,8 @@ function ProgramCard({ program }) {
           </Link>
         </div>
 
-        {/* Bottom Accent Line */}
-        <div className={`h-1 sm:h-1.5 bg-gradient-to-r ${program.color}`}></div>
+        {/* Bottom Accent Line dengan warna biru gelap konsisten */}
+        <div className="h-1 sm:h-1.5 bg-gradient-to-r from-[#003049] to-[#0c5681]"></div>
       </div>
     </div>
   );

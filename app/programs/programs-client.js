@@ -10,8 +10,8 @@ const programCategories = [
     title: 'Primary and Secondary Education',
     subtitle: 'Pendidikan Dasar dan Menengah',
     description: 'Program pembelajaran dasar hingga persiapan masuk perguruan tinggi dan kedinasan',
-    icon: '🎓',
-    color: 'from-[#1E40AF] to-[#3B82F6]',
+    icon: '',
+    color: 'from-[#003049] to-[#0c5681]',
     textColor: 'text-white',
     programs: [
       {
@@ -63,9 +63,9 @@ const programCategories = [
     title: 'Scover Overseas Program',
     subtitle: 'Scoverseas',
     description: 'Program persiapan studi dan kerja di luar negeri dengan sertifikasi internasional',
-    icon: '✈️',
-    color: 'from-[#10B981] to-[#059669]',
-    textColor: 'text-white',
+    icon: '',
+    color: 'from-[#fabe49] to-[#ffdc30]',
+    textColor: 'text-[#003049]',
     programs: [
       {
         id: 'ausbildung-preparation',
@@ -116,8 +116,8 @@ const programCategories = [
     title: 'Scover Campus Connect',
     subtitle: 'Professional Development',
     description: 'Program pengembangan profesional untuk mahasiswa dan alumni',
-    icon: '🏢',
-    color: 'from-[#8B5CF6] to-[#7C3AED]',
+    icon: '',
+    color: 'from-[#0c5681] to-[#003049]',
     textColor: 'text-white',
     programs: [
       {
@@ -169,22 +169,22 @@ export default function ProgramsClient() {
     <div className="relative overflow-hidden bg-gradient-to-br from-white via-blue-50 to-orange-50 min-h-screen">
       {/* Background Elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#1E40AF]/10 to-[#3B82F6]/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-br from-[#F59E0B]/10 to-[#F97316]/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-[#003049]/10 to-[#0c5681]/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gradient-to-br from-[#fabe49]/10 to-[#ffdc30]/10 rounded-full blur-3xl"></div>
       </div>
 
       <div className="relative py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-7xl mx-auto">
         {/* Hero Section */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-block px-4 sm:px-6 py-2 bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] text-white rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
+          <div className="inline-block px-4 sm:px-6 py-2 bg-gradient-to-r from-[#003049] to-[#0c5681] text-white rounded-full text-xs sm:text-sm font-semibold mb-4 sm:mb-6">
             📚 Program Unggulan
           </div>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 font-poppins px-4">
-            <span className="bg-gradient-to-r from-gray-900 via-[#1E40AF] to-gray-900 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-900 via-[#003049] to-gray-900 bg-clip-text text-transparent">
               Program
             </span>
             <br />
-            <span className="text-[#F59E0B]">Terlengkap</span>
+            <span className="bg-gradient-to-r from-[#fabe49] to-[#ffdc30] bg-clip-text text-transparent">Terlengkap</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
             Temukan program yang tepat untuk mencapai tujuan pendidikan dan karier Anda
