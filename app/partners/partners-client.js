@@ -5,60 +5,104 @@ import Image from 'next/image';
 export default function PartnersClient() {
   const partners = [
     {
-      category: 'Sekolah Menengah Atas',
-      schools: [
-        { name: 'SMA Ar-Rohmah', type: 'SMA Swasta', location: 'Malang', logo: '🏫' },
-        { name: 'SMA Negeri 1 Malang', type: 'SMA Negeri', location: 'Malang', logo: '🏫' },
-        { name: 'SMA Negeri 3 Malang', type: 'SMA Negeri', location: 'Malang', logo: '🏫' },
-        { name: 'SMA Negeri 5 Malang', type: 'SMA Negeri', location: 'Malang', logo: '🏫' },
-        { name: 'SMA Katolik Frateran', type: 'SMA Swasta', location: 'Malang', logo: '🏫' },
-        { name: 'SMA Islam Al-Ma\'arif', type: 'SMA Swasta', location: 'Malang', logo: '🏫' }
-      ]
+      name: 'AR ROHMAH IIBS KAMPUS II',
+      logo: '/images/partners/AR ROHMAH IIBS KAMPUS II.png'
     },
     {
-      category: 'Sekolah Menengah Pertama',
-      schools: [
-        { name: 'SMP Negeri 1 Malang', type: 'SMP Negeri', location: 'Malang', logo: '🏫' },
-        { name: 'SMP Negeri 2 Malang', type: 'SMP Negeri', location: 'Malang', logo: '🏫' },
-        { name: 'SMP Negeri 4 Malang', type: 'SMP Negeri', location: 'Malang', logo: '🏫' },
-        { name: 'SMP Islam Al-Ma\'arif', type: 'SMP Swasta', location: 'Malang', logo: '🏫' },
-        { name: 'SMP Katolik Frateran', type: 'SMP Swasta', location: 'Malang', logo: '🏫' }
-      ]
+      name: 'MA AL UMM',
+      logo: '/images/partners/MA AL UMM.png'
     },
     {
-      category: 'Madrasah',
-      schools: [
-        { name: 'MAN 1 Kota Malang', type: 'MAN', location: 'Malang', logo: '🕌' },
-        { name: 'MAN 2 Kota Malang', type: 'MAN', location: 'Malang', logo: '🕌' },
-        { name: 'MTs Negeri 1 Malang', type: 'MTs', location: 'Malang', logo: '🕌' },
-        { name: 'MTs Al-Ma\'arif', type: 'MTs Swasta', location: 'Malang', logo: '🕌' }
-      ]
+      name: 'MAN 1',
+      logo: '/images/partners/MAN 1.png'
     },
     {
-      category: 'Sekolah Kejuruan',
-      schools: [
-        { name: 'SMK Telkom Malang', type: 'SMK Negeri', location: 'Malang', logo: '🔧' },
-        { name: 'SMK Negeri 1 Malang', type: 'SMK Negeri', location: 'Malang', logo: '🔧' },
-        { name: 'SMK Negeri 3 Malang', type: 'SMK Negeri', location: 'Malang', logo: '🔧' },
-        { name: 'SMK Muhammadiyah 1 Malang', type: 'SMK Swasta', location: 'Malang', logo: '🔧' }
-      ]
+      name: 'SAMAN 1 TUMPANG',
+      logo: '/images/partners/SAMAN 1 TUMPANG.png'
     },
     {
-      category: 'Universitas & Perguruan Tinggi',
-      schools: [
-        { name: 'Universitas Brawijaya', type: 'Universitas Negeri', location: 'Malang', logo: '🎓' },
-        { name: 'Universitas Negeri Malang', type: 'Universitas Negeri', location: 'Malang', logo: '🎓' },
-        { name: 'Universitas Muhammadiyah Malang', type: 'Universitas Swasta', location: 'Malang', logo: '🎓' },
-        { name: 'Politeknik Negeri Malang', type: 'Politeknik', location: 'Malang', logo: '🎓' }
-      ]
+      name: 'SEKOLAH ALAM INSAN MULIA',
+      logo: '/images/partners/SEKOLAH ALAM INSAN MULIA.png'
     },
     {
-      category: 'Institusi Pendidikan Lainnya',
-      schools: [
-        { name: 'Dinas Pendidikan Kota Malang', type: 'Pemerintah', location: 'Malang', logo: '🏛️' },
-        { name: 'Kantor Cabang Dinas Pendidikan Jatim', type: 'Pemerintah', location: 'Malang', logo: '🏛️' },
-        { name: 'Lembaga Penjaminan Mutu Pendidikan', type: 'LPMP', location: 'Malang', logo: '🏛️' }
-      ]
+      name: 'SMA BAITUL MANSHURIN',
+      logo: '/images/partners/SMA BAITUL MANSHURIN.png'
+    },
+    {
+      name: 'SMA BSS MALANG',
+      logo: '/images/partners/SMA BSS MALANG.png'
+    },
+    {
+      name: 'SMA IIBS AL IZZAH',
+      logo: '/images/partners/SMA IIBS AL IZZAH.png'
+    },
+    {
+      name: 'SMA WIJAYA PUTRA',
+      logo: '/images/partners/SMA WIJAYA PUTRA.png'
+    },
+    {
+      name: 'SMAN 7 MALANG',
+      logo: '/images/partners/SMAN 7 MALANG.png'
+    },
+    {
+      name: 'SMK TELKOM MALANG',
+      logo: '/images/partners/SMK TELKOM MALANG.png'
+    },
+    {
+      name: 'PARTNER 1',
+      logo: '/images/partners/PARTNER 1.png'
+    },
+    {
+      name: 'PARTNER 2',
+      logo: '/images/partners/PARTNER 2.png'
+    },
+    {
+      name: 'PARTNER 3',
+      logo: '/images/partners/PARTNER 3.png'
+    },
+    {
+      name: 'PARTNER 4',
+      logo: '/images/partners/PARTNER 4.png'
+    },
+    {
+      name: 'PARTNER 5',
+      logo: '/images/partners/PARTNER 5.png'
+    },
+    {
+      name: 'PARTNER 6',
+      logo: '/images/partners/PARTNER 6.png'
+    },
+    {
+      name: 'PARTNER 7',
+      logo: '/images/partners/PARTNER 7.png'
+    },
+    {
+      name: 'PARTNER 8',
+      logo: '/images/partners/PARTNER 8.png'
+    },
+    {
+      name: 'PARTNER 9',
+      logo: '/images/partners/PARTNER 9.png'
+    },
+    {
+      name: 'PARTNER 10',
+      logo: '/images/partners/PARTNER 10.png'
+    },
+    {
+      name: 'PARTNER 11',
+      logo: '/images/partners/PARTNER 11.png'
+    },
+    {
+      name: 'PARTNER 12',
+      logo: '/images/partners/PARTNER 12.png'
+    },
+    {
+      name: 'PARTNER 13',
+      logo: '/images/partners/PARTNER 13.png'
+    },
+    {
+      name: 'PARTNER 14',
+      logo: '/images/partners/PARTNER 14.png'
     }
   ];
 
@@ -156,52 +200,45 @@ export default function PartnersClient() {
         </div>
       </section>
 
-      {/* Partners by Category */}
+      {/* Partners Logo Grid */}
       <section className="py-16 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Jaringan <span className="text-[#003049]">Kerjasama</span> Kami
             </h2>
             <p className="text-xl text-gray-600">
-              Lebih dari 50 institusi pendidikan telah mempercayai Scover Bimbel
+              Lebih dari 25 institusi pendidikan telah mempercayai Scover Bimbel
             </p>
           </div>
 
-          {partners.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="mb-16">
-              <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-                {category.category}
-              </h3>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {category.schools.map((school, schoolIndex) => (
-                  <div key={schoolIndex} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-t-4 border-[#003049] p-6">
-                    <div className="flex items-center mb-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-[#003049] to-[#0c5681] rounded-lg flex items-center justify-center text-2xl mr-4">
-                        {school.logo}
-                      </div>
-                      <div>
-                        <h4 className="text-lg font-bold text-gray-900">{school.name}</h4>
-                        <p className="text-sm text-gray-600">{school.type}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <div className="flex items-center text-sm text-gray-600">
-                        <span className="w-2 h-2 bg-[#003049] rounded-full mr-2"></span>
-                        <span>Lokasi: {school.location}</span>
-                      </div>
-                      <div className="flex items-center text-sm text-gray-600">
-                        <span className="w-2 h-2 bg-[#fabe49] rounded-full mr-2"></span>
-                        <span>Status: Mitra Aktif</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
+          {/* Logo Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-8 items-center justify-items-center">
+            {partners.map((partner, index) => (
+              <div key={index} className="group">
+                <div className="relative w-32 h-32 md:w-40 md:h-40 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-4 flex items-center justify-center border border-gray-100 hover:border-[#003049]/20">
+                  <Image
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={120}
+                    height={120}
+                    className="object-contain max-w-full max-h-full group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = `
+                        <div class="w-full h-full bg-gradient-to-br from-[#003049] to-[#0c5681] rounded-xl flex items-center justify-center">
+                          <div class="text-white text-xs font-bold text-center px-2">${partner.name}</div>
+                        </div>
+                      `;
+                    }}
+                  />
+                </div>
+                {/* <p className="text-xs text-gray-600 mt-2 text-center font-medium">
+                  {partner.name}
+                </p> */}
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 

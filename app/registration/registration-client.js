@@ -3,6 +3,9 @@ import { useState } from 'react';
 import Link from 'next/link';
 
 export default function RegistrationClient() {
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,8 +16,7 @@ export default function RegistrationClient() {
     message: ''
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  // Custom form submission with popup
 
   const programs = [
     'Ujian Nasional SD',
@@ -52,18 +54,46 @@ export default function RegistrationClient() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch('https://formspree.io/f/xyznvqlr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: 'Form Pendaftaran - Scover Bimbel'
+        })
+      });
+      
+      if (response.ok) {
+        setShowSuccess(true);
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          school: '',
+          grade: '',
+          program: '',
+          message: ''
+        });
+      } else {
+        alert('Terjadi kesalahan saat mengirim form. Silakan coba lagi.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Terjadi kesalahan saat mengirim form. Silakan coba lagi.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  if (isSubmitted) {
+  if (showSuccess) {
     return (
       <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 flex items-center justify-center px-4">
         <div className="max-w-md w-full bg-white rounded-xl shadow-2xl p-8 text-center">
-          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#10B981] to-[#059669] rounded-full flex items-center justify-center text-4xl text-white">
+          <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#003049] to-[#0c5681] rounded-full flex items-center justify-center text-4xl text-white">
             ✓
           </div>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Pendaftaran Berhasil!</h2>
@@ -72,12 +102,12 @@ export default function RegistrationClient() {
           </p>
           <div className="space-y-4">
             <Link href="/">
-              <button className="w-full bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
+              <button className="w-full bg-gradient-to-r from-[#003049] to-[#0c5681] text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300">
                 Kembali ke Beranda
               </button>
             </Link>
             <Link href="/contact">
-              <button className="w-full bg-transparent border-2 border-[#1E40AF] text-[#1E40AF] py-3 rounded-lg font-semibold hover:bg-[#1E40AF] hover:text-white transition-all duration-300">
+              <button className="w-full bg-transparent border-2 border-[#003049] text-[#003049] py-3 rounded-lg font-semibold hover:bg-[#003049] hover:text-white transition-all duration-300">
                 Hubungi Kami
               </button>
             </Link>
@@ -90,7 +120,7 @@ export default function RegistrationClient() {
   return (
     <div className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-6 bg-gradient-to-br from-[#1E40AF] to-[#3B82F6] overflow-hidden">
+      <section className="relative py-20 px-6 bg-gradient-to-br from-[#003049] to-[#0c5681] overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[url('/images/education-pattern.png')] bg-repeat bg-[length:300px] mix-blend-overlay"></div>
         </div>
@@ -116,7 +146,10 @@ export default function RegistrationClient() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form 
+              onSubmit={handleSubmit}
+              className="space-y-6"
+            >
               <div>
                 <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
                   Nama Lengkap *
@@ -128,7 +161,7 @@ export default function RegistrationClient() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003049] focus:border-transparent transition-all duration-300"
                   placeholder="Masukkan nama lengkap Anda"
                 />
               </div>
@@ -144,7 +177,7 @@ export default function RegistrationClient() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003049] focus:border-transparent transition-all duration-300"
                   placeholder="contoh@email.com"
                 />
               </div>
@@ -160,7 +193,7 @@ export default function RegistrationClient() {
                   value={formData.phone}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003049] focus:border-transparent transition-all duration-300"
                   placeholder="08xxxxxxxxxx"
                 />
               </div>
@@ -176,7 +209,7 @@ export default function RegistrationClient() {
                   value={formData.school}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003049] focus:border-transparent transition-all duration-300"
                   placeholder="Nama sekolah Anda"
                 />
               </div>
@@ -191,7 +224,7 @@ export default function RegistrationClient() {
                   value={formData.grade}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003049] focus:border-transparent transition-all duration-300"
                 >
                   <option value="">Pilih kelas/jenjang</option>
                   {grades.map((grade) => (
@@ -210,7 +243,7 @@ export default function RegistrationClient() {
                   value={formData.program}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003049] focus:border-transparent transition-all duration-300"
                 >
                   <option value="">Pilih program</option>
                   {programs.map((program) => (
@@ -229,14 +262,14 @@ export default function RegistrationClient() {
                   value={formData.message}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#1E40AF] focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#003049] focus:border-transparent transition-all duration-300"
                   placeholder="Ceritakan kebutuhan khusus atau pertanyaan Anda..."
                 />
               </div>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <h3 className="font-semibold text-blue-900 mb-2">Informasi Penting:</h3>
-                <ul className="text-sm text-blue-800 space-y-1">
+              <div className="bg-gradient-to-r from-[#003049]/5 to-[#0c5681]/5 border border-[#003049]/20 rounded-lg p-4">
+                <h3 className="font-semibold text-[#003049] mb-2">Informasi Penting:</h3>
+                <ul className="text-sm text-[#003049]/80 space-y-1">
                   <li>• Tim kami akan menghubungi Anda dalam 1x24 jam</li>
                   <li>• Konsultasi awal gratis untuk menentukan program yang tepat</li>
                   <li>• Pembayaran dapat dilakukan secara bertahap</li>
@@ -250,7 +283,7 @@ export default function RegistrationClient() {
                 className={`w-full py-4 rounded-lg font-bold text-lg transition-all duration-300 ${
                   isSubmitting
                     ? 'bg-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] hover:shadow-lg hover:scale-105'
+                    : 'bg-gradient-to-r from-[#003049] to-[#0c5681] hover:shadow-lg hover:scale-105'
                 } text-white`}
               >
                 {isSubmitting ? 'Mengirim...' : 'Daftar Sekarang'}
@@ -261,7 +294,7 @@ export default function RegistrationClient() {
       </section>
 
       {/* Contact Info */}
-      <section className="py-16 px-6 bg-gray-50">
+      {/* <section className="py-16 px-6 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">
             Butuh Bantuan?
@@ -290,7 +323,35 @@ export default function RegistrationClient() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
+
+      {/* Success Modal */}
+      {showSuccess && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-2xl p-8 max-w-md w-full text-center">
+            <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-[#003049] to-[#0c5681] rounded-full flex items-center justify-center text-4xl text-white">
+              ✓
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Pendaftaran Berhasil!</h2>
+            <p className="text-gray-600 mb-6">
+              Terima kasih telah mendaftar di Scover Bimbel. Tim kami akan segera menghubungi Anda dalam 1x24 jam.
+            </p>
+            <div className="space-y-4">
+              <button 
+                onClick={() => setShowSuccess(false)}
+                className="w-full bg-gradient-to-r from-[#003049] to-[#0c5681] text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+              >
+                Tutup
+              </button>
+              <Link href="/contact">
+                <button className="w-full bg-transparent border-2 border-[#003049] text-[#003049] py-3 rounded-lg font-semibold hover:bg-[#003049] hover:text-white transition-all duration-300">
+                  Hubungi Kami
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

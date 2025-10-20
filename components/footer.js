@@ -142,8 +142,8 @@ export default function Footer() {
                   </svg>
                 </div>
                 <span className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                  Jl. Pendidikan No. 123<br />
-                  Malang, Jawa Timur
+                  Jl. Danau Toba No.24 Blok E6, Sawojajar, 
+                  Kota Malang, Jawa Timur
                 </span>
               </li>
               <li className="flex items-start group">
@@ -153,8 +153,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <span className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                  +62 812-3456-7890<br />
-                  +62 823-4567-8901
+                  +62 896-9705-3591
                 </span>
               </li>
               <li className="flex items-start group">
@@ -164,8 +163,7 @@ export default function Footer() {
                   </svg>
                 </div>
                 <span className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                  info@scoverbimbel.com<br />
-                  belajar@scoverbimbel.com
+                connect@scover.org
                 </span>
               </li>
             </ul>

@@ -156,7 +156,7 @@ export default function Navbar() {
         }`}>
           <div className="px-4 pt-4 pb-6 bg-gradient-to-br from-white via-gray-50 to-blue-50 shadow-2xl rounded-2xl mt-3 border border-gray-100">
             {/* Header dengan logo */}
-            <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
+            {/* <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-200">
               <div className="flex items-center">
                 <Image
                   src="/images/logo/logo2.png"
@@ -174,7 +174,7 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-            </div>
+            </div> */}
 
             {/* Navigation Links dengan icon */}
             <div className="space-y-3 mb-6">
@@ -195,7 +195,7 @@ export default function Navbar() {
             </div>
             
             {/* Mobile CTA Button dengan gradient */}
-            <div className="pt-4 border-t border-gray-200">
+            <div className="pt-4 border-t">
               <Link
                 href="/registration"
                 className="block w-full bg-gradient-to-r from-[#003049] via-[#0c5681] to-[#003049] text-white px-6 py-4 rounded-xl text-base font-bold text-center hover:shadow-lg hover:scale-105 transition-all duration-300 relative overflow-hidden group"

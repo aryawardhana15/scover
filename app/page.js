@@ -805,7 +805,7 @@ export default function Home() {
                     {
                       name: "Diela",
                       displayName: "Kak Diela",
-                      university: "Universitas Brawijaya",
+                      university: "B.Indonesia",
                       badge: "Study Abroad Academy",
                       achievements: [
                         "Lulusan UB Teknik Informatika",
@@ -819,7 +819,7 @@ export default function Home() {
                     {
                       name: "Merlyn",
                       displayName: "Kak Merlyn",
-                      university: "Massachusetts Institute of Technology",
+                      university: "Psikologi",
                       badge: "Study Abroad Academy",
                       achievements: [
                         "Awardee Australia Awards Scholarship",
@@ -833,8 +833,8 @@ export default function Home() {
                     {
                       name: "Budi",
                       displayName: "Kak Budi",
-                      university: "Universitas Indonesia",
-                      badge: "Physics Master",
+                      university: "B.Inggris",
+                      badge: "English Master",
                       achievements: [
                         "Lulusan UI Fisika",
                         "Alumni beasiswa LPDP",
@@ -847,8 +847,8 @@ export default function Home() {
                     {
                       name: "Putri",
                       displayName: "Kak Putri",
-                      university: "Institut Teknologi Bandung",
-                      badge: "Study Abroad Academy",
+                      university: "B.Inggris",
+                      badge: "English Master",
                       achievements: [
                         "Lulusan ITB Teknik Informatika",
                         "Berpengalaman mengajar 5+ tahun",
@@ -861,8 +861,8 @@ export default function Home() {
                     {
                       name: "Agung",
                       displayName: "Kak Agung",
-                      university: "Universitas Diponegoro",
-                      badge: "Chemistry Pro",
+                      university: "Matematika",
+                      badge: "Math Pro",
                       achievements: [
                         "Lulusan UNDIP Kimia",
                         "Juara 2 Olimpiade Kimia Nasional",
@@ -875,8 +875,8 @@ export default function Home() {
                     {
                       name: "Shinta",
                       displayName: "Kak Shinta",
-                      university: "Universitas Brawijaya",
-                      badge: "Math Genius",
+                      university: "Biologi",
+                      badge: "Bio Genius",
                       achievements: [
                         "Lulusan UB Matematika",
                         "Alumni beasiswa Unggulan",
@@ -889,8 +889,8 @@ export default function Home() {
                     {
                       name: "Rizky",
                       displayName: "Kak Rizky",
-                      university: "Institut Teknologi Sepuluh Nopember",
-                      badge: "Engineering Expert",
+                      university: "Matematika",
+                      badge: "Math Expert",
                       achievements: [
                         "Lulusan ITS Teknik Mesin",
                         "Berpengalaman 3+ tahun",
@@ -903,8 +903,8 @@ export default function Home() {
                     {
                       name: "Maulidya",
                       displayName: "Kak Maulidya",
-                      university: "Universitas Negeri Malang",
-                      badge: "Language Master",
+                      university: "Matematika",
+                      badge: "Math Expert",
                       achievements: [
                         "Lulusan UNM Bahasa Inggris",
                         "TOEFL Score 650+",
@@ -917,8 +917,8 @@ export default function Home() {
                     {
                       name: "Dion",
                       displayName: "Kak Dion",
-                      university: "Universitas Jember",
-                      badge: "History Expert",
+                      university: "Matematika",
+                      badge: "Math Expert",
                       achievements: [
                         "Lulusan UNEJ Sejarah",
                         "Berpengalaman 5+ tahun",
@@ -931,8 +931,8 @@ export default function Home() {
                     {
                       name: "Reza",
                       displayName: "Kak Reza",
-                      university: "Universitas Sebelas Maret",
-                      badge: "Economics Master",
+                      university: "TWK/PPKN",
+                      badge: "TWK Master",
                       achievements: [
                         "Lulusan UNS Ekonomi",
                         "Berpengalaman 6+ tahun",
@@ -945,8 +945,8 @@ export default function Home() {
                     {
                       name: "Fariha",
                       displayName: "Kak Fariha",
-                      university: "Universitas Hasanuddin",
-                      badge: "Sociology Expert",
+                      university: "Geografi",
+                      badge: "Geo Expert",
                       achievements: [
                         "Lulusan UNHAS Sosiologi",
                         "Berpengalaman 3+ tahun",
@@ -959,8 +959,8 @@ export default function Home() {
                     {
                       name: "Haryo",
                       displayName: "Kak Haryo",
-                      university: "Universitas Padjadjaran",
-                      badge: "Philosophy Master",
+                      university: "B.Inggris",
+                      badge: "English Master",
                       achievements: [
                         "Lulusan UNPAD Filsafat",
                         "Berpengalaman 5+ tahun",
@@ -973,8 +973,8 @@ export default function Home() {
                     {
                       name: "Ifa",
                       displayName: "Kak Ifa",
-                      university: "Universitas Negeri Semarang",
-                      badge: "Psychology Expert",
+                      university: "B.Indonesia",
+                      badge: "Language Expert",
                       achievements: [
                         "Lulusan UNNES Psikologi",
                         "Berpengalaman 4+ tahun",
@@ -987,8 +987,8 @@ export default function Home() {
                     {
                       name: "Oka",
                       displayName: "Kak Oka",
-                      university: "Universitas Negeri Surabaya",
-                      badge: "Literature Master",
+                      university: "TWK/PPKN",
+                      badge: "TWK Master",
                       achievements: [
                         "Lulusan UNESA Sastra Indonesia",
                         "Berpengalaman 6+ tahun",
@@ -1001,8 +1001,8 @@ export default function Home() {
                     {
                       name: "Wildan",
                       displayName: "Kak Wildan",
-                      university: "Universitas Sumatera Utara",
-                      badge: "Statistics Expert",
+                      university: "Matematika",
+                      badge: "Math Expert",
                       achievements: [
                         "Lulusan USU Statistika",
                         "Data Analyst di Perusahaan Multinasional",
@@ -1084,13 +1084,13 @@ export default function Home() {
                                   />
                                   
                                   {/* Overlay with name badge */}
-                                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
+                                  {/* <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3">
                                     <div className="text-white text-center">
                                       <div className="text-sm font-bold bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full inline-block">
                                         {tutor.displayName || tutor.name}
                                       </div>
                                 </div>
-                                  </div>
+                                  </div> */}
                                 </div>
                                 
                                 {/* Floating elements around photo */}
