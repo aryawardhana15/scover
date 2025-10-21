@@ -304,11 +304,11 @@ export default function PartnersClient() {
                 Hubungi Tim Kerjasama
               </button>
             </Link>
-            <Link href="/programs">
+            {/* <Link href="/programs">
               <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white hover:text-[#003049] transition-all duration-300">
                 Lihat Program Kerjasama
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </section>

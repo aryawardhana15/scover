@@ -1193,7 +1193,7 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#1E40AF] to-[#3B82F6] text-white rounded-full px-6 py-3 shadow-lg mb-6">
-              <span className="text-2xl">📸</span>
+              {/* <span className="text-2xl">📸</span> */}
               <span className="font-semibold">Galeri Kami</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-900 mb-4">
@@ -1327,7 +1327,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-[#003049] to-[#0c5681] text-white rounded-full px-6 py-3 shadow-lg mb-6">
-              <span className="text-2xl">🤝</span>
+              
               <span className="font-semibold">Partner Terpercaya</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-poppins font-bold text-gray-900 mb-4">
@@ -1477,7 +1477,7 @@ export default function Home() {
           {/* Main Content - Glassmorphism Style */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center space-x-2 glassmorphism rounded-full px-6 py-3 mb-8 shadow-lg">
-              <span className="text-2xl animate-bounce">🚀</span>
+              {/* <span className="text-2xl animate-bounce">🚀</span> */}
               <span className="font-semibold bg-gradient-to-r from-[#003049] to-[#0c5681] bg-clip-text text-transparent">Mari Bergabung</span>
             </div>
             <h2 className="text-5xl md:text-6xl font-bold mb-6 font-poppins">
