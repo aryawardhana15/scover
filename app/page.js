@@ -365,6 +365,15 @@ export default function Home() {
                     </svg>
                   </span>
                 </Link>
+
+                <Link href="/quiz" className="group relative bg-gradient-to-r from-[#0c5681] to-[#003049] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg sm:rounded-xl font-bold text-base sm:text-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 overflow-hidden">
+                  <span className="relative z-10 flex items-center justify-center gap-2">
+                    <span>Ikuti Quiz</span>
+                    <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                    </svg>
+                  </span>
+                </Link>
               </div>
             </div>
         
