@@ -10,6 +10,8 @@ import {
 // Note: In production, load from database
 import { questionsData } from '../../../quiz/test/questions-data';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request) {
   try {
     const { sessionId, subtestId } = await request.json();

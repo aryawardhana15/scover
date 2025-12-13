@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 1. Ini sudah benar dan paling penting.
-  output: 'export',
+  // 1. Hapus output: 'export' karena kita butuh API routes (dynamic)
+  // output: 'export', // Commented out karena tidak kompatibel dengan API routes
 
   // 2. Ini SANGAT PENTING agar <Image> dari Next.js berfungsi
   //    tanpa server optimasi gambar.

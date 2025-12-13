@@ -1,29 +1,31 @@
 import { NextResponse } from 'next/server';
-import { createUser, getUserByEmail } from '../../../../lib/db';
+import { verifyPassword } from '../../../../lib/db';
+
+export const dynamic = 'force-dynamic';
 
 export async function POST(request) {
   try {
-    const { name, email } = await request.json();
+    const { email, password } = await request.json();
 
     // Validasi input
-    if (!name || !email) {
+    if (!email || !password) {
       return NextResponse.json(
-        { error: 'Name and email are required' },
+        { error: 'Email and password are required' },
         { status: 400 }
       );
     }
 
-    // Check if user already exists
-    let user = await getUserByEmail(email);
+    // Verify password
+    const user = await verifyPassword(email, password);
     
     if (!user) {
-      // Create new user
-      user = await createUser(name, email);
-    } else {
-      // Update name if different
-      if (user.name !== name) {
-        user = { ...user, name };
-      }
+      return NextResponse.json(
+        { 
+          success: false,
+          error: 'Email atau password salah' 
+        },
+        { status: 401 } // Unauthorized
+      );
     }
 
     return NextResponse.json({
@@ -37,7 +39,10 @@ export async function POST(request) {
   } catch (error) {
     console.error('Login error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { 
+        success: false,
+        error: 'Internal server error' 
+      },
       { status: 500 }
     );
   }

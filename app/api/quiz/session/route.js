@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { createSession, getSessionsByUser } from '../../../../lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request) {
   try {
     const { userId } = await request.json();

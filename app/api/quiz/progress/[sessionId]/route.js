@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getProgress, saveProgress, getSession } from '../../../../../lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request, { params }) {
   try {
     const { sessionId } = params;

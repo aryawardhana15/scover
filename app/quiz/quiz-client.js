@@ -61,7 +61,7 @@ export default function QuizClient() {
     const session = localStorage.getItem('quizSession');
     
     if (!user || !session) {
-      router.push('/quiz/login');
+      router.push('/quiz/register');
       return;
     }
 

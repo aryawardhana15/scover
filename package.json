@@ -10,12 +10,16 @@
   },
   "dependencies": {
     "@tabler/icons-react": "^3.31.0",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.2.3",
     "leaflet": "^1.9.4",
+    "mysql2": "^3.15.3",
     "next": "13.5.6",
     "next-seo": "^6.6.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-leaflet": "^4.2.1"
+    "react-leaflet": "^4.2.1",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

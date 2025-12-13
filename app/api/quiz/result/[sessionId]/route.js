@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getSession, getScores, getUser, updateSession } from '../../../../../lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request, { params }) {
   try {
     const { sessionId } = params;
@@ -35,7 +37,7 @@ export async function GET(request, { params }) {
     if (session.status === 'in_progress') {
       await updateSession(sessionId, {
         status: 'completed',
-        endTime: new Date().toISOString(),
+        endTime: new Date(), // Will be formatted by updateSession
       });
     }
 

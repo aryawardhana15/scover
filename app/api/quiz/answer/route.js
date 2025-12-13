@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { saveAnswer, getSession } from '../../../../lib/db';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request) {
   try {
     const { sessionId, subtestId, questionId, answer } = await request.json();
