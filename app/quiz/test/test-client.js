@@ -368,16 +368,49 @@ export default function TestClient() {
                   />
                   <div className="flex-1">
                     <span className="font-bold text-[#003049] mr-2">{option}.</span>
-                    {currentQ.hasImage && currentQ.options[option]?.includes('[Gambar') ? (
-                      <div className="mt-2">
-                        <span className="text-gray-600 italic">{currentQ.options[option]}</span>
-                        <div className="mt-2 bg-gray-100 p-3 rounded border border-gray-300 min-h-[100px] flex items-center justify-center">
-                          <p className="text-gray-400 text-xs">Tempat untuk gambar opsi {option}</p>
-                        </div>
-                      </div>
-                    ) : (
-                      <span>{currentQ.options[option] || `[Opsi ${option} akan dimasukkan di sini]`}</span>
-                    )}
+                    {(() => {
+                      const optionValue = currentQ.options[option];
+                      // Check if it's an image path (starts with / and has image extension)
+                      const isImagePath = optionValue && (
+                        optionValue.startsWith('/') && 
+                        /\.(png|jpg|jpeg|gif|webp|svg)$/i.test(optionValue)
+                      );
+                      // Check if it's a placeholder text
+                      const isPlaceholder = optionValue?.includes('[Gambar');
+                      
+                      if (isImagePath) {
+                        return (
+                          <div className="mt-2">
+                            <div className="relative w-full h-48 bg-gray-100 rounded-lg border border-gray-300 overflow-hidden">
+                              <Image
+                                src={optionValue}
+                                alt={`Opsi ${option}`}
+                                fill
+                                className="object-contain"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                onError={(e) => {
+                                  e.target.style.display = 'none';
+                                  if (e.target.parentElement) {
+                                    e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400 text-sm">Gambar tidak ditemukan</div>';
+                                  }
+                                }}
+                              />
+                            </div>
+                          </div>
+                        );
+                      } else if (isPlaceholder) {
+                        return (
+                          <div className="mt-2">
+                            <span className="text-gray-600 italic">{optionValue}</span>
+                            <div className="mt-2 bg-gray-100 p-3 rounded border border-gray-300 min-h-[100px] flex items-center justify-center">
+                              <p className="text-gray-400 text-xs">Tempat untuk gambar opsi {option}</p>
+                            </div>
+                          </div>
+                        );
+                      } else {
+                        return <span>{optionValue || `[Opsi ${option} akan dimasukkan di sini]`}</span>;
+                      }
+                    })()}
                   </div>
                 </label>
               ))}

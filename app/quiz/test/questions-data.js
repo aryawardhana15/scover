@@ -615,7 +615,7 @@ export const questionsData = {
       hasImage: true,
       imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
       options: {
-        A: "[Gambar Opsi A - akan dimasukkan manual]",
+        A: "/images/logo/logo2.png",
         B: "[Gambar Opsi B - akan dimasukkan manual]",
         C: "[Gambar Opsi C - akan dimasukkan manual]",
         D: "[Gambar Opsi D - akan dimasukkan manual]"
