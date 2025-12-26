@@ -12,7 +12,8 @@ const SUBTES_LIST = [
   { id: 4, name: 'Analogie Hitungan (Deret Angka)', duration: 4 },
   { id: 5, name: 'Konsentrasi (Menghitung Huruf)', duration: 2 },
   { id: 6, name: 'Daya Nalar (Deret Gambar & Kubus)', duration: 2 },
-  { id: 7, name: 'Mekanis-Teknologi', duration: 4 },
+  { id: 7, name: 'Mekanis-Teknologi', duration: 4, questionCount: 10 },
+  { id: 8, name: 'Tes Buta Warna', duration: 3, questionCount: 9 },
 ];
 
 export default function TestClient() {
@@ -40,7 +41,7 @@ export default function TestClient() {
       setCurrentSubtest(progress.currentSubtest || 1);
       setCurrentQuestion(progress.currentQuestion || 1);
       setAnswers(progress.answers || {});
-      
+
       // Check if in break
       if (progress.isBreak) {
         setIsBreak(true);
@@ -72,7 +73,7 @@ export default function TestClient() {
           return prev - 1;
         });
       }, 1000);
-      
+
       // Auto-save break progress every 5 seconds
       const saveTimer = setInterval(() => {
         const progress = {
@@ -89,7 +90,7 @@ export default function TestClient() {
           console.error('Error saving progress:', error);
         }
       }, 5000);
-      
+
       return () => {
         clearInterval(timer);
         clearInterval(saveTimer);
@@ -104,7 +105,7 @@ export default function TestClient() {
           return prev - 1;
         });
       }, 1000);
-      
+
       // Auto-save every 5 seconds
       const saveTimer = setInterval(() => {
         const progress = {
@@ -121,7 +122,7 @@ export default function TestClient() {
           console.error('Error saving progress:', error);
         }
       }, 5000);
-      
+
       return () => {
         clearInterval(timer);
         clearInterval(saveTimer);
@@ -149,7 +150,7 @@ export default function TestClient() {
     const key = `${currentSubtest}-${currentQuestion}`;
     const newAnswers = { ...answers, [key]: answer };
     setAnswers(newAnswers);
-    
+
     // Auto-save immediately when answer changes
     const progress = {
       currentSubtest,
@@ -167,7 +168,8 @@ export default function TestClient() {
   };
 
   const handleNextQuestion = () => {
-    if (currentQuestion < 10) {
+    const totalQuestions = SUBTES_LIST.find(s => s.id === currentSubtest)?.questionCount || 10;
+    if (currentQuestion < totalQuestions) {
       setCurrentQuestion(currentQuestion + 1);
       saveProgress();
     }
@@ -192,7 +194,7 @@ export default function TestClient() {
 
   const handleSubtestComplete = () => {
     setIsFinished(true);
-    
+
     // Calculate score
     const subtestQuestions = questionsData[currentSubtest] || [];
     let correct = 0;
@@ -203,17 +205,27 @@ export default function TestClient() {
       }
     });
 
+    // Check if passed
+    let passed = false;
+    if (currentSubtest === 8) {
+      // For Color Blindness test, must be 100% correct
+      passed = correct === subtestQuestions.length;
+    } else {
+      // For other tests, > 6 correct (7/10)
+      passed = correct > 6;
+    }
+
     // Save score
     const scores = JSON.parse(localStorage.getItem('quizScores') || '{}');
     scores[currentSubtest] = {
       correct,
-      total: 10,
-      passed: correct > 6,
+      total: subtestQuestions.length,
+      passed,
     };
     localStorage.setItem('quizScores', JSON.stringify(scores));
 
     // Check if all subtests done
-    if (currentSubtest >= 7) {
+    if (currentSubtest >= 8) {
       // All done, go to result
       localStorage.removeItem('quizProgress');
       router.push('/quiz/result');
@@ -248,7 +260,7 @@ export default function TestClient() {
         <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl p-8 text-center">
           <h2 className="text-3xl font-bold text-[#003049] mb-4">Jeda Antar Subtes</h2>
           <p className="text-gray-600 mb-6">Subtes {currentSubtest} telah selesai. Istirahat sejenak sebelum melanjutkan ke subtes berikutnya.</p>
-          
+
           <div className="mb-8">
             <div className="text-6xl font-bold text-[#003049] mb-4">{formatTime(breakTime)}</div>
             <p className="text-gray-600">Subtes berikutnya akan dimulai dalam:</p>
@@ -260,6 +272,35 @@ export default function TestClient() {
               {currentSubtest + 1}. {SUBTES_LIST.find(s => s.id === currentSubtest + 1)?.name}
             </p>
           </div>
+
+          {currentSubtest + 1 === 8 && (
+            <div className="bg-yellow-50 p-6 rounded-lg border border-yellow-200 mt-4 text-left">
+              <h3 className="font-bold text-[#003049] mb-2 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Instruksi Khusus
+              </h3>
+              <p className="text-gray-700 mb-3 text-sm">
+                Untuk tes ini, Anda akan disajikan <strong>SATU GAMBAR</strong> yang memuat 9 piringan ishihara sekaligus.
+                Mohon perhatikan urutan pengerjaan berikut:
+              </p>
+              <div className="bg-white p-3 rounded border border-yellow-300 text-sm space-y-2">
+                <div className="flex gap-2">
+                  <span className="font-bold whitespace-nowrap">No. 1 - 3:</span>
+                  <span>Baris Pertama (Kiri → Kanan)</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="font-bold whitespace-nowrap">No. 4 - 6:</span>
+                  <span>Baris Kedua (Kiri → Kanan)</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="font-bold whitespace-nowrap">No. 7 - 9:</span>
+                  <span>Baris Ketiga (Kiri → Kanan)</span>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -289,7 +330,7 @@ export default function TestClient() {
               <h1 className="text-2xl font-bold text-[#003049]">
                 Subtes {currentSubtest}: {currentSubtestData?.name}
               </h1>
-              <p className="text-gray-600">Soal {currentQuestion} dari 10</p>
+              <p className="text-gray-600">Soal {currentQuestion} dari {currentSubtestData?.questionCount || 10}</p>
             </div>
             <div className="text-center">
               <div className={`text-3xl font-bold ${timeLeft < 60 ? 'text-red-600' : 'text-[#003049]'}`}>
@@ -304,7 +345,7 @@ export default function TestClient() {
             <div className="w-full bg-gray-200 rounded-full h-2">
               <div
                 className="bg-[#003049] h-2 rounded-full transition-all duration-300"
-                style={{ width: `${(currentQuestion / 10) * 100}%` }}
+                style={{ width: `${(currentQuestion / (currentSubtestData?.questionCount || 10)) * 100}%` }}
               />
             </div>
           </div>
@@ -318,20 +359,42 @@ export default function TestClient() {
                 Soal {currentQuestion}
               </span>
             </div>
-            
+
             <div className="text-lg text-gray-800 mb-6">
               {currentQ.question}
             </div>
 
-            {/* Image placeholder for questions that need images */}
+            {/* Question Image */}
             {currentQ.hasImage && (
-              <div className="mb-6 p-6 bg-gray-100 rounded-lg border-2 border-dashed border-gray-300">
-                <p className="text-gray-500 italic mb-2 text-center">
-                  [Gambar akan dimasukkan di sini - {currentQ.imageDescription || 'Gambar untuk soal ini'}]
-                </p>
-                <div className="bg-white p-4 rounded border border-gray-200 min-h-[200px] flex items-center justify-center">
-                  <p className="text-gray-400 text-sm">Tempat untuk gambar soal</p>
-                </div>
+              <div className="mb-6">
+                {currentQ.questionImage ? (
+                  <div className="relative w-full bg-gray-100 rounded-lg border-2 border-gray-300 overflow-hidden">
+                    <div className="relative w-full h-96">
+                      <Image
+                        src={currentQ.questionImage}
+                        alt={currentQ.imageDescription || 'Gambar untuk soal ini'}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 80vw"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          if (e.target.parentElement) {
+                            e.target.parentElement.innerHTML = '<div class="w-full h-full flex items-center justify-center text-gray-400 text-sm p-4">Gambar tidak ditemukan</div>';
+                          }
+                        }}
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className="mb-6 p-6 bg-gray-100 rounded-lg border-2 border-dashed border-gray-300">
+                    <p className="text-gray-500 italic mb-2 text-center">
+                      [Gambar akan dimasukkan di sini - {currentQ.imageDescription || 'Gambar untuk soal ini'}]
+                    </p>
+                    <div className="bg-white p-4 rounded border border-gray-200 min-h-[200px] flex items-center justify-center">
+                      <p className="text-gray-400 text-sm">Tempat untuk gambar soal</p>
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
@@ -352,11 +415,10 @@ export default function TestClient() {
               {['A', 'B', 'C', 'D'].map((option) => (
                 <label
                   key={option}
-                  className={`flex items-start gap-4 p-4 rounded-lg border-2 cursor-pointer transition-all ${
-                    selectedAnswer === option
-                      ? 'border-[#003049] bg-blue-50'
-                      : 'border-gray-200 hover:border-gray-300'
-                  }`}
+                  className={`flex items-start gap-4 p-4 rounded-lg border-2 cursor-pointer transition-all ${selectedAnswer === option
+                    ? 'border-[#003049] bg-blue-50'
+                    : 'border-gray-200 hover:border-gray-300'
+                    }`}
                 >
                   <input
                     type="radio"
@@ -372,12 +434,12 @@ export default function TestClient() {
                       const optionValue = currentQ.options[option];
                       // Check if it's an image path (starts with / and has image extension)
                       const isImagePath = optionValue && (
-                        optionValue.startsWith('/') && 
+                        optionValue.startsWith('/') &&
                         /\.(png|jpg|jpeg|gif|webp|svg)$/i.test(optionValue)
                       );
                       // Check if it's a placeholder text
                       const isPlaceholder = optionValue?.includes('[Gambar');
-                      
+
                       if (isImagePath) {
                         return (
                           <div className="mt-2">
@@ -424,17 +486,16 @@ export default function TestClient() {
             <button
               onClick={handlePrevQuestion}
               disabled={currentQuestion === 1}
-              className={`px-6 py-3 rounded-lg font-bold transition-all ${
-                currentQuestion === 1
-                  ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                  : 'bg-gray-200 text-[#003049] hover:bg-gray-300'
-              }`}
+              className={`px-6 py-3 rounded-lg font-bold transition-all ${currentQuestion === 1
+                ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
+                : 'bg-gray-200 text-[#003049] hover:bg-gray-300'
+                }`}
             >
               ← Sebelumnya
             </button>
 
             <div className="flex gap-2">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => {
+              {Array.from({ length: currentSubtestData?.questionCount || 10 }, (_, i) => i + 1).map((num) => {
                 const key = `${currentSubtest}-${num}`;
                 const answered = answers[key];
                 return (
@@ -444,13 +505,12 @@ export default function TestClient() {
                       setCurrentQuestion(num);
                       saveProgress();
                     }}
-                    className={`w-10 h-10 rounded-lg font-bold transition-all ${
-                      num === currentQuestion
-                        ? 'bg-[#003049] text-white'
-                        : answered
+                    className={`w-10 h-10 rounded-lg font-bold transition-all ${num === currentQuestion
+                      ? 'bg-[#003049] text-white'
+                      : answered
                         ? 'bg-green-500 text-white'
                         : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                    }`}
+                      }`}
                   >
                     {num}
                   </button>
@@ -458,7 +518,7 @@ export default function TestClient() {
               })}
             </div>
 
-            {currentQuestion === 10 ? (
+            {currentQuestion === (currentSubtestData?.questionCount || 10) ? (
               <button
                 onClick={handleSubmitSubtest}
                 className="px-6 py-3 bg-gradient-to-r from-[#003049] to-[#0c5681] text-white rounded-lg font-bold hover:shadow-lg transition-all hover:scale-105"

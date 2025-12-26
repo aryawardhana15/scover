@@ -8,60 +8,65 @@ export const questionsData = {
     {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
+      questionImage: "/soal/nomor1.jpeg",
       imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
       options: {
-        A: "[Gambar kubus 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus 3D opsi D - akan dimasukkan manual]"
+        A: "/soal/nomor1pilihanA.jpeg",
+        B: "/soal/nomor1pilihanB.jpeg",
+        C: "/soal/nomor1pilihanC.jpeg",
+        D: "/soal/nomor1pilihanD.jpeg"
       },
       correctAnswer: "A"
     },
     {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
+      questionImage: "/soal/nomor2.jpeg",
       imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
       options: {
-        A: "[Gambar kubus 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus 3D opsi D - akan dimasukkan manual]"
+        A: "/soal/nomor2pilihanA.jpeg",
+        B: "/soal/nomor2pilihanB.jpeg",
+        C: "/soal/nomor2pilihanC.jpeg",
+        D: "/soal/nomor2pilihanD.jpeg"
       },
       correctAnswer: "B"
     },
     {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
+      questionImage: "/soal/nomor3.jpeg",
       imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
       options: {
-        A: "[Gambar kubus 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus 3D opsi D - akan dimasukkan manual]"
+        A: "/soal/nomor3pilihanA.jpeg",
+        B: "/soal/nomor3pilihanB.jpeg",
+        C: "/soal/nomor3pilihanC.jpeg",
+        D: "/soal/nomor3pilihanD.jpeg"
       },
       correctAnswer: "C"
     },
     {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
+      questionImage: "/soal/nomor4.jpeg",
       imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
       options: {
-        A: "[Gambar kubus 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus 3D opsi D - akan dimasukkan manual]"
+        A: "/soal/nomor4pilihanA.jpeg",
+        B: "/soal/nomor4pilihanB.jpeg",
+        C: "/soal/nomor4pilihanC.jpeg",
+        D: "/soal/nomor4pilihanD.jpeg"
       },
       correctAnswer: "D"
     },
     {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
+      questionImage: "/soal/nomor5.jpeg",
       imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
       options: {
-        A: "[Gambar kubus 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus 3D opsi D - akan dimasukkan manual]"
+        A: "/soal/nomor5pilihanA.jpeg",
+        B: "/soal/nomor5pilihanB.jpeg",
+        C: "/soal/nomor5pilihanC.jpeg",
+        D: "/soal/nomor5pilihanD.jpeg"
       },
       correctAnswer: "A"
     },
@@ -69,60 +74,65 @@ export const questionsData = {
     {
       question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
       hasImage: true,
+      questionImage: "/soal/5.png",
       imageDescription: "Bentuk 3D kompleks",
       options: {
-        A: "[Gambar 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar 3D opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "B"
     },
     {
       question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
       hasImage: true,
+      questionImage: "/soal/1.png",
       imageDescription: "Bentuk 3D kompleks",
       options: {
-        A: "[Gambar 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus 3D opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "C"
     },
     {
       question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
       hasImage: true,
+      questionImage: "/soal/2.png",
       imageDescription: "Bentuk 3D kompleks",
       options: {
-        A: "[Gambar 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar 3D opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "A"
     },
     {
       question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
       hasImage: true,
+      questionImage: "/soal/3.png",
       imageDescription: "Bentuk 3D kompleks",
       options: {
-        A: "[Gambar 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar 3D opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "D"
     },
     {
       question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
       hasImage: true,
+      questionImage: "/soal/4.png",
       imageDescription: "Bentuk 3D kompleks",
       options: {
-        A: "[Gambar 3D opsi A - akan dimasukkan manual]",
-        B: "[Gambar 3D opsi B - akan dimasukkan manual]",
-        C: "[Gambar 3D opsi C - akan dimasukkan manual]",
-        D: "[Gambar 3D opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "B"
     }
@@ -613,60 +623,65 @@ export const questionsData = {
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
+      questionImage: "/soal/nomor1daya.jpeg",
       imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
       options: {
-        A: "/images/logo/logo2.png",
-        B: "[Gambar Opsi B - akan dimasukkan manual]",
-        C: "[Gambar Opsi C - akan dimasukkan manual]",
-        D: "[Gambar Opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "A"
     },
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
+      questionImage: "/soal/nomor2daya.jpeg",
       imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
       options: {
-        A: "[Gambar Opsi A - akan dimasukkan manual]",
-        B: "[Gambar Opsi B - akan dimasukkan manual]",
-        C: "[Gambar Opsi C - akan dimasukkan manual]",
-        D: "[Gambar Opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "B"
     },
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
+      questionImage: "/soal/deret3.png",
       imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
       options: {
-        A: "[Gambar Opsi A - akan dimasukkan manual]",
-        B: "[Gambar Opsi B - akan dimasukkan manual]",
-        C: "[Gambar Opsi C - akan dimasukkan manual]",
-        D: "[Gambar Opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "C"
     },
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
+      questionImage: "/soal/deret4.png",
       imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
       options: {
-        A: "[Gambar Opsi A - akan dimasukkan manual]",
-        B: "[Gambar Opsi B - akan dimasukkan manual]",
-        C: "[Gambar Opsi C - akan dimasukkan manual]",
-        D: "[Gambar Opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "D"
     },
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
+      questionImage: "/soal/deret5.png",
       imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
       options: {
-        A: "[Gambar Opsi A - akan dimasukkan manual]",
-        B: "[Gambar Opsi B - akan dimasukkan manual]",
-        C: "[Gambar Opsi C - akan dimasukkan manual]",
-        D: "[Gambar Opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "A"
     },
@@ -859,6 +874,139 @@ export const questionsData = {
         D: "[Gambar opsi D - akan dimasukkan manual]"
       },
       correctAnswer: "B"
+    }
+  ],
+
+  8: [
+    // Tes Buta Warna - 9 Soal / 3 Menit
+    // Satu gambar untuk semua soal (9 plate dalam 1 gambar) 
+    // Urutan: Baris 1 (1-3), Baris 2 (4-6), Baris 3 (7-9)
+
+    // Soal 1
+    {
+      question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 1 (Baris 1, Kiri)?",
+      hasImage: true,
+      questionImage: "/soal/butawarna_full.jpg",
+      imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 1)",
+      options: {
+        A: "12",
+        B: "8",
+        C: "3",
+        D: "5"
+      },
+      correctAnswer: "A"
+    },
+    // Soal 2
+    {
+      question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 2 (Baris 1, Tengah)?",
+      hasImage: true,
+      questionImage: "/soal/butawarna_full.jpg",
+      imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 2)",
+      options: {
+        A: "29",
+        B: "70",
+        C: "26",
+        D: "7"
+      },
+      correctAnswer: "A"
+    },
+    // Soal 3
+    {
+      question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 3 (Baris 1, Kanan)?",
+      hasImage: true,
+      questionImage: "/soal/butawarna_full.jpg",
+      imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 3)",
+      options: {
+        A: "5",
+        B: "3",
+        C: "15",
+        D: "6"
+      },
+      correctAnswer: "A"
+    },
+    // Soal 4
+    {
+      question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 4 (Baris 2, Kiri)?",
+      hasImage: true,
+      questionImage: "/soal/butawarna_full.jpg",
+      imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 4)",
+      options: {
+        A: "74",
+        B: "71",
+        C: "21",
+        D: "7"
+      },
+      correctAnswer: "A"
+    },
+    // Soal 5
+    {
+      question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 5 (Baris 2, Tengah)?",
+      hasImage: true,
+      questionImage: "/soal/butawarna_full.jpg",
+      imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 5)",
+      options: {
+        A: "6",
+        B: "5",
+        C: "8",
+        D: "3"
+      },
+      correctAnswer: "A"
+    },
+    // Soal 6
+    {
+      question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 6 (Baris 2, Kanan)?",
+      hasImage: true,
+      questionImage: "/soal/butawarna_full.jpg",
+      imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 6)",
+      options: {
+        A: "45",
+        B: "15",
+        C: "75",
+        D: "46"
+      },
+      correctAnswer: "A"
+    },
+    // Soal 7
+    {
+      question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 7 (Baris 3, Kiri)?",
+      hasImage: true,
+      questionImage: "/soal/butawarna_full.jpg",
+      imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 7)",
+      options: {
+        A: "5",
+        B: "6",
+        C: "8",
+        D: "9"
+      },
+      correctAnswer: "A"
+    },
+    // Soal 8
+    {
+      question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 8 (Baris 3, Tengah)?",
+      hasImage: true,
+      questionImage: "/soal/butawarna_full.jpg",
+      imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 8)",
+      options: {
+        A: "57",
+        B: "3",
+        C: "27",
+        D: "5"
+      },
+      correctAnswer: "A"
+    },
+    // Soal 9
+    {
+      question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 9 (Baris 3, Kanan)?",
+      hasImage: true,
+      questionImage: "/soal/butawarna_full.jpg",
+      imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 9)",
+      options: {
+        A: "5",
+        B: "2",
+        C: "6",
+        D: "8"
+      },
+      correctAnswer: "A"
     }
   ]
 };

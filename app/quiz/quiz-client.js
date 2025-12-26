@@ -47,6 +47,12 @@ const SUBTES_LIST = [
     duration: 4,
     questionCount: 10,
   },
+  {
+    id: 8,
+    name: 'Tes Buta Warna',
+    duration: 3,
+    questionCount: 9,
+  },
 ];
 
 export default function QuizClient() {
@@ -59,7 +65,7 @@ export default function QuizClient() {
     // Check if user is logged in
     const user = localStorage.getItem('quizUser');
     const session = localStorage.getItem('quizSession');
-    
+
     if (!user || !session) {
       router.push('/quiz/register');
       return;
@@ -146,7 +152,7 @@ export default function QuizClient() {
       <div className="min-h-screen bg-gradient-to-br from-[#003049] via-[#0c5681] to-[#003049] flex items-center justify-center p-4">
         <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl p-8 max-h-[90vh] overflow-y-auto">
           <h2 className="text-2xl font-bold text-[#003049] mb-6 text-center">Aturan Kuis Psikotes Digital</h2>
-          
+
           <div className="space-y-4 text-gray-700">
             <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
               <h3 className="font-bold text-[#003049] mb-2">1. Waktu Pengerjaan</h3>
@@ -193,11 +199,10 @@ export default function QuizClient() {
             <button
               onClick={handleContinue}
               disabled={!canContinue}
-              className={`px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all duration-300 ${
-                canContinue
-                  ? 'bg-gradient-to-r from-[#003049] to-[#0c5681] text-white hover:scale-105 hover:shadow-xl cursor-pointer'
-                  : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-              }`}
+              className={`px-8 py-3 rounded-lg font-bold text-lg shadow-lg transition-all duration-300 ${canContinue
+                ? 'bg-gradient-to-r from-[#003049] to-[#0c5681] text-white hover:scale-105 hover:shadow-xl cursor-pointer'
+                : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
             >
               {canContinue ? 'Lanjutkan' : `Tunggu ${rulesTimer} detik`}
             </button>
@@ -213,7 +218,7 @@ export default function QuizClient() {
         <div className="bg-white rounded-2xl shadow-2xl p-8 md:p-12">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-[#003049] mb-4">Kuis Psikotes Digital</h1>
-            <p className="text-gray-600 text-lg">Siapkan diri Anda untuk mengikuti 7 subtes berikut</p>
+            <p className="text-gray-600 text-lg">Siapkan diri Anda untuk mengikuti 8 subtes berikut</p>
           </div>
 
           <div className="space-y-4 mb-8">
