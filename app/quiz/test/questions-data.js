@@ -499,58 +499,58 @@ export const questionsData = {
       question: "Hitunglah jumlah huruf 'p' pada deretan huruf berikut:",
       hasImage: false,
       options: {
-        A: "6",
-        B: "7",
-        C: "8",
-        D: "9"
+        A: "10",
+        B: "11",
+        C: "12",
+        D: "13"
       },
-      correctAnswer: "C",
+      correctAnswer: "B",
       letterString: "dbdpqbdpqpdqdbbqpdbpdqdapdbpdqdapdbbdpqdpdqdbdpqbbd"
     },
     {
       question: "Hitunglah jumlah huruf 'p' pada deretan huruf berikut:",
       hasImage: false,
       options: {
-        A: "6",
-        B: "7",
-        C: "8",
-        D: "9"
+        A: "11",
+        B: "12",
+        C: "13",
+        D: "14"
       },
-      correctAnswer: "A",
+      correctAnswer: "C",
       letterString: "pdqdapbpdqapbdpdbdqapbdqdpdqapbdqdpdqdbbdqapbpdqapb"
     },
     {
       question: "Hitunglah jumlah huruf 'p' pada deretan huruf berikut:",
       hasImage: false,
       options: {
-        A: "6",
-        B: "7",
-        C: "8",
-        D: "9"
+        A: "11",
+        B: "12",
+        C: "13",
+        D: "14"
       },
-      correctAnswer: "B",
+      correctAnswer: "C",
       letterString: "dpdbqbpqdpdqdpbdqbpqdpdqdpbdqbpqdpdqdpbdqbpqdpdqdp"
     },
     {
       question: "Hitunglah jumlah huruf 'p' pada deretan huruf berikut:",
       hasImage: false,
       options: {
-        A: "6",
-        B: "7",
-        C: "8",
-        D: "9"
+        A: "13",
+        B: "14",
+        C: "15",
+        D: "16"
       },
-      correctAnswer: "D",
+      correctAnswer: "C",
       letterString: "dbbpqapdqaapdbbpqapdqaapdbbpqapdqaapdbbpqapdqaapdbbpqapdqaap"
     },
     {
       question: "Hitunglah jumlah huruf 'p' pada deretan huruf berikut:",
       hasImage: false,
       options: {
-        A: "6",
-        B: "7",
-        C: "8",
-        D: "9"
+        A: "10",
+        B: "11",
+        C: "12",
+        D: "13"
       },
       correctAnswer: "C",
       letterString: "qpqdbdpqbqpdbdpqbqpdbdpqbqpdbdpqbqpdbdpqbqpdbdpqb"
@@ -559,34 +559,34 @@ export const questionsData = {
       question: "Hitunglah jumlah huruf 'p' pada deretan huruf berikut:",
       hasImage: false,
       options: {
-        A: "6",
-        B: "7",
-        C: "8",
-        D: "9"
+        A: "14",
+        B: "15",
+        C: "16",
+        D: "17"
       },
-      correctAnswer: "A",
+      correctAnswer: "C",
       letterString: "bqdpqbbdpqdpdpbqdpqbbdpqdpdpbqdpqbbdpqdpdpbqdpqbbdpqdpdp"
     },
     {
       question: "Hitunglah jumlah huruf 'p' pada deretan huruf berikut:",
       hasImage: false,
       options: {
-        A: "6",
-        B: "7",
-        C: "8",
-        D: "9"
+        A: "10",
+        B: "11",
+        C: "12",
+        D: "13"
       },
-      correctAnswer: "D",
+      correctAnswer: "C",
       letterString: "pdqaqdpbdpbqdpdqbdpdqaqdpbdpbqdpdqbdpdqaqdpbdpbqdpdqbd"
     },
     {
       question: "Hitunglah jumlah huruf 'p' pada deretan huruf berikut:",
       hasImage: false,
       options: {
-        A: "6",
-        B: "7",
-        C: "8",
-        D: "9"
+        A: "9",
+        B: "10",
+        C: "11",
+        D: "12"
       },
       correctAnswer: "B",
       letterString: "bddqabdpqbdpdqdbbqpbdpqdbbqpbdpqdbbqpbdpqdbbqpbdp"
@@ -612,7 +612,7 @@ export const questionsData = {
         C: "8",
         D: "9"
       },
-      correctAnswer: "A",
+      correctAnswer: "B",
       letterString: "dbdqpbdqpdbdqapdbbdqpdbdqapdbbdqpdbdqapdbbdq"
     }
   ],
@@ -649,7 +649,7 @@ export const questionsData = {
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
-      questionImage: "/soal/deret3.png",
+      questionImage: "/soal/nomor3daya.jpeg",
       imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
       options: {
         A: "A",
@@ -662,7 +662,7 @@ export const questionsData = {
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
-      questionImage: "/soal/deret4.png",
+      questionImage: "/soal/nomor4daya.jpeg",
       imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
       options: {
         A: "A",
@@ -675,7 +675,7 @@ export const questionsData = {
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
-      questionImage: "/soal/deret5.png",
+      questionImage: "/soal/nomor5daya.jpeg",
       imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
       options: {
         A: "A",
@@ -689,60 +689,65 @@ export const questionsData = {
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
+      questionImage: "/soal/dayanalar6.png",
       imageDescription: "Kubus 3D dengan simbol pada sisinya",
       options: {
-        A: "[Gambar kubus opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "B"
     },
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
+      questionImage: "/soal/dayanalar7.png",
       imageDescription: "Kubus 3D dengan simbol pada sisinya",
       options: {
-        A: "[Gambar kubus opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "C"
     },
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
+      questionImage: "/soal/dayanalar8.png",
       imageDescription: "Kubus 3D dengan simbol pada sisinya",
       options: {
-        A: "[Gambar kubus opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "A"
     },
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
+      questionImage: "/soal/dayanalar9.png",
       imageDescription: "Kubus 3D dengan simbol pada sisinya",
       options: {
-        A: "[Gambar kubus opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "D"
     },
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
+      questionImage: "/soal/dayanalar10.png",
       imageDescription: "Kubus 3D dengan simbol pada sisinya",
       options: {
-        A: "[Gambar kubus opsi A - akan dimasukkan manual]",
-        B: "[Gambar kubus opsi B - akan dimasukkan manual]",
-        C: "[Gambar kubus opsi C - akan dimasukkan manual]",
-        D: "[Gambar kubus opsi D - akan dimasukkan manual]"
+        A: "A",
+        B: "B",
+        C: "C",
+        D: "D"
       },
       correctAnswer: "B"
     }
@@ -750,130 +755,135 @@ export const questionsData = {
 
   7: [
     // Test Mekanis-Teknologi - 10 Soal / 4 Menit
-    // 2 soal: Fluida/Keseimbangan
     {
-      question: "Perhatikan gambar berikut. Tentukan tabung yang tidak seimbang atau ketinggian air yang benar:",
+      question: "Manakah dari ke-4 tabung disamping yang mudah jatuh/tidak seimbang?",
       hasImage: true,
-      imageDescription: "Gambar tabung dengan ketinggian air berbeda",
+      questionImage: "/soal/1sub6.png",
+      imageDescription: "Gambar 4 tabung dengan bentuk berbeda",
       options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
+        A: "Tabung A",
+        B: "Tabung B",
+        C: "Tabung C",
+        D: "Tabung D"
       },
       correctAnswer: "A"
     },
     {
-      question: "Perhatikan gambar berikut. Tentukan tabung yang tidak seimbang atau ketinggian air yang benar:",
+      question: "Melalui sebuah selang, air mengalir dari tanki kiri ke tanki kanan, sampai tanda manakah air naik di tanki kanan?",
       hasImage: true,
-      imageDescription: "Gambar tabung dengan ketinggian air berbeda",
+      questionImage: "/soal/2sub6.png",
+      imageDescription: "Gambar bejana berhubungan",
       options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
-      },
-      correctAnswer: "B"
-    },
-    // 2 soal: Tuas/Beban/Roda
-    {
-      question: "Perhatikan gambar berikut. Tentukan roda gigi tercepat atau beban terbesar pada papan tumpuan:",
-      hasImage: true,
-      imageDescription: "Gambar sistem roda gigi atau tuas",
-      options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
+        A: "Tanda A",
+        B: "Tanda B",
+        C: "Tanda C",
+        D: "Tanda D"
       },
       correctAnswer: "C"
     },
     {
-      question: "Perhatikan gambar berikut. Tentukan roda gigi tercepat atau beban terbesar pada papan tumpuan:",
+      question: "Manakah Roda - roda yang berputar paling cepat?",
       hasImage: true,
-      imageDescription: "Gambar sistem roda gigi atau tuas",
+      questionImage: "/soal/3sub6.png",
+      imageDescription: "Sistem roda gigi/pulley",
       options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
-      },
-      correctAnswer: "D"
-    },
-    // 2 soal: Optik/Kelistrikan
-    {
-      question: "Perhatikan gambar berikut. Tentukan rangkaian listrik yang benar atau sifat bayangan cermin:",
-      hasImage: true,
-      imageDescription: "Gambar rangkaian listrik atau cermin",
-      options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
+        A: "Roda A",
+        B: "Roda B",
+        C: "Roda C",
+        D: "Roda D"
       },
       correctAnswer: "A"
     },
     {
-      question: "Perhatikan gambar berikut. Tentukan rangkaian listrik yang benar atau sifat bayangan cermin:",
+      question: "Sebuah benda bulat dari bidang datang akan ditiupkan melalui pipa yang melengkung, tunjukkan jalannya ketika benda bulat keluar dari pipa tersebut?",
       hasImage: true,
-      imageDescription: "Gambar rangkaian listrik atau cermin",
+      questionImage: "/soal/4sub6.png",
+      imageDescription: "Pipa melengkung dan lintasan bola",
       options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
-      },
-      correctAnswer: "B"
-    },
-    // 2 soal: Massa/Aeronautika
-    {
-      question: "Perhatikan gambar berikut. Tentukan pengukuran massa yang benar atau posisi sayap pesawat untuk take off:",
-      hasImage: true,
-      imageDescription: "Gambar timbangan atau pesawat",
-      options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
+        A: "Jalan A",
+        B: "Jalan B",
+        C: "Jalan C",
+        D: "Jalan D"
       },
       correctAnswer: "C"
     },
     {
-      question: "Perhatikan gambar berikut. Tentukan pengukuran massa yang benar atau posisi sayap pesawat untuk take off:",
+      question: "Ada 4 papan yang digantung, tunjukkan papan yang dapat menerima beban paling berat!",
       hasImage: true,
-      imageDescription: "Gambar timbangan atau pesawat",
+      questionImage: "/soal/5sub6.png",
+      imageDescription: "4 papan gantung dengan variasi tali",
       options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
-      },
-      correctAnswer: "D"
-    },
-    // 2 soal: Proses/Teknologi
-    {
-      question: "Perhatikan gambar berikut. Identifikasi jenis sambungan atau prinsip inersia benda yang ditembakkan:",
-      hasImage: true,
-      imageDescription: "Gambar sambungan atau benda bergerak",
-      options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
+        A: "Papan A",
+        B: "Papan B",
+        C: "Papan C",
+        D: "Papan D"
       },
       correctAnswer: "A"
     },
     {
-      question: "Perhatikan gambar berikut. Identifikasi jenis sambungan atau prinsip inersia benda yang ditembakkan:",
+      question: "Lampu manakah yang akan menyala, bila kedudukan air dalam tanki berkurang?",
       hasImage: true,
-      imageDescription: "Gambar sambungan atau benda bergerak",
+      questionImage: "/soal/6sub6.png",
+      imageDescription: "Rangkaian listrik dengan pelampung air",
       options: {
-        A: "[Gambar opsi A - akan dimasukkan manual]",
-        B: "[Gambar opsi B - akan dimasukkan manual]",
-        C: "[Gambar opsi C - akan dimasukkan manual]",
-        D: "[Gambar opsi D - akan dimasukkan manual]"
+        A: "Lampu A",
+        B: "Lampu B",
+        C: "Lampu C",
+        D: "Lampu D"
       },
       correctAnswer: "B"
+    },
+    {
+      question: "Dari gambar disamping, pernyataan yang paling benar adalah?",
+      hasImage: true,
+      questionImage: "/soal/7sub6.png",
+      imageDescription: "Timbangan neraca sengan beban celup",
+      options: {
+        A: "Berat Massa > 1,7 kg",
+        B: "Berat Massa < 1,7 kg",
+        C: "Berat Massa = 1,7 kg",
+        D: "Tidak terjadi apa-apa"
+      },
+      correctAnswer: "A"
+    },
+    {
+      question: "Dari gambar disamping, pernyataan yang benar adalah?",
+      hasImage: true,
+      questionImage: "/soal/8sub6.png",
+      imageDescription: "Optik/Cermin/Lensa",
+      options: {
+        A: "Object lebih besar",
+        B: "Object lebih kecil",
+        C: "Object sama besar",
+        D: "Tidak tampak (Maya)"
+      },
+      correctAnswer: "A"
+    },
+    {
+      question: "Manakah sketsa-sketsa ini yang merupakan sambungan las?",
+      hasImage: true,
+      questionImage: "/soal/9sub6.png",
+      imageDescription: "4 jenis sambungan logam",
+      options: {
+        A: "Gbr. A",
+        B: "Gbr. B",
+        C: "Gbr. C",
+        D: "Gbr. D"
+      },
+      correctAnswer: "A"
+    },
+    {
+      question: "Manakah posisi sayap pesawat terbang untuk posisi take off (naik)?",
+      hasImage: true,
+      questionImage: "/soal/10sub6.png",
+      imageDescription: "Posisi flap sayap pesawat",
+      options: {
+        A: "Posisi A",
+        B: "Posisi B",
+        C: "Posisi C",
+        D: "Posisi D"
+      },
+      correctAnswer: "A"
     }
   ],
 
@@ -886,7 +896,7 @@ export const questionsData = {
     {
       question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 1 (Baris 1, Kiri)?",
       hasImage: true,
-      questionImage: "/soal/butawarna_full.jpg",
+      questionImage: "/soal/butawarna_full.jpeg",
       imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 1)",
       options: {
         A: "12",
@@ -894,75 +904,75 @@ export const questionsData = {
         C: "3",
         D: "5"
       },
-      correctAnswer: "A"
+      correctAnswer: "c"
     },
     // Soal 2
     {
       question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 2 (Baris 1, Tengah)?",
       hasImage: true,
-      questionImage: "/soal/butawarna_full.jpg",
+      questionImage: "/soal/butawarna_full.jpeg",
       imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 2)",
       options: {
         A: "29",
-        B: "70",
-        C: "26",
+        B: "6",
+        C: "8",
         D: "7"
       },
-      correctAnswer: "A"
+      correctAnswer: "B"
     },
     // Soal 3
     {
       question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 3 (Baris 1, Kanan)?",
       hasImage: true,
-      questionImage: "/soal/butawarna_full.jpg",
+      questionImage: "/soal/butawarna_full.jpeg",
       imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 3)",
       options: {
         A: "5",
         B: "3",
-        C: "15",
+        C: "8",
         D: "6"
       },
-      correctAnswer: "A"
+      correctAnswer: "C"
     },
     // Soal 4
     {
       question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 4 (Baris 2, Kiri)?",
       hasImage: true,
-      questionImage: "/soal/butawarna_full.jpg",
+      questionImage: "/soal/butawarna_full.jpeg",
       imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 4)",
       options: {
-        A: "74",
-        B: "71",
-        C: "21",
+        A: "4",
+        B: "8",
+        C: "3",
         D: "7"
       },
-      correctAnswer: "A"
+      correctAnswer: "B"
     },
     // Soal 5
     {
       question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 5 (Baris 2, Tengah)?",
       hasImage: true,
-      questionImage: "/soal/butawarna_full.jpg",
+      questionImage: "/soal/butawarna_full.jpeg",
       imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 5)",
       options: {
-        A: "6",
-        B: "5",
+        A: "26",
+        B: "25",
         C: "8",
         D: "3"
       },
-      correctAnswer: "A"
+      correctAnswer: "B"
     },
     // Soal 6
     {
       question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 6 (Baris 2, Kanan)?",
       hasImage: true,
-      questionImage: "/soal/butawarna_full.jpg",
+      questionImage: "/soal/butawarna_full.jpeg",
       imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 6)",
       options: {
-        A: "45",
-        B: "15",
-        C: "75",
-        D: "46"
+        A: "29",
+        B: "28",
+        C: "27",
+        D: "24"
       },
       correctAnswer: "A"
     },
@@ -970,13 +980,13 @@ export const questionsData = {
     {
       question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 7 (Baris 3, Kiri)?",
       hasImage: true,
-      questionImage: "/soal/butawarna_full.jpg",
+      questionImage: "/soal/butawarna_full.jpeg",
       imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 7)",
       options: {
-        A: "5",
-        B: "6",
-        C: "8",
-        D: "9"
+        A: "45",
+        B: "46",
+        C: "48",
+        D: "49"
       },
       correctAnswer: "A"
     },
@@ -984,21 +994,21 @@ export const questionsData = {
     {
       question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 8 (Baris 3, Tengah)?",
       hasImage: true,
-      questionImage: "/soal/butawarna_full.jpg",
+      questionImage: "/soal/butawarna_full.jpeg",
       imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 8)",
       options: {
         A: "57",
-        B: "3",
+        B: "56",
         C: "27",
         D: "5"
       },
-      correctAnswer: "A"
+      correctAnswer: "B"
     },
     // Soal 9
     {
       question: "Angka berapakah yang Anda lihat pada gambar BAGIAN 9 (Baris 3, Kanan)?",
       hasImage: true,
-      questionImage: "/soal/butawarna_full.jpg",
+      questionImage: "/soal/butawarna_full.jpeg",
       imageDescription: "Tes Buta Warna Full Plate (Lihat Plate 9)",
       options: {
         A: "5",

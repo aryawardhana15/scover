@@ -25,6 +25,7 @@ export default function TestClient() {
   const [isBreak, setIsBreak] = useState(false);
   const [breakTime, setBreakTime] = useState(180); // 3 menit dalam detik
   const [isFinished, setIsFinished] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   useEffect(() => {
     // Check if user is logged in
@@ -183,9 +184,7 @@ export default function TestClient() {
   };
 
   const handleSubmitSubtest = () => {
-    if (window.confirm('Apakah Anda yakin ingin menyelesaikan subtes ini? Anda tidak dapat kembali lagi.')) {
-      handleSubtestComplete();
-    }
+    setShowConfirmModal(true);
   };
 
   const handleTimeUp = () => {
@@ -411,7 +410,7 @@ export default function TestClient() {
             )}
 
             {/* Answer Options */}
-            <div className="space-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {['A', 'B', 'C', 'D'].map((option) => (
                 <label
                   key={option}
@@ -536,6 +535,42 @@ export default function TestClient() {
           </div>
         </div>
       </div>
+      {/* Confirmation Modal */}
+      {showConfirmModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 transform transition-all scale-100">
+            <div className="text-center">
+              <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-blue-100 mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-[#003049]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-[#003049] mb-2">Selesaikan Subtes?</h3>
+              <p className="text-gray-600 mb-8">
+                Apakah Anda yakin ingin menyelesaikan subtes ini? <br />
+                Anda tidak dapat kembali mengerjakan soal setelah ini.
+              </p>
+              <div className="flex gap-3 justify-center">
+                <button
+                  onClick={() => setShowConfirmModal(false)}
+                  className="px-6 py-3 rounded-xl border-2 border-gray-200 font-bold text-gray-600 hover:bg-gray-50 transition-colors w-full"
+                >
+                  Batal
+                </button>
+                <button
+                  onClick={() => {
+                    setShowConfirmModal(false);
+                    handleSubtestComplete();
+                  }}
+                  className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#003049] to-[#0c5681] font-bold text-white hover:shadow-lg transition-all w-full"
+                >
+                  Ya, Selesaikan
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
