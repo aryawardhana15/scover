@@ -12,6 +12,7 @@ const SUBTES_LIST = [
   { id: 5, name: 'Konsentrasi (Menghitung Huruf)' },
   { id: 6, name: 'Daya Nalar (Deret Gambar & Kubus)' },
   { id: 7, name: 'Mekanis-Teknologi' },
+  { id: 8, name: 'Tes Buta Warna' },
 ];
 
 export default function ResultClient() {
@@ -82,12 +83,12 @@ export default function ResultClient() {
               <div>
                 <h2 className="text-2xl font-bold text-[#003049] mb-2">Ringkasan Hasil</h2>
                 <p className="text-gray-600">
-                  Subtes yang lulus: <span className="font-bold text-[#003049]">{totalPassed} dari 7</span>
+                  Subtes yang lulus: <span className="font-bold text-[#003049]">{totalPassed} dari 8</span>
                 </p>
               </div>
               <div className="text-center">
                 <div className={`text-4xl font-bold ${totalPassed >= 5 ? 'text-green-600' : totalPassed >= 3 ? 'text-yellow-600' : 'text-red-600'}`}>
-                  {totalPassed}/7
+                  {totalPassed}/8
                 </div>
                 <p className="text-sm text-gray-600">Subtes Lulus</p>
               </div>
@@ -150,7 +151,7 @@ export default function ResultClient() {
                       />
                     </div>
                     <p className="text-xs text-gray-500 mt-1">
-                      Kriteria kelulusan: Minimal 7 jawaban benar (lebih dari 6/10)
+                      Kriteria kelulusan: {subtest.id === 8 ? 'Harus menjawab semua soal dengan benar (9/9)' : 'Minimal 7 jawaban benar (lebih dari 6/10)'}
                     </p>
                   </div>
                 </div>

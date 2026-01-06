@@ -9,132 +9,142 @@ export const questionsData = {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
       questionImage: "/soal/nomor1.jpeg",
-      imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
+      imageDescription: "Jaring-jaring berbentuk bintang dengan 4 segitiga.",
       options: {
         A: "/soal/nomor1pilihanA.jpeg",
         B: "/soal/nomor1pilihanB.jpeg",
         C: "/soal/nomor1pilihanC.jpeg",
         D: "/soal/nomor1pilihanD.jpeg"
       },
-      correctAnswer: "A"
+      correctAnswer: "A",
+      explanation: "Gambar Soal: Jaring-jaring berbentuk bintang dengan 4 segitiga. Analisis: Jika dilipat, keempat segitiga akan bertemu di satu titik puncak membentuk Limas Segiempat (Pyramid). Jawaban: A (Gambar piramida standar)."
     },
     {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
       questionImage: "/soal/nomor2.jpeg",
-      imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
+      imageDescription: "Persegi panjang dengan sisi atas bergelombang (sinusoidal).",
       options: {
         A: "/soal/nomor2pilihanA.jpeg",
         B: "/soal/nomor2pilihanB.jpeg",
         C: "/soal/nomor2pilihanC.jpeg",
         D: "/soal/nomor2pilihanD.jpeg"
       },
-      correctAnswer: "B"
+      correctAnswer: "B",
+      explanation: "Analisis: Ini adalah jaring-jaring selimut tabung yang dipotong miring. Jika digulung, akan membentuk tabung dengan permukaan atas miring/elips. Jawaban: B (Tabung dengan potongan miring)."
     },
     {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
       questionImage: "/soal/nomor3.jpeg",
-      imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
+      imageDescription: "Bentuk kerah/kipas melengkung simetris.",
       options: {
         A: "/soal/nomor3pilihanA.jpeg",
         B: "/soal/nomor3pilihanB.jpeg",
         C: "/soal/nomor3pilihanC.jpeg",
         D: "/soal/nomor3pilihanD.jpeg"
       },
-      correctAnswer: "C"
+      correctAnswer: "D",
+      explanation: "Analisis: Jika ujung-ujungnya dipertemukan, akan membentuk kerucut yang terpotong bagian atasnya (Kerucut Terpancung/Frustum Cone). Jawaban: D (Bentuk seperti ember terbalik)."
     },
     {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
       questionImage: "/soal/nomor4.jpeg",
-      imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
+      imageDescription: "Tiga buah trapesium yang menyatu.",
       options: {
         A: "/soal/nomor4pilihanA.jpeg",
         B: "/soal/nomor4pilihanB.jpeg",
         C: "/soal/nomor4pilihanC.jpeg",
         D: "/soal/nomor4pilihanD.jpeg"
       },
-      correctAnswer: "D"
+      correctAnswer: "D",
+      explanation: "Analisis: Karena ada 3 sisi, ini akan membentuk bangun dengan alas segitiga. Bentuknya adalah Limas Segitiga Terpancung. Jawaban: D (Bangun ruang terpancung dengan 3 sisi tegak)."
     },
     {
       question: "Perhatikan jaring-jaring kubus berikut. Pilih gambar kubus 3D yang benar setelah dilipat.",
       hasImage: true,
       questionImage: "/soal/nomor5.jpeg",
-      imageDescription: "Jaring-jaring kubus dengan simbol di permukaannya",
+      imageDescription: "Jaring-jaring bentuk salib (pola dasar kubus/balok).",
       options: {
         A: "/soal/nomor5pilihanA.jpeg",
         B: "/soal/nomor5pilihanB.jpeg",
         C: "/soal/nomor5pilihanC.jpeg",
         D: "/soal/nomor5pilihanD.jpeg"
       },
-      correctAnswer: "A"
+      correctAnswer: "C",
+      explanation: "Analisis: Ini adalah jaring-jaring Balok (Cuboid) yang utuh. Jawaban: C (Balok utuh, bukan potongan atau prisma segitiga)."
     },
-    // 5 soal berikutnya: Pasangan Gambar 3D
+    // 5 soal berikutnya: Pasangan Gambar 3D (Identifikasi Bentuk)
     {
-      question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
+      question: "Perhatikan bentuk berikut. Pilih gambar yang paling sesuai atau identik.",
       hasImage: true,
       questionImage: "/soal/5.png",
-      imageDescription: "Bentuk 3D kompleks",
+      imageDescription: "Target: Jajar Genjang (miring ke kanan).",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "B"
+      correctAnswer: "B",
+      explanation: "Analisis: Di dalam kotak, bentuk yang identik berlabel huruf b (posisi baris atas). Jawaban: B"
     },
     {
-      question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
+      question: "Perhatikan bentuk berikut. Pilih gambar yang paling sesuai atau identik.",
       hasImage: true,
       questionImage: "/soal/1.png",
-      imageDescription: "Bentuk 3D kompleks",
+      imageDescription: "Target: Persegi Panjang (tegak lurus).",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "C"
+      correctAnswer: "C",
+      explanation: "Analisis: Di dalam kotak, bentuk yang identik berlabel huruf c (posisi tengah bawah). Jawaban: C"
     },
     {
-      question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
+      question: "Perhatikan bentuk berikut. Pilih gambar yang paling sesuai atau identik.",
       hasImage: true,
       questionImage: "/soal/2.png",
-      imageDescription: "Bentuk 3D kompleks",
+      imageDescription: "Target: Segitiga (tegak/sama kaki).",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "A"
+      correctAnswer: "C",
+      explanation: "Analisis: Huruf b adalah segitiga sembarang (miring). Huruf d adalah segitiga siku-siku. Huruf c adalah segitiga tegak yang dicari. Jawaban: C"
     },
     {
-      question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
+      question: "Perhatikan bentuk berikut. Pilih gambar yang paling sesuai atau identik.",
       hasImage: true,
       questionImage: "/soal/3.png",
-      imageDescription: "Bentuk 3D kompleks",
+      imageDescription: "Target: Lingkaran Kecil.",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "D"
+      correctAnswer: "A",
+      explanation: "Analisis: Di dalam kotak, bentuk lingkaran berlabel huruf a (pojok kanan atas). Jawaban: A"
     },
     {
-      question: "Perhatikan bentuk 3D berikut. Pilih gambar yang paling sesuai atau identik (termasuk hasil rotasi).",
+      question: "Perhatikan bentuk berikut. Pilih gambar yang paling sesuai atau identik.",
       hasImage: true,
       questionImage: "/soal/4.png",
-      imageDescription: "Bentuk 3D kompleks",
+      imageDescription: "Target: Kubah/Busur (Sisi tegak lurus lalu melengkung di atas).",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "B"
+      correctAnswer: "C",
+      explanation: "Analisis: Huruf b (bawah kanan) adalah setengah lingkaran murni (bentuk D). Huruf c (atas tengah) adalah bentuk Kubah (ada sisi lurusnya sebelum melengkung). Gambar target memiliki sisi lurus (bentuk kubah/nisan), jadi pasangannya adalah c. Jawaban: C"
     }
   ],
 
@@ -624,132 +634,142 @@ export const questionsData = {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
       questionImage: "/soal/nomor1daya.jpeg",
-      imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
+      imageDescription: "Deret gambar: kotak -> segitiga -> belah ketupat -> lingkaran",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "A"
+      correctAnswer: "C",
+      explanation: "Pola: bentuk dasar berubah dari kotak → segitiga → belah ketupat (diamond) → lingkaran (jumlah sudut/sisi menurun + bentuk semakin bulat). Jawaban: C"
     },
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
       questionImage: "/soal/nomor2daya.jpeg",
-      imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
+      imageDescription: "Deret gambar pola mirror/rotasi",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "B"
+      correctAnswer: "A",
+      explanation: "Pola: urutan simbol dalam kotak dibalik (mirror) atau rotasi 180° secara keseluruhan. Jawaban: A"
     },
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
       questionImage: "/soal/nomor3daya.jpeg",
-      imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
+      imageDescription: "Deret gambar garis vertikal bertambah",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "C"
+      correctAnswer: "D",
+      explanation: "Pola: jumlah garis vertikal bertambah 1 setiap langkah (1 → 2 → 3 → 4), sehingga ? harus memiliki 4 garis vertikal (pilihan D). Jawaban: D"
     },
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
       questionImage: "/soal/nomor4daya.jpeg",
-      imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
+      imageDescription: "Deret gambar rotasi panah",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "D"
+      correctAnswer: "B",
+      explanation: "Pola: arah panah berputar berlawanan jarum jam 45° setiap langkah. Sebelum panah kanan harus panah atas-kanan (pilihan B). Jawaban: B"
     },
     {
       question: "Pilih gambar berikutnya yang melanjutkan pola berikut:",
       hasImage: true,
       questionImage: "/soal/nomor5daya.jpeg",
-      imageDescription: "Deret gambar dengan pola rotasi atau perubahan elemen",
+      imageDescription: "Deret gambar rotasi simbol lari",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "A"
+      correctAnswer: "C",
+      explanation: "Pola: rotasi 90° searah jarum jam + mirroring pada beberapa langkah. Pilihan C melanjutkan pola rotasi yang benar. Jawaban: C"
     },
     // 5 soal terakhir: Rotasi Kubus
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
       questionImage: "/soal/dayanalar6.png",
-      imageDescription: "Kubus 3D dengan simbol pada sisinya",
+      imageDescription: "Soal dengan angka 9 pada kubus",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "B"
+      correctAnswer: "B",
+      explanation: "Analisis kubus (Soal angka 9): Jawaban B sesuai dengan rotasi sisi yang valid."
     },
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
       questionImage: "/soal/dayanalar7.png",
-      imageDescription: "Kubus 3D dengan simbol pada sisinya",
+      imageDescription: "Soal dengan angka 6 pada kubus",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "C"
+      correctAnswer: "C",
+      explanation: "Analisis kubus (Soal angka 6): Jawaban C sesuai dengan rotasi sisi yang valid."
     },
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
       questionImage: "/soal/dayanalar8.png",
-      imageDescription: "Kubus 3D dengan simbol pada sisinya",
+      imageDescription: "Soal dengan angka 5 pada kubus",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "A"
+      correctAnswer: "A",
+      explanation: "Analisis kubus (Soal angka 5): Jawaban A sesuai dengan rotasi sisi yang valid."
     },
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
       questionImage: "/soal/dayanalar9.png",
-      imageDescription: "Kubus 3D dengan simbol pada sisinya",
+      imageDescription: "Soal dengan angka 10 pada kubus",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "D"
+      correctAnswer: "D",
+      explanation: "Analisis kubus (Soal angka 10): Jawaban D sesuai dengan rotasi sisi yang valid."
     },
     {
       question: "Perhatikan posisi kubus 3D berikut. Pilih gambar yang merupakan posisi kubus yang sama setelah diputar/digeser:",
       hasImage: true,
       questionImage: "/soal/dayanalar10.png",
-      imageDescription: "Kubus 3D dengan simbol pada sisinya",
+      imageDescription: "Soal dengan angka 7 pada kubus",
       options: {
         A: "A",
         B: "B",
         C: "C",
         D: "D"
       },
-      correctAnswer: "B"
+      correctAnswer: "B",
+      explanation: "Analisis kubus (Soal angka 7): Jawaban B sesuai dengan rotasi sisi yang valid."
     }
   ],
 
@@ -766,7 +786,8 @@ export const questionsData = {
         C: "Tabung C",
         D: "Tabung D"
       },
-      correctAnswer: "A"
+      correctAnswer: "B",
+      explanation: "Tabung B memiliki pusat massa paling tinggi (bentuk seperti botol terbalik), sehingga paling tidak stabil dan mudah jatuh."
     },
     {
       question: "Melalui sebuah selang, air mengalir dari tanki kiri ke tanki kanan, sampai tanda manakah air naik di tanki kanan?",
@@ -779,7 +800,8 @@ export const questionsData = {
         C: "Tanda C",
         D: "Tanda D"
       },
-      correctAnswer: "C"
+      correctAnswer: "C",
+      explanation: "Hukum bejana berhubungan (vas komunikan) → permukaan air di kedua tanki akan sama rata, meskipun bentuk tanki berbeda. Jadi naik sampai tanda C (setinggi permukaan tanki kiri)."
     },
     {
       question: "Manakah Roda - roda yang berputar paling cepat?",
@@ -792,7 +814,8 @@ export const questionsData = {
         C: "Roda C",
         D: "Roda D"
       },
-      correctAnswer: "A"
+      correctAnswer: "D",
+      explanation: "Roda dengan radius terkecil (roda D) akan berputar paling cepat karena kecepatan linier sama (karena dihubungkan sabuk), tapi kecepatan sudut (rpm) berbanding terbalik dengan radius."
     },
     {
       question: "Sebuah benda bulat dari bidang datang akan ditiupkan melalui pipa yang melengkung, tunjukkan jalannya ketika benda bulat keluar dari pipa tersebut?",
@@ -805,7 +828,8 @@ export const questionsData = {
         C: "Jalan C",
         D: "Jalan D"
       },
-      correctAnswer: "C"
+      correctAnswer: "A",
+      explanation: "Benda keluar secara tangensial terhadap lengkungan pipa terakhir (hukum inersia + arah keluaran pipa). Jalur A adalah kelanjutan lurus dari arah akhir pipa."
     },
     {
       question: "Ada 4 papan yang digantung, tunjukkan papan yang dapat menerima beban paling berat!",
@@ -818,7 +842,8 @@ export const questionsData = {
         C: "Papan C",
         D: "Papan D"
       },
-      correctAnswer: "A"
+      correctAnswer: "C",
+      explanation: "Papan C memiliki penyangga paling banyak dan simetris (segitiga penyangga), sehingga kekuatan struktur dan distribusi beban paling baik."
     },
     {
       question: "Lampu manakah yang akan menyala, bila kedudukan air dalam tanki berkurang?",
@@ -831,7 +856,8 @@ export const questionsData = {
         C: "Lampu C",
         D: "Lampu D"
       },
-      correctAnswer: "B"
+      correctAnswer: "A",
+      explanation: "Saat air berkurang, pelampung turun → saklar pada posisi A akan tertekan/terhubung, sehingga lampu A menyala (sistem indikator level air rendah)."
     },
     {
       question: "Dari gambar disamping, pernyataan yang paling benar adalah?",
@@ -839,12 +865,13 @@ export const questionsData = {
       questionImage: "/soal/7sub6.png",
       imageDescription: "Timbangan neraca sengan beban celup",
       options: {
-        A: "Berat Massa > 1,7 kg",
-        B: "Berat Massa < 1,7 kg",
+        A: "Berat Massa < 1,7 kg",
+        B: "Berat Massa > 1,7 kg",
         C: "Berat Massa = 1,7 kg",
         D: "Tidak terjadi apa-apa"
       },
-      correctAnswer: "A"
+      correctAnswer: "B",
+      explanation: "Gambar menunjukkan neraca dengan beban di satu sisi dan massa 1,7 kg di sisi lain. Karena masih miring ke kiri, berat massa di sisi kiri > 1,7 kg."
     },
     {
       question: "Dari gambar disamping, pernyataan yang benar adalah?",
@@ -857,7 +884,8 @@ export const questionsData = {
         C: "Object sama besar",
         D: "Tidak tampak (Maya)"
       },
-      correctAnswer: "A"
+      correctAnswer: "D",
+      explanation: "Ini ilusi optik (maya/refleksi). Objek di cermin tampak lebih jauh, padahal jaraknya sama. Jadi objek tidak lebih besar/kecil, hanya tampak (maya)."
     },
     {
       question: "Manakah sketsa-sketsa ini yang merupakan sambungan las?",
@@ -870,7 +898,8 @@ export const questionsData = {
         C: "Gbr. C",
         D: "Gbr. D"
       },
-      correctAnswer: "A"
+      correctAnswer: "C",
+      explanation: "Sambungan las ditandai dengan simbol segitiga kecil di atas garis sambungan (standar gambar teknik). Hanya gambar C yang memiliki simbol las yang benar."
     },
     {
       question: "Manakah posisi sayap pesawat terbang untuk posisi take off (naik)?",
@@ -883,7 +912,8 @@ export const questionsData = {
         C: "Posisi C",
         D: "Posisi D"
       },
-      correctAnswer: "A"
+      correctAnswer: "B",
+      explanation: "Saat take-off, flap dan slat diturunkan (extended) untuk meningkatkan lift pada kecepatan rendah. Posisi B menunjukkan flap turun (sudut serang besar)."
     }
   ],
 
